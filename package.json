@@ -1,0 +1,22 @@
+{
+  "name": "svg-to-zingchart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "svg-to-zing.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tessahelenmartin/svg-to-zingchart.git"
+  },
+  "author": "Tessa H. Martin, ZingChart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tessahelenmartin/svg-to-zingchart/issues"
+  },
+  "homepage": "https://github.com/tessahelenmartin/svg-to-zingchart#readme",
+  "dependencies": {
+    "zingchart": "^2.4.0"
+  }
+}
