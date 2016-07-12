@@ -2,8 +2,9 @@
   "name": "svg-to-zingchart",
   "version": "1.0.0",
   "description": "",
-  "main": "svg-to-zing.js",
+  "main": "bundle.js",
   "scripts": {
+    "serve": "webpack-dev-server --config ./webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +19,9 @@
   "homepage": "https://github.com/tessahelenmartin/svg-to-zingchart#readme",
   "dependencies": {
     "zingchart": "^2.4.0"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   }
 }

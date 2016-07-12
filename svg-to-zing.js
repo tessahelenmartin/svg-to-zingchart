@@ -5,10 +5,12 @@ document.getElementById("sample-svg").onload = function () {
     var SVGObject = document.getElementById("sample-svg").contentDocument;
     var pathList = SVGObject.getElementsByTagName("path");
     var pathArray = Array.from(pathList);
+    console.log( pathArray[pathArray.length-1]);
     var shapesArray = [];
     pathArray.forEach(function (path) {
         shapesArray.push(makeShape(path));
     });
+    console.log(shapesArray)
     window.setTimeout(toZingChartShape, 1000);
     function toZingChartShape() {
         zingchart.render({
@@ -16,25 +18,30 @@ document.getElementById("sample-svg").onload = function () {
             width: "100%",
             height: "100%",
             data: {
-                "shapes":shapesArray
+                "shapes":shapesArray,
+                backgroundColor: "transparent",
             }
         })
     }
 };
 
 
-function pathToString(array) {
+function pathToPolygon(array) {
     var pointsArray = [];
     var currentLetter = "";
     var position = 0;
     var pointCount = 0; //CURVE
     var curvePoints = [];
+    var recentStart = [0,0];
     array.forEach(function (value) {
         if (isNaN(parseFloat(value))){
             currentLetter = value;
-            if (currentLetter == "M" || currentLetter == "m")
+            if ((currentLetter == "M" || currentLetter == "m") && pointsArray.length > 0)
             {
-                pointsArray.push("null");
+                pointsArray.push(null);
+            }
+            if (currentLetter == "z" || currentLetter == "Z"){
+                pointsArray.push([recentStart[0],recentStart[1]]);
             }
         }
         else {
@@ -42,10 +49,13 @@ function pathToString(array) {
                 case 'M':
                     if (position) {
                         pointsArray[pointsArray.length-1].push(parseFloat(value));
+                        recentStart[1] = parseFloat(value);
                         position = 0;
+
                     }
                     else {
                         pointsArray.push([parseFloat(value)]);
+                        recentStart[0] = parseFloat(value);
                         position = 1;
                     }
                     break;
@@ -75,11 +85,12 @@ function pathToString(array) {
                         if (pointCount == 3)
                         {
                             var vals = bezier(curvePoints);
-                            var distance = (Math.pow(Math.pow((curvePoints[0][0]-curvePoints[1][0]),2) + Math.pow((curvePoints[0][1]-curvePoints[1][1]),2),1/2)+Math.pow(Math.pow((curvePoints[1][0]-curvePoints[2][0]),2) + Math.pow((curvePoints[1][1]-curvePoints[2][1]),2),1/2)+Math.pow(Math.pow((curvePoints[2][0]-curvePoints[3][0]),2) + Math.pow((curvePoints[2][1]-curvePoints[3][1]),2),1/2))/10;
+                            var distance = (Math.pow(Math.pow((curvePoints[0][0]-curvePoints[1][0]),2) + Math.pow((curvePoints[0][1]-curvePoints[1][1]),2),1/2)+Math.pow(Math.pow((curvePoints[1][0]-curvePoints[2][0]),2) + Math.pow((curvePoints[1][1]-curvePoints[2][1]),2),1/2)+Math.pow(Math.pow((curvePoints[2][0]-curvePoints[3][0]),2) + Math.pow((curvePoints[2][1]-curvePoints[3][1]),2),1/2)/4);
                             for (var t = 0; t < distance;t++) {
                                 pointsArray.push(vals(t/distance));
                             }
                             curvePoints = [];
+                            pointCount = 0;
                         }
                     }
                     break;
@@ -89,31 +100,141 @@ function pathToString(array) {
             }
         }
     });
-    if (currentLetter == "z" || currentLetter == "Z"){
-        pointsArray.push([pointsArray[0][0],pointsArray[0][1]]);
-    }
+    return pointsArray;
+}
+function pathToLine(array) {
+    var pointsArray = [];
+    var currentLetter = "";
+    var position = 0;
+    var pointCount = 0; //CURVE
+    var curvePoints = [];
+    var recentStart = [0,0];
+    array.forEach(function (value) {
+        if (isNaN(parseFloat(value))){
+            currentLetter = value;
+            if ((currentLetter == "M" || currentLetter == "m") && pointsArray.length > 0)
+            {
+                pointsArray.push(null);
+            }
+            if (currentLetter == "z" || currentLetter == "Z"){
+                pointsArray.push([recentStart[0],recentStart[1]]);
+            }
+        }
+        else {
+            switch (currentLetter) {
+                case 'M':
+                    if (position) {
+                        pointsArray[pointsArray.length-1].push(parseFloat(value));
+                        recentStart[1] = parseFloat(value);
+                        position = 0;
+
+                    }
+                    else {
+                        pointsArray.push([parseFloat(value)]);
+                        recentStart[0] = parseFloat(value);
+                        position = 1;
+                    }
+                    break;
+                case 'L':
+                    if (position) {
+                        pointsArray[pointsArray.length-1].push(parseFloat(value));
+                        position = 0;
+                    }
+                    else {
+                        pointsArray.push([parseFloat(value)]);
+                        position = 1;
+                    }
+                    break;
+                case 'C':
+                    if (position == 0) {
+                        if (pointCount == 0)
+                        {
+                            curvePoints.push([pointsArray[pointsArray.length-1][0],pointsArray[pointsArray.length-1][1]]);
+                        }
+                        curvePoints.push([parseFloat(value)]);
+                        position = 1;
+                    }
+                    else {
+                        curvePoints[curvePoints.length-1].push(parseFloat(value));
+                        pointCount++;
+                        position = 0;
+                        if (pointCount == 3)
+                        {
+                            var vals = bezier(curvePoints);
+                            var distance = (Math.pow(Math.pow((curvePoints[0][0]-curvePoints[1][0]),2) + Math.pow((curvePoints[0][1]-curvePoints[1][1]),2),1/2)+Math.pow(Math.pow((curvePoints[1][0]-curvePoints[2][0]),2) + Math.pow((curvePoints[1][1]-curvePoints[2][1]),2),1/2)+Math.pow(Math.pow((curvePoints[2][0]-curvePoints[3][0]),2) + Math.pow((curvePoints[2][1]-curvePoints[3][1]),2),1/2)/4);
+                            for (var t = 0; t < distance;t++) {
+                                pointsArray.push(vals(t/distance));
+                            }
+                            curvePoints = [];
+                            pointCount = 0;
+                        }
+                    }
+                    break;
+                case 'A':
+                    //handle arc
+                    break;
+            }
+        }
+    });
     return pointsArray;
 }
 
 function makeShape(path) {
-    var points_in = [];
-    if (path.getAttribute("d") != null) {
-        points_in = pathToString(path.getAttribute("d").trim().split(/[\s,]+/));
-    }
     var lineColor_in = "black";
-    if (path.getAttribute("stroke") != null) {
-        lineColor_in = path.getAttribute("stroke").trim();
-    }
     var fillColor_in = "none";
-    if (path.getAttribute("fill") != null) {
-        fillColor_in = path.getAttribute("fill").trim();
+    var strokeWidth_in = "5";
+    var points_in = [];
+    var style_array = [];
+    if (path.getAttribute("d")) {
+        if (path.getAttribute("class") == "LAND"){
+            points_in = pathToPolygon(path.getAttribute("d").trim().split(/[\s,]+/));
+            style_array = path.getAttribute("style").split(";");
+            style_array.forEach(function (value) {
+                value.trim();
+                if (value.startsWith("stroke:")) {
+                    lineColor_in = value.substr(7);
+                }
+                if (value.startsWith("fill:")) {
+                    fillColor_in = value.substr(5);
+                }
+                if (value.startsWith("stroke-width:")) {
+                    strokeWidth_in = value.substr(13);
+                }
+            });
+            return {
+                type:"poly",
+                borderWidth:strokeWidth_in,
+                borderColor:lineColor_in,
+                backgroundColor:fillColor_in,
+                points:points_in,
+                "shadow":true,
+                "shadow-distance":3,
+                "shadow-color":"#0D485F",
+                "shadow-alpha": 1,
+                "z-index": 0,
+            };
+        }
+        else if (path.getAttribute("class") == "ROUTE") {
+            points_in = pathToLine(path.getAttribute("d").trim().split(/[\s,]+/));
+            lineColor_in = "black";
+            strokeWidth_in = "5";
+            style_array = path.getAttribute("style").split(";");
+            style_array.forEach(function (value) {
+                value.trim();
+                if (value.startsWith("stroke:")) {
+                    lineColor_in = value.substr(7);
+                }
+                if (value.startsWith("stroke-width:")) {
+                    strokeWidth_in = value.substr(13);
+                }
+            });
+            return {
+                type:"line",
+                borderWidth:strokeWidth_in,
+                borderColor:lineColor_in,
+                points:points_in,
+                "z-index": 10,
+            };
+        }
     }
-    return {
-        type:"poly",
-        borderWidth:10,
-        borderColor:lineColor_in,
-        borderWidth:10,
-        backgroundColor:fillColor_in,
-        points:points_in
-    };
 }
