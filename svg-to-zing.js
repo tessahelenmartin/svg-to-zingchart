@@ -1,30 +1,10 @@
 /**
  * Created by tmartin on 7/8/16.
  */
-document.getElementById("sample-svg").onload = function () {
-    var SVGObject = document.getElementById("sample-svg").contentDocument;
-    var pathList = SVGObject.getElementsByTagName("path");
-    var pathArray = Array.from(pathList);
-    console.log( pathArray[pathArray.length-1]);
-    var shapesArray = [];
-    pathArray.forEach(function (path) {
-        shapesArray.push(makeShape(path));
-    });
-    console.log(shapesArray)
-    window.setTimeout(toZingChartShape, 1000);
-    function toZingChartShape() {
-        zingchart.render({
-            id: "sample",
-            width: "100%",
-            height: "100%",
-            data: {
-                "shapes":shapesArray,
-                backgroundColor: "transparent",
-            }
-        })
-    }
-};
 
+module.exports = function (val_in) {
+    return makeShape(val_in);
+};
 
 function pathToPolygon(array) {
     var pointsArray = [];
@@ -185,8 +165,8 @@ function makeShape(path) {
     var strokeWidth_in = "5";
     var points_in = [];
     var style_array = [];
-    if (path.getAttribute("d")) {
-        if (path.getAttribute("class") == "LAND"){
+    if (path.getAttribute("class") == "LAND") {
+        if (path.getAttribute("d")) {
             points_in = pathToPolygon(path.getAttribute("d").trim().split(/[\s,]+/));
             style_array = path.getAttribute("style").split(";");
             style_array.forEach(function (value) {
@@ -194,27 +174,29 @@ function makeShape(path) {
                 if (value.startsWith("stroke:")) {
                     lineColor_in = value.substr(7);
                 }
-                if (value.startsWith("fill:")) {
+                else if (value.startsWith("fill:")) {
                     fillColor_in = value.substr(5);
                 }
-                if (value.startsWith("stroke-width:")) {
+                else if (value.startsWith("stroke-width:")) {
                     strokeWidth_in = value.substr(13);
                 }
             });
             return {
-                type:"poly",
-                borderWidth:strokeWidth_in,
-                borderColor:lineColor_in,
-                backgroundColor:fillColor_in,
-                points:points_in,
-                "shadow":true,
-                "shadow-distance":3,
-                "shadow-color":"#0D485F",
+                id: path.getAttribute("id"),
+                type: "poly",
+                borderWidth: strokeWidth_in,
+                borderColor: lineColor_in,
+                backgroundColor: fillColor_in,
+                points: points_in,
+                "shadow": true,
+                "shadow-distance": 3,
+                "shadow-color": "#0D485F",
                 "shadow-alpha": 1,
-                "z-index": 0,
             };
         }
-        else if (path.getAttribute("class") == "ROUTE") {
+    }
+    else if (path.getAttribute("class") == "ROUTE") {
+        if (path.getAttribute("d")) {
             points_in = pathToLine(path.getAttribute("d").trim().split(/[\s,]+/));
             lineColor_in = "black";
             strokeWidth_in = "5";
@@ -224,17 +206,55 @@ function makeShape(path) {
                 if (value.startsWith("stroke:")) {
                     lineColor_in = value.substr(7);
                 }
-                if (value.startsWith("stroke-width:")) {
+                else if (value.startsWith("stroke-width:")) {
                     strokeWidth_in = value.substr(13);
                 }
             });
             return {
-                type:"line",
-                borderWidth:strokeWidth_in,
-                borderColor:lineColor_in,
-                points:points_in,
-                "z-index": 10,
+                id: path.getAttribute("id"),
+                type: "line",
+                lineWidth: strokeWidth_in,
+                lineColor: lineColor_in,
+                points: points_in,
+                //FOR POKEMON
+                "hover-state": {
+                    "lineColor": "#FFD700",
+                }
             };
         }
+    }
+    else if (path.getAttribute("class") == "CITY") {
+        var circleR = path.getAttribute("r").trim();
+        var circleX = path.getAttribute("cx").trim();
+        var circleY = path.getAttribute("cy").trim();
+        lineColor_in = "black";
+        strokeWidth_in = "5";
+        style_array = path.getAttribute("style").split(";");
+        style_array.forEach(function (value) {
+            value.trim();
+            if (value.startsWith("stroke:")) {
+                lineColor_in = value.substr(7);
+            }
+            else if (value.startsWith("fill:")) {
+                fillColor_in = value.substr(5);
+            }
+            if (value.startsWith("stroke-width:")) {
+                strokeWidth_in = value.substr(13);
+            }
+        });
+        return {
+            id: path.getAttribute("id"),
+            type:"circle",
+            borderWidth:strokeWidth_in,
+            borderColor:lineColor_in,
+            backgroundColor: fillColor_in,
+            size:circleR,
+            x: circleX,
+            y: circleY,
+            //FOR POKEMON
+            "hover-state": {
+                "lineColor": "#FFD700",
+            }
+        };
     }
 }

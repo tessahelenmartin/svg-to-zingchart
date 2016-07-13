@@ -1,0 +1,2596 @@
+[
+  {
+    "name": "petalburg-city",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Petalburg City",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Clémenti-Ville",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 429,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/350/",
+        "name": "petalburg-city-area"
+      }
+    ]
+  },
+  {
+    "name": "ever-grande-city",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Ever Grande City",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Eternara",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 434,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/355/",
+        "name": "ever-grande-city-area"
+      }
+    ]
+  },
+  {
+    "name": "sootopolis-city",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Sootopolis City",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Atalanopolis",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 433,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/354/",
+        "name": "sootopolis-city-area"
+      }
+    ]
+  },
+  {
+    "name": "lilycove-city",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Lilycove City",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Nénucrique",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 431,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/352/",
+        "name": "lilycove-city-area"
+      }
+    ]
+  },
+  {
+    "name": "slateport-city",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Slateport City",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Poivressel",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 430,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/351/",
+        "name": "slateport-city-area"
+      }
+    ]
+  },
+  {
+    "name": "mossdeep-city",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Mossdeep City",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Algatia",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 432,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/353/",
+        "name": "mossdeep-city-area"
+      }
+    ]
+  },
+  {
+    "name": "meteor-falls",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Meteor Falls",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Site Météore",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 435,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/356/",
+        "name": "meteor-falls-area"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/357/",
+        "name": "meteor-falls-back"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/358/",
+        "name": "meteor-falls-b1f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/359/",
+        "name": "meteor-falls-backsmall-room"
+      }
+    ]
+  },
+  {
+    "name": "rusturf-tunnel",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Rusturf Tunnel",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Tunnel Mérazon",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 436,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/360/",
+        "name": "rusturf-tunnel-area"
+      }
+    ]
+  },
+  {
+    "name": "granite-cave",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Granite Cave",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Grotte Granite",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 437,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/361/",
+        "name": "granite-cave-1f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/362/",
+        "name": "granite-cave-b1f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/363/",
+        "name": "granite-cave-b2f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/364/",
+        "name": "granite-cave-1fsmall-room"
+      }
+    ]
+  },
+  {
+    "name": "petalburg-woods",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Petalburg Woods",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Bois Clémenti",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 438,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/365/",
+        "name": "petalburg-woods-area"
+      }
+    ]
+  },
+  {
+    "name": "jagged-pass",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Jagged Pass",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Sentier Sinuroc",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 439,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/366/",
+        "name": "jagged-pass-area"
+      }
+    ]
+  },
+  {
+    "name": "mt-pyre",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Mt. Pyre",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Mont Mémoria",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 441,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/368/",
+        "name": "mt-pyre-1f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/369/",
+        "name": "mt-pyre-2f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/370/",
+        "name": "mt-pyre-3f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/371/",
+        "name": "mt-pyre-4f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/372/",
+        "name": "mt-pyre-5f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/373/",
+        "name": "mt-pyre-6f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/374/",
+        "name": "mt-pyre-outside"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/375/",
+        "name": "mt-pyre-summit"
+      }
+    ]
+  },
+  {
+    "name": "cave-of-origin",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Cave of Origin",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Grotte Origine",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 443,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/377/",
+        "name": "cave-of-origin-entrance"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/378/",
+        "name": "cave-of-origin-1f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/379/",
+        "name": "cave-of-origin-b1f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/380/",
+        "name": "cave-of-origin-b2f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/381/",
+        "name": "cave-of-origin-b3f"
+      }
+    ]
+  },
+  {
+    "name": "fiery-path",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Fiery Path",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Chemin Ardent",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 440,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/367/",
+        "name": "fiery-path-area"
+      }
+    ]
+  },
+  {
+    "name": "seafloor-cavern",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Seafloor Cavern",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Caverne Fondmer",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 442,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/376/",
+        "name": "seafloor-cavern-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-victory-road",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Victory Road",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route Victoire",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 444,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/382/",
+        "name": "hoenn-victory-road-1f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/383/",
+        "name": "hoenn-victory-road-b1f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/384/",
+        "name": "hoenn-victory-road-b2f"
+      }
+    ]
+  },
+  {
+    "name": "shoal-cave",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Shoal Cave",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Grotte Tréfonds",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 445,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/386/",
+        "name": "shoal-cave-b1f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/385/",
+        "name": "shoal-cave-area"
+      }
+    ]
+  },
+  {
+    "name": "new-mauville",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "New Mauville",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "New Lavandia",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 446,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/388/",
+        "name": "new-mauville-area"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/387/",
+        "name": "new-mauville-entrance"
+      }
+    ]
+  },
+  {
+    "name": "abandoned-ship",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Abandoned Ship",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Épave",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 447,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/389/",
+        "name": "abandoned-ship-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-101",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 101",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 101",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 449,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/393/",
+        "name": "hoenn-route-101-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-102",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 102",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 102",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 450,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/394/",
+        "name": "hoenn-route-102-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-103",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 103",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 103",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 451,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/395/",
+        "name": "hoenn-route-103-area"
+      }
+    ]
+  },
+  {
+    "name": "sky-pillar",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Sky Pillar",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Tour Céleste",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 448,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/390/",
+        "name": "sky-pillar-1f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/391/",
+        "name": "sky-pillar-3f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/392/",
+        "name": "sky-pillar-5f"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-104",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 104",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 104",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 452,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/396/",
+        "name": "hoenn-route-104-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-107",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 107",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 107",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 455,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/399/",
+        "name": "hoenn-route-107-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-108",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 108",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 108",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 456,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/400/",
+        "name": "hoenn-route-108-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-109",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 109",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 109",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 457,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/401/",
+        "name": "hoenn-route-109-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-106",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 106",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 106",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 454,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/398/",
+        "name": "hoenn-route-106-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-105",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 105",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 105",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 453,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/397/",
+        "name": "hoenn-route-105-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-110",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 110",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 110",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 458,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/402/",
+        "name": "hoenn-route-110-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-111",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 111",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 111",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 459,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/403/",
+        "name": "hoenn-route-111-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-112",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 112",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 112",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 460,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/404/",
+        "name": "hoenn-route-112-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-113",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 113",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 113",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 461,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/405/",
+        "name": "hoenn-route-113-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-114",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 114",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 114",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 462,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/406/",
+        "name": "hoenn-route-114-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-115",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 115",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 115",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 463,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/407/",
+        "name": "hoenn-route-115-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-116",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 116",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 116",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 464,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/408/",
+        "name": "hoenn-route-116-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-117",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 117",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 117",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 465,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/409/",
+        "name": "hoenn-route-117-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-118",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 118",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 118",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 466,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/410/",
+        "name": "hoenn-route-118-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-119",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 119",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 119",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 467,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/411/",
+        "name": "hoenn-route-119-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-120",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 120",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 120",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 468,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/412/",
+        "name": "hoenn-route-120-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-121",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 121",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 121",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 469,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/413/",
+        "name": "hoenn-route-121-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-122",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 122",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 122",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 470,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/414/",
+        "name": "hoenn-route-122-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-123",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 123",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 123",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 471,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/415/",
+        "name": "hoenn-route-123-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-124",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 124",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 124",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 472,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/417/",
+        "name": "hoenn-route-124-underwater"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/416/",
+        "name": "hoenn-route-124-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-125",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 125",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 125",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 473,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/418/",
+        "name": "hoenn-route-125-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-126",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 126",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 126",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 474,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/420/",
+        "name": "hoenn-route-126-underwater"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/419/",
+        "name": "hoenn-route-126-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-127",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 127",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 127",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 475,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/421/",
+        "name": "hoenn-route-127-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-128",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 128",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 128",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 476,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/422/",
+        "name": "hoenn-route-128-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-129",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 129",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 129",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 477,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/423/",
+        "name": "hoenn-route-129-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-130",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 130",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 130",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 478,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/424/",
+        "name": "hoenn-route-130-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-131",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 131",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 131",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 479,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/425/",
+        "name": "hoenn-route-131-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-132",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 132",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 132",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 480,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/426/",
+        "name": "hoenn-route-132-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-133",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 133",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 133",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 481,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/427/",
+        "name": "hoenn-route-133-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-route-134",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Route 134",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Route 134",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 482,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/428/",
+        "name": "hoenn-route-134-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-safari-zone",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Safari Zone",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Parc Safari",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 483,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/429/",
+        "name": "hoenn-safari-zone-nwmach-bike-area"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/430/",
+        "name": "hoenn-safari-zone-neacro-bike-area"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/431/",
+        "name": "hoenn-safari-zone-sw"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/432/",
+        "name": "hoenn-safari-zone-se"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/435/",
+        "name": "hoenn-safari-zone-expansion-south"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/436/",
+        "name": "hoenn-safari-zone-expansion-north"
+      }
+    ]
+  },
+  {
+    "name": "dewford-town",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Dewford Town",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Village Myokara",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 484,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/433/",
+        "name": "dewford-town-area"
+      }
+    ]
+  },
+  {
+    "name": "pacifidlog-town",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Pacifidlog Town",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Pacifiville",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 485,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/434/",
+        "name": "pacifidlog-town-area"
+      }
+    ]
+  },
+  {
+    "name": "magma-hideout",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Magma Hideout",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Planque Magma",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 486,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/437/",
+        "name": "magma-hideout-area"
+      }
+    ]
+  },
+  {
+    "name": "mirage-tower",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Mirage Tower",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Tour Mirage",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 487,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/438/",
+        "name": "mirage-tower-area"
+      }
+    ]
+  },
+  {
+    "name": "desert-underpass",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Desert Underpass",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Voie du Désert",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 488,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/439/",
+        "name": "desert-underpass-area"
+      }
+    ]
+  },
+  {
+    "name": "artisan-cave",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Artisan Cave",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Grotte Atelier",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 489,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/440/",
+        "name": "artisan-cave-area"
+      }
+    ]
+  },
+  {
+    "name": "hoenn-altering-cave",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Altering Cave",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Grotte Métamo",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 490,
+    "areas": [
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/441/",
+        "name": "hoenn-altering-cave-a"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/442/",
+        "name": "hoenn-altering-cave-b"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/443/",
+        "name": "hoenn-altering-cave-c"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/444/",
+        "name": "hoenn-altering-cave-d"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/445/",
+        "name": "hoenn-altering-cave-e"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/446/",
+        "name": "hoenn-altering-cave-f"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/447/",
+        "name": "hoenn-altering-cave-g"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/448/",
+        "name": "hoenn-altering-cave-h"
+      },
+      {
+        "url": "http://pokeapi.co/api/v2/location-area/449/",
+        "name": "hoenn-altering-cave-i"
+      }
+    ]
+  },
+  {
+    "name": "littleroot-town",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Littleroot Town",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Bourg-en-Vol",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 567,
+    "areas": []
+  },
+  {
+    "name": "oldale-town",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Oldale Town",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Rosyères",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 568,
+    "areas": []
+  },
+  {
+    "name": "lavaridge-town",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Lavaridge Town",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Vermilava",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 569,
+    "areas": []
+  },
+  {
+    "name": "fallarbor-town",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Fallarbor Town",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Autéquia",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 570,
+    "areas": []
+  },
+  {
+    "name": "verdanturf-town",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Verdanturf Town",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Vergazon",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 571,
+    "areas": []
+  },
+  {
+    "name": "mauville-city",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Mauville City",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Lavandia",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 572,
+    "areas": []
+  },
+  {
+    "name": "rustboro-city",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Rustboro City",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Mérouville",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 573,
+    "areas": []
+  },
+  {
+    "name": "fortree-city",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Fortree City",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Cimetronelle",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 574,
+    "areas": []
+  },
+  {
+    "name": "underwater",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Underwater",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Fond marin",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 575,
+    "areas": []
+  },
+  {
+    "name": "mt-chimney",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Mt. Chimney",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Mont Chimnée",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 576,
+    "areas": []
+  },
+  {
+    "name": "mirage-island",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Mirage Island",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Ile Mirage",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 577,
+    "areas": []
+  },
+  {
+    "name": "southern-island",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Southern Island",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Ile du Sud",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 578,
+    "areas": []
+  },
+  {
+    "name": "sealed-chamber",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Sealed Chamber",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Sanctuaire",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 579,
+    "areas": []
+  },
+  {
+    "name": "scorched-slab",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Scorched Slab",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Grotte Zénith",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 580,
+    "areas": []
+  },
+  {
+    "name": "island-cave",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Island Cave",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Grotte Island",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 581,
+    "areas": []
+  },
+  {
+    "name": "desert-ruins",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Desert Ruins",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Ruines Désert",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 582,
+    "areas": []
+  },
+  {
+    "name": "ancient-tomb",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Ancient Tomb",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Tombeau Antique",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 583,
+    "areas": []
+  },
+  {
+    "name": "inside-of-truck",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Inside of truck",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Dans le camion",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 584,
+    "areas": []
+  },
+  {
+    "name": "secret-base",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Secret Base",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Base Secrète",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 585,
+    "areas": []
+  },
+  {
+    "name": "hoenn-battle-tower",
+    "region": {
+      "url": "http://pokeapi.co/api/v2/region/3/",
+      "name": "hoenn"
+    },
+    "game_indices": [],
+    "names": [
+      {
+        "name": "Battle Tower",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/9/",
+          "name": "en"
+        }
+      },
+      {
+        "name": "Tour de Combat",
+        "language": {
+          "url": "http://pokeapi.co/api/v2/language/5/",
+          "name": "fr"
+        }
+      }
+    ],
+    "id": 586,
+    "areas": []
+  }
+]
