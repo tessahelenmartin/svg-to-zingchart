@@ -73,6 +73,31 @@ function pathToPolygon(array) {
                             pointCount = 0;
                         }
                     }
+                    // if (position == 5) {
+                    //     curvePoints.push(parseFloat(value) - curvePoints[position - 4]);
+                    //     pointsArray.push(curvePoints);
+                    //     position = 0;
+                    //     curvePoints = [];
+                    // }
+                    // else if (position == 4){
+                    //     curvePoints.push(parseFloat(value) - curvePoints[position - 4]);
+                    //     position++;
+                    // }
+                    // else if (position == 2 || position ==3){
+                    //     curvePoints.push(parseFloat(value) - curvePoints[position - 2]);
+                    //     position++;
+                    // }
+                    // else if (position == 0){
+                    //     var prev = pointsArray[pointsArray.length-1];
+                    //     curvePoints.push(prev[prev.length-2]);
+                    //     curvePoints.push(prev[prev.length-1]);
+                    //     curvePoints.push(parseFloat(value));
+                    //     position++;
+                    // }
+                    // else {
+                    //     curvePoints.push(parseFloat(value));
+                    //     position++;
+                    // }
                     break;
                 case 'A':
                     //handle arc
