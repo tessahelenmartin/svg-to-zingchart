@@ -208,7 +208,6 @@ function makeShape(path) {
             return {
                 id: path.getAttribute("id"),
                 type: "line",
-                zIndex:0,
                 lineWidth: strokeWidth_in,
                 lineColor: lineColor_in,
                 points: points_in,
@@ -216,31 +215,6 @@ function makeShape(path) {
                 "hover-state": {
                     "lineColor": "#FFD700",
                 }
-            };
-        }
-    }
-    else if (path.getAttribute("class") == "Top") {
-        if (path.getAttribute("d")) {
-            points_in = pathToLine(path.getAttribute("d").trim().split(/[\s,]+/));
-            lineColor_in = "black";
-            strokeWidth_in = "5";
-            style_array = path.getAttribute("style").split(";");
-            style_array.forEach(function (value) {
-                value.trim();
-                if (value.startsWith("stroke:")) {
-                    lineColor_in = value.substr(7);
-                }
-                else if (value.startsWith("stroke-width:")) {
-                    strokeWidth_in = value.substr(13);
-                }
-            });
-            return {
-                id: path.getAttribute("id"),
-                type: "line",
-                zIndex:0,
-                lineWidth: strokeWidth_in,
-                lineColor: lineColor_in,
-                points: points_in
             };
         }
     }
@@ -263,7 +237,6 @@ function makeShape(path) {
             return {
                 id: path.getAttribute("id"),
                 type: "poly",
-                zIndex:1,
                 borderWidth: strokeWidth_in,
                 borderColor: lineColor_in,
                 backgroundColor: fillColor_in,
@@ -271,7 +244,8 @@ function makeShape(path) {
                 "shadow": true,
                 "shadow-distance": 3,
                 "shadow-color": "#0D485F",
-                "shadow-alpha": 1
+                "shadow-alpha": 1,
+                flat: true
             };
         }
     }
@@ -297,16 +271,15 @@ function makeShape(path) {
         return {
             id: path.getAttribute("id"),
             type:"circle",
-            zIndex: 3,
             borderWidth:strokeWidth_in,
             borderColor:lineColor_in,
             backgroundColor: fillColor_in,
-            size:circleR,
-            x: circleX,
-            y: circleY,
-            //FOR POKEMON
+            size:circleR + "px",
+            x: circleX + "px",
+            y: circleY + "px",
             "hover-state": {
-                "lineColor": "#FFD700",
+                "borderColor": "#FFD700",
+                "backgroundColor": "#FFD700",
             }
         };
     }

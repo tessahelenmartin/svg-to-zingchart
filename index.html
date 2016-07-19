@@ -8,17 +8,30 @@
 </head>
 <body>
     <script src="bezier.js"></script>
-    <div id="LEFT">
-        <div id="MAP">
-            <div id="CHARTDIV">
+    <div id="TOP">
+        <div class="alignMiddle">
+            <div id="MAP">
+                <div id="SHAPESDIV">
 
+                </div>
+            </div>
+            <div id="CHART">
+                <div id="CHARTDIV">
+
+                </div>
             </div>
         </div>
     </div>
     <div id="FOOTER">
         <select id="Select-Region"></select>
         <input type="file" id="file-input" />
-
+        <form id ="selectMethod">
+            <input type="checkbox" name="method" value="walk">walk<br>
+            <input type="checkbox" name="method" value="old-rod">old-rod<br>
+            <input type="checkbox" name="method" value="good-rod">good-rod<br>
+            <input type="checkbox" name="method" value="super-rod">super-rod<br>
+            <input type="checkbox" name="method" value="surf">surf<br>
+        </form>
     </div>
     <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
 </body>

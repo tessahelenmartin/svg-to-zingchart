@@ -9,7 +9,6 @@ module.exports = function () {
         if (location.readyState == 4 && location.status == 200) {
             find(JSON.parse(location.response))
         }
-        console.log(thing)
     };
     location.open("GET", url, true);
     location.send();

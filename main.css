@@ -3,33 +3,61 @@ body
     background-color: ghostwhite;
 }
 
-#LEFT {
-    background-color: #167ca2;
+#TOP {
+    background-color: #b9d7e3;
     width: 100%;
     height: 60%;
     position: absolute;
+    text-align: center;
     left:0;
     top:0;
-}
-#RIGHT {
-    background-color: burlywood;
-    width: 40%;
-    height: 60%;
-    position: absolute;
-    right:0;
-    top:0;
+    vertical-align: middle;
 }
 #FOOTER {
-    background-color: tomato;
+    background-color: #167ca2;
     width: 100%;
     height: 40%;
     position: absolute;
     left:0;
     bottom:0;
 }
+#SHAPESDIV
+{
+    height: 100%;
+}
+#CHARTDIV
+{
+    height: 100%;
+}
 
 #MAP {
-    margin: 5%;
-    width: 90%;
+    background-color: #167ca2;
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 1%;
+    vertical-align: middle;
+    width: 37%;
+    border-radius: 0.5vmin;
     height: 90%;
+    overflow: hidden;
+}
+#CHART {
+    overflow: hidden;
+    background-color: #167ca2;
+    display: inline-block;
+    margin-right: 0;
+    margin-left: 1%;
+    vertical-align: middle;
+    border-radius: 0.5vmin;
+    width: 57%;
+    height: 90%;
+}
+.alignMiddle:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+.alignMiddle {
+    height: 100%;
 }
