@@ -11,8 +11,12 @@ var pokeJSON = [];
 var levelsINDEX = [];
 var methodIndex = [];
 var locationName;
+var flag = 1;
 module.exports = {
     pokeLocationFunction: function (value, cbfxn) {
+        value.forEach(function () {
+
+        })
         var location = new XMLHttpRequest();
         var url = 'http://pokeapi.co/api/v2/location-area/'+value;
         location.onreadystatechange = function() {
@@ -23,6 +27,7 @@ module.exports = {
                 for (var i = 0; i < document.getElementById("selectMethod").elements.length; i++){
                     if (document.getElementById("selectMethod").elements[i].checked) {
                         methodIndex.push(document.getElementById("selectMethod").elements[i].value)
+                        console.log(document.getElementById("selectMethod").elements[i].value)
                     }
                 }
                 pokemonOnRoute(JSON.parse(location.response),handlePokemon);
@@ -129,7 +134,7 @@ function outputPokeJSON() {
 
     for (var p = 0; p < pokemonSERIES.length; p++){
         for (var k = 0; k < pokemonSERIES[p].length;k++) {
-            var text = pokemonSERIES[p][k][0] + " " + pokemonSERIES[p][k][4];
+            var text = pokemonSERIES[p][k][0] + " (" + pokemonSERIES[p][k][4] + ")";
             var index = -1;
             for (var r = 0; r < JSONStorage.length; r++)
             {
@@ -191,6 +196,7 @@ function outputPokeJSON() {
                     "scale-y": {}
                 }
             });
+            document.getElementById("loading").style.visibility = "hidden";
         }
     }
 }
@@ -203,7 +209,7 @@ function outputPokeJSON() {
 
 
 function selectRegion(region) {
-    var gameSelect = document.getElementById("Select-Region");
+    var gameSelect = document.getElementById("select_Version");
     for (var i = 0; i < gameSelect.options.length; i++)
     {
         gameSelect.options[i] = null;
@@ -235,12 +241,21 @@ function selectRegion(region) {
 
 function versionSelect() {
     pokeVersionArray.some(function (vers) {
-        if (vers.name == document.getElementById("Select-Region").value)
+        if (vers.name == document.getElementById("select_Version").value)
         {
             pokeVersion = vers;
 
         }
     });
+    if (flag)
+    {
+        document.getElementById("select_Version").disabled = false;
+        console.log(Array.prototype.slice.call(document.getElementsByClassName("checkboxElt")));
+        Array.prototype.slice.call(document.getElementsByClassName("checkboxElt")).forEach(function (currentElt) {
+            currentElt.disabled = false;
+            flag = 0;
+        })
+    }
 }
 
 

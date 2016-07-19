@@ -124,60 +124,61 @@
      id="hoenn-route-111"
      class="ROUTE" />
   <path
+          areaid="[404]"
      id="hoenn-route-112"
      d="M 128.85808,78.570827 182.79267,78.570827 M 158.37893,78.897442 158.37893,65.288514 182.75331,65.288514"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      class="ROUTE" />
   <path
-     areaid="[404]"
+     areaid="[405]"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="M 103.27334,23.39281 182.79267,23.39281"
      id="hoenn-route-113"
      class="ROUTE" />
   <path
-     areaid="[405]"
+     areaid="[406]"
      id="hoenn-route-114"
      d="M 83.799422,23.39281 102.10235,23.39281 M 83.73054,23.462091 83.73054,59.023458 M 63.442336,59.023458 83.73054,59.023458"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      class="ROUTE" />
   <path
-     areaid="[406]"
+     areaid="[407]"
      id="hoenn-route-115"
      d="M 43.154132,186.88799 43.154132,59.023458 M 43.154132,59.023458 63.442336,59.023458"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      class="ROUTE" />
   <path
-     areaid="[407]"
+     areaid="[408]"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="M 111.94263,143.84419 83.799422,144.02234 83.799422,185.7102 43.154132,185.7102"
      id="hoenn-route-116"
      class="ROUTE" />
   <path
-     areaid="[408]"
+     areaid="[409]"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="M 113.11362,143.84419 182.79267,143.84419"
      id="hoenn-route-117"
      class="ROUTE" />
   <path
-     areaid="[409]"
+     areaid="[410]"
      id="hoenn-route-118"
      d="M 185.93172,143.84419 255.61077,143.84419"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      class="ROUTE" />
   <path
-     areaid="[410]"
+     areaid="[411]"
      id="hoenn-route-119"
      d="M 246.94148,143.33942 246.94148,26.084903 267.41911,26.084903"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      class="ROUTE" />
   <path
-     areaid="[411]"
+     areaid="[412]"
      id="hoenn-route-120"
      d="M 268.5901,26.084903 281.68752,26.015621 281.68752,86.053264"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      class="ROUTE" />
   <path
-     areaid="[412]"
+     areaid="[413]"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="M 281.68752,86.053264 408.28276,86.053264"
      id="hoenn-route-121"
@@ -231,36 +232,37 @@
      id="hoenn-route-129"
      class="ROUTE" />
   <path
-     areaid="[421]"
+     areaid="[424]"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="M 444.17028,266.31464 483.53141,266.31464"
      id="hoenn-route-130"
      class="ROUTE" />
   <path
-     areaid="[422]"
+     areaid="[425]"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="M 406.91496,266.31464 444.17028,266.31464"
      id="hoenn-route-131"
      class="ROUTE" />
   <path
-     areaid="[423]"
+     areaid="[426]"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="M 332.82747,266.31464 406.2163,266.31464"
      id="hoenn-route-132"
      class="ROUTE" />
   <path
-     areaid="[424]"
+     areaid="[427]"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="M 250.13957,266.31464 332.82747,266.31464"
      id="hoenn-route-133"
      class="ROUTE" />
   <path
-     areaid="[425]"
+     areaid="[428]"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="M 174.26115,266.31464 250.13957,266.31464"
      id="hoenn-route-134"
      class="ROUTE" />
   <path
+          areaid="[382,383,384]"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="M 568.5121,193.52915 568.81714,180.09837 568.81714,180.09837 564.11349,180.09837 564.11349,157.1265 564.11349,180.09837"
      id="hoenn-victory-road"

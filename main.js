@@ -1,34 +1,26 @@
 var pokescript = require('./pokemon-scripts');
 var svgToZing = require('./svg-to-zing');
 var area = require('./getAreaInfo');
+var SVGSTRING;
 
-
-//area();
-function readSingleFile(e) {
-    var file = e.target.files[0];
-    if (!file) {
-        return;
-    }
-    var reader = new FileReader();
-    reader.onload = function(e) {
-        var contents = e.target.result;
-        //displayContents(contents);
-        loadSVG(contents)
+document.getElementById('select_Region').addEventListener("change", function () {
+    document.getElementById("loading").visibility = "visible";
+    var location = new XMLHttpRequest();
+    var url = '/' + document.getElementById('select_Region').value + '.svg';
+    location.onreadystatechange = function() {
+        if (location.readyState == 4 && location.status == 200) {
+            SVGSTRING = location.response;
+            loadSVG(mainCallback);
+        }
     };
-    reader.readAsText(file, "image/svg+xml");
-}
-
-function displayContents(contents) {
-    var element = document.getElementById('file-content');
-    element.innerHTML = contents;
-}
-
-document.getElementById('file-input').addEventListener('change', readSingleFile, false);
+    location.open("GET", url, true);
+    location.send();
+}, false);
 
 
-function loadSVG(object) {
+function loadSVG(fxn) {
     var parser = new DOMParser();
-    var SVGObject = parser.parseFromString(object, "image/svg+xml");
+    var SVGObject = parser.parseFromString(SVGSTRING, "image/svg+xml");
     pokescript.createDropDown(SVGObject.getElementsByTagName("svg")[0].getAttribute("regionID"));
     var pathList = SVGObject.getElementsByTagName("path");
     var pathArray = Array.from(pathList);
@@ -41,16 +33,22 @@ function loadSVG(object) {
     circleArray.forEach(function (circle) {
         shapesArray.push(svgToZing(circle))
     });
+    mainCallback(SVGObject,shapesArray)
+}
+
+function mainCallback(SVGObject,shapesArray)
+{
     zingchart.render({
         id: "SHAPESDIV",
         width: "100%",
         height: "100%",
+        margins: 0,
         backgroundColor: "transparent",
         data: {
             backgroundColor: "transparent",
             "shapes": shapesArray
         }
-        });
+    });
     zingchart.render({
         id: "CHARTDIV",
         width: "100%",
@@ -59,7 +57,7 @@ function loadSVG(object) {
         data: {
             id: "pokemonRoute",
             "type": "bar",
-            "background-color": "#116381 #0D4A61",
+            "background-color": "transparent",
             "fill-angle": 45,
             "stacked": true,
             width: "100%",
@@ -67,7 +65,7 @@ function loadSVG(object) {
             "title": {
                 "text": "Likelyhood of Encountering Pokemon",
                 "text-align": "left",
-                "font-family": "Arial",
+                "font-family": 'Exo 2, sans-serif',
                 "font-size": "20px",
                 "font-color": "#fff",
                 "background-color": "none",
@@ -81,7 +79,7 @@ function loadSVG(object) {
                 "border-color": "none",
                 "y": "0",
                 "x": "80%",
-                "height":"95%",
+                "height":"100%",
                 "width":"20%",
                 "shadow": 0,
                 "max-items":12,
@@ -105,14 +103,14 @@ function loadSVG(object) {
                 },
                 "item": {
                     "font-color": "#fff",
-                    "font-family": "Arial",
+                    "font-family": 'Exo 2, sans-serif',
                     "font-size": "15px",
                     "font-weight": "normal",
                     "alpha": 0.6
                 },
                 "header": {
                     "text": "POKEMON ON ROUTE",
-                    "font-family": "Arial",
+                    "font-family": 'Exo 2, sans-serif',
                     "font-size": "15px",
                     "font-color": "#fff",
                     "background-color": "#082F3D",
@@ -154,7 +152,7 @@ function loadSVG(object) {
                 },
                 "label": {
                     "text": "Pokemon Level",
-                    "font-family": "Arial",
+                    "font-family": 'Exo 2, sans-serif',
                     "font-weight": "normal",
                     "font-size": "20px",
                     "font-color": "#fff",
@@ -165,7 +163,7 @@ function loadSVG(object) {
                 },
                 "item": {
                     "font-color": "#fff",
-                    "font-family": "Arial",
+                    "font-family": "Exo 2, sans-serif",
                     "font-size": "10px",
                     "font-angle": -48,
                     "offset-x": "5px"
@@ -180,7 +178,7 @@ function loadSVG(object) {
                 },
                 "label": {
                     "text": "Encounter Chance",
-                    "font-family": "Arial",
+                    "font-family": 'Exo 2, sans-serif',
                     "font-weight": "normal",
                     "font-size": "20px",
                     "font-color": "#fff"
@@ -190,14 +188,14 @@ function loadSVG(object) {
                 },
                 "item": {
                     "font-color": "#fff",
-                    "font-family": "Arial",
+                    "font-family": "Exo 2, sans-serif",
                     "font-size": "10px",
                     "padding": "3px"
                 }
             },
             "tooltip": {
                 "text": "Chance of encountering a level %k %t: %v",
-                "font-family": "Arial",
+                "font-family": 'Exo 2, sans-serif',
                 "font-size": "15px",
                 "font-weight": "normal",
                 "font-color": "#fff",
@@ -205,21 +203,20 @@ function loadSVG(object) {
                 "text-align": "left",
                 "border-radius": "8px",
                 "padding": "10px 10px",
-                "background-color": "#212339",
+                "background-color": "#0B4153",
                 "alpha": 0.95,
                 "shadow": 0,
                 "border-width": 0,
                 "border-color": "none"
             },
             "series": pokescript.pokemonOut[1]
-        },
+        }
     });
     zingchart.shape_click = function(p) {
         if (SVGObject.getElementById(p.shapeid).getAttribute("class") == "ROUTE"){
-            JSON.parse(SVGObject.getElementById(p.shapeid).getAttribute("areaid")).forEach(function (val) {
-                pokescript.pokeLocationFunction(val);
-            })
+            document.getElementById("loading").style.visibility = "visible";
+            pokescript.pokeLocationFunction(JSON.parse(SVGObject.getElementById(p.shapeid).getAttribute("areaid")));
         }
-    }
+    };
+    document.getElementById("loading").style.visibility = "hidden";
 }
-

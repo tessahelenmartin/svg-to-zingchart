@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:400,600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="main.css">
     <meta charset="UTF-8">
     <title>SVG to ZingChart</title>
@@ -10,28 +11,50 @@
     <script src="bezier.js"></script>
     <div id="TOP">
         <div class="alignMiddle">
-            <div id="MAP">
-                <div id="SHAPESDIV">
-
+            <div id="MAP" class="topVisualizations">
+                <div id="selectDataVisualizationPreferencesHeader">
+                    <p class="textHeader">Select data specifications</p>
+                </div>
+                <div id="selectDataVisualizationPreferences">
+                    <div id = "innerselectDataVisualizationPreferences">
+                    <form id ="mapForm">
+                        <p class="largerLabel">Region: </p>
+                        <select id="select_Region">
+                            <option selected disabled>Select Region</option>
+                            <option name="hoenn">Hoenn</option>
+                            <option name="kalos">Kalos</option>
+                        </select>
+                    </form>
+                    <div id ="chartForm">
+                        <p class="largerLabel">Version: </p>
+                        <select id="select_Version" disabled></select>
+                        <form id ="selectMethod">
+                            <p class="checkboxLabel">walk</p>       <input class = "checkboxElt" type="checkbox" name="method" id ="walk_input" value="walk" checked disabled>     <label for="walk_input"><span><span></span></span></label>
+                            <p class="checkboxLabel">old-rod</p>    <input class = "checkboxElt" type="checkbox" name="method" id = "old_rod_input" value="old-rod" disabled>      <label for="old_rod_input"><span><span></span></span></label>
+                            <p class="checkboxLabel">good-rod</p>   <input class = "checkboxElt" type="checkbox" name="method" id = "good_rod_input" value="good-rod" disabled>    <label for="good_rod_input"><span><span></span></span></label>
+                            <p class="checkboxLabel">super-rod</p>  <input class = "checkboxElt" type="checkbox" name="method" id = "super_rod_input" value="super-rod" disabled>  <label for="super_rod_input"><span><span></span></span></label>
+                            <p class="checkboxLabel">surf</p>       <input class = "checkboxElt" type="checkbox" name="method" id = "surf_input" value="surf" disabled>            <label for="surf_input"><span><span></span></span></label>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                <div id="pseudoTable">
+                    <div id="SHAPESDIV">
+                    </div>
                 </div>
             </div>
-            <div id="CHART">
+            <div id="CHART" class="topVisualizations">
                 <div id="CHARTDIV">
-
                 </div>
             </div>
         </div>
     </div>
+    <object id ="loading" data="spin.svg" type="image/svg+xml"> </object>
     <div id="FOOTER">
-        <select id="Select-Region"></select>
-        <input type="file" id="file-input" />
-        <form id ="selectMethod">
-            <input type="checkbox" name="method" value="walk">walk<br>
-            <input type="checkbox" name="method" value="old-rod">old-rod<br>
-            <input type="checkbox" name="method" value="good-rod">good-rod<br>
-            <input type="checkbox" name="method" value="super-rod">super-rod<br>
-            <input type="checkbox" name="method" value="surf">surf<br>
-        </form>
+        <div class="alignMiddle">
+            <div id="bottomElts">
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
 </body>
