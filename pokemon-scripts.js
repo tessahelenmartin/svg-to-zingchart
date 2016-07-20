@@ -10,60 +10,82 @@ var pokemonSERIES = [];
 var pokeJSON = [];
 var levelsINDEX = [];
 var methodIndex = [];
-var locationName;
+var locationName = "";
+var locationARRAY = [];
 var flag = 1;
 module.exports = {
-    pokeLocationFunction: function (value, cbfxn) {
-        value.forEach(function () {
-
-        })
-        var location = new XMLHttpRequest();
-        var url = 'http://pokeapi.co/api/v2/location-area/'+value;
-        location.onreadystatechange = function() {
-            if (location.readyState == 4 && location.status == 200) {
-                methodIndex = [];
-                min = null;
-                max = null;
-                for (var i = 0; i < document.getElementById("selectMethod").elements.length; i++){
-                    if (document.getElementById("selectMethod").elements[i].checked) {
-                        methodIndex.push(document.getElementById("selectMethod").elements[i].value)
-                        console.log(document.getElementById("selectMethod").elements[i].value)
-                    }
-                }
-                pokemonOnRoute(JSON.parse(location.response),handlePokemon);
+    pokeLocationFunction: function (array_in, cbfxn) {
+        for (var p = 0; p < array_in.length; p++) {
+            if (p == array_in.length - 1) {
+                handleArea(array_in[p], true);
             }
-        };
-        location.open("GET", url, true);
-        location.send();
+            else {
+                handleArea(array_in[p], false);
+            }
+        }
     },
     createDropDown:selectRegion,
     pokemonOut:[levelsINDEX, pokeJSON]
 };
 
-function pokemonOnRoute(location_area_in, callback_in) {
-    var tempArray = [];
-    location_area_in.name.split("-").forEach(function (val) {
-         tempArray.push(val.charAt(0).toUpperCase() + val.slice(1));
-    });
-    locationName = tempArray.join(" ");
+function handleArea(valueIn, boolFlag) {
+    var location = new XMLHttpRequest();
+    var url = 'http://pokeapi.co/api/v2/location-area/'+valueIn;
+    location.onreadystatechange = function() {
+        if (location.readyState == 4 && location.status == 200) {
+            var tempLocation = JSON.parse(location.response);
+            var tempArray = [];
+            console.log(JSON.parse(location.response).name);
+            tempLocation.name.split("-").forEach(function (val) {
+                tempArray.push(val.charAt(0).toUpperCase() + val.slice(1));
+            });
+            var name = tempArray.join(" ");
+            if (locationName.length > name.length)
+            {
+                locationName = tempArray.join(" ");
+            }
+            methodIndex = [];
+            min = null;
+            max = null;
+            for (var i = 0; i < document.getElementById("selectMethod").elements.length; i++){
+                if (document.getElementById("selectMethod").elements[i].checked) {
+                    methodIndex.push(document.getElementById("selectMethod").elements[i].value)
+                    console.log(document.getElementById("selectMethod").elements[i].value)
+                }
+            }
+            if (boolFlag){
+                pokemonOnRoute(tempLocation, name ,handlePokemon, true);
+            }
+            else
+            {
+                pokemonOnRoute(tempLocation, name ,handlePokemon, false);
+            }
+        }
+    };
+    location.open("GET", url, true);
+    location.send();
+}
+
+function pokemonOnRoute(location_area_in, areaName, callback_in, lastRegion) {
     pokemonSERIES = [];
     levelsINDEX = [];
     var colorArray = colorOptions.slice();
     var possiblePokemon = location_area_in.pokemon_encounters;
+    console.log(areaName)
     for (var i = 0; i < possiblePokemon.length; i++)
     {
         if (i == possiblePokemon.length-1)
         {
-            callback_in(possiblePokemon[i],colorArray, true);
+            callback_in(possiblePokemon[i], areaName, colorArray, true,lastRegion);
         }
         else
         {
-            callback_in(possiblePokemon[i],colorArray, false);
+            callback_in(possiblePokemon[i], areaName,colorArray, false,lastRegion);
         }
     }
 }
 
-function handlePokemon(pokemon,colorArray, boolval) {
+function handlePokemon(pokemon, areaName, colorArray, boolval,lastRegion) {
     var thisPokemonEncounters = [];
     for (var versionNUM = 0; versionNUM < pokemon.version_details.length; versionNUM++) {
         if (pokemon.version_details[versionNUM].version.name == pokeVersion.name) {
@@ -107,13 +129,19 @@ function handlePokemon(pokemon,colorArray, boolval) {
                         currentColor[1] -= 100;
                         currentColor[2] -= 100;
                     }
-                    thisPokemonEncounters.push([pokemon.pokemon.name.charAt(0).toUpperCase() + pokemon.pokemon.name.slice(1),parseInt(thisEncounter.chance), parseInt(thisEncounter.min_level),  parseInt(thisEncounter.max_level), thisEncounter.method.name,  "rgb(" + currentColor.join(",")+")"]);
+                    thisPokemonEncounters.push([pokemon.pokemon.name.charAt(0).toUpperCase() + pokemon.pokemon.name.slice(1),parseInt(thisEncounter.chance), parseInt(thisEncounter.min_level),  parseInt(thisEncounter.max_level), thisEncounter.method.name + ", " + areaName,  "rgb(" + currentColor.join(",")+")"]);
                 }
                 if (encounter == pokemon.version_details[versionNUM].encounter_details.length - 1) {
                     pokemonSERIES.push(thisPokemonEncounters);
                     if (boolval)
                     {
-                        outputPokeJSON()
+                        if (lastRegion)
+                        {
+                            outputPokeJSON()
+                        }
+                        else {
+                            return;
+                        }
                     }
                 }
             }
@@ -250,7 +278,6 @@ function versionSelect() {
     if (flag)
     {
         document.getElementById("select_Version").disabled = false;
-        console.log(Array.prototype.slice.call(document.getElementsByClassName("checkboxElt")));
         Array.prototype.slice.call(document.getElementsByClassName("checkboxElt")).forEach(function (currentElt) {
             currentElt.disabled = false;
             flag = 0;
