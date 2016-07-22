@@ -7,7 +7,7 @@ body
 #TOP {
     background-color: transparent;
     width: 100%;
-    height: 65%;
+    height: 50%;
     position: absolute;
     text-align: center;
     left:0;
@@ -18,7 +18,7 @@ body
     background-color: transparent;
     width: 100%;
     text-align: center;
-    height: 35%;
+    height: 50%;
     position: absolute;
     left:0;
     bottom:0;
@@ -26,9 +26,10 @@ body
 #SHAPESDIV
 {
     margin-top: 5%;
-    height: fit-content;
-    width: fit-content;
+    height: 100%;
+    width: 100%;
     align-self: center;
+
 }
 #CHARTDIV
 {
@@ -38,33 +39,34 @@ body
 #MAP {
     background-color: #167ca2;
     display: inline-block;
-    margin-left: 0;
+    margin-left: 1%;
     margin-right: 1%;
     vertical-align: middle;
-    width: 37%;
+    width: 35%;
     border-radius: 0.5vmin;
-    height: 90%;
     overflow: hidden;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    height: 97%;
 }
 
 #CHART {
     overflow: hidden;
     background-color: #167ca2;
     display: inline-block;
-    margin-right: 0;
+    margin-right: 1%;
     margin-left: 1%;
     vertical-align: middle;
     border-radius: 0.5vmin;
-    width: 57%;
-    height: 90%;
-}
-.alignMiddle:before {
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
-    height: 100%;
+    width: 61%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    height: 97%;
 }
 .alignMiddle {
+    display: flex;
+    align-items: center;
+
     height: 100%;
 }
 
@@ -79,7 +81,7 @@ body
 }
 #bottomElts {
     display: inline-block;;
-    width: 96%;
+    width: 98%;
     border-radius: 0.5vmin;
     height: 90%;
     text-align: left;
@@ -90,6 +92,10 @@ body
     background: -webkit-linear-gradient(-45deg,  #116381 0%,#005d7f 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(135deg,  #116381 0%,#005d7f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#116381', endColorstr='#005d7f',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 2%;
+    margin-bottom: 1%;
 }
 #selectDataVisualizationPreferences
 {
@@ -108,7 +114,7 @@ body
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80%;
+    height: 78%;
     width: 100%;
 }
 
@@ -182,7 +188,7 @@ input[type=checkbox]:not(old) + label > span {
     width            : 0.875em;
     height           : 0.875em;
     margin           : 0.25em 0.5em 0.25em 0.25em;
-    border           : 0.0625em solid rgb(#B6CBD2);
+    border           : 0.0625em solid #B6CBD2;
     border-radius    : 0.25em;
     background       : #B6CBD2;
     background-image :    -moz-linear-gradient(#fff,#B6CBD2);
@@ -214,3 +220,163 @@ input[type=checkbox]:not(old):disabled + label{
     opacity: 0.5;
 }
 
+#pokemon_header {
+    text-align: left;
+    height:10%;
+    width:100%;
+    background-color: #0B4153;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin: 0;
+    border-radius: 0.5vmin 0.5vmin 0 0;
+}
+
+#center_pokemon_image {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width:100%;
+}
+
+#pokemon_header > p {
+    padding: 0;
+    padding-left: 5px;
+    vertical-align: middle;
+}
+#pokemon_header_types {
+    margin-left: 0.75%;
+    display: inline-block;
+    width:50%;
+}
+
+.types {
+    display: inline-block;
+    border-width: 1px;
+    border: solid;
+    border-radius: 15px;
+    width: fit-content;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 0.75%;
+}
+#normal {
+    background-color: #A8A878;
+    border-color: #C6C6A7;
+}
+#fire {
+    background-color: #F08030;
+    border-color: #9C531F;
+}
+#water {
+    background-color: #6890F0;
+    border-color: #445E9C;
+}
+#electric {
+    background-color: #F8D030;
+    border-color: #A1871F;
+}
+#grass {
+    background-color: #78C850;
+    border-color: #4E8234;
+}
+#ice {
+    background-color: #98D8D8;
+    border-color: #638D8D;
+}
+#fighting {
+    background-color: #C03028;
+    border-color: #7D1F1A;
+}
+#poison {
+    background-color: #A040A0;
+    border-color: #682A68;
+}
+#ground {
+    background-color: #E0C068;
+    border-color: #927D44;
+}
+#flying {
+    background-color: #A890F0;
+    border-color: #6D5E9C;
+}
+#psychic {
+    background-color: #F85888;
+    border-color: #A13959;
+}
+#bug {
+    background-color: #A8B820;
+    border-color: #6D7815;
+}
+#rock {
+    background-color: #B8A038;
+    border-color: #786824;
+}
+#ghost {
+    background-color: #705898;
+    border-color: #493963;
+}
+#dragon {
+    background-color: #7038F8;
+    border-color: #4924A1;
+}
+#dark {
+    background-color: #705848;
+    border-color: #49392F;
+}
+#steel {
+    background-color: #B8B8D0;
+    border-color: #787887;
+}
+#fairy {
+    background-color: #EE99AC;
+    border-color: #9B6470;
+}
+
+#pokemon_image{
+    height:90%;
+    left:0;
+    background:url(holder.svg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#encloseImage{
+    display: block;
+    background-color: #082F3D;
+    border-radius: 0.5vmin;
+    margin-left:2%;
+    height: 80%;
+}
+
+#secondary_div {
+    background-color: #0B4153;
+    border-radius: 0.5vmin;
+    margin-left:2%;
+    margin-right:2%;
+    overflow: visible;
+    height: 80%;
+    width:94%;
+}
+
+#radar{
+    vertical-align: center;
+    overflow: visible;
+    height: 94%;
+    width: 48%;
+    margin-right:2%;
+    display: inline-block;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+#chord{
+    vertical-align: center;
+    overflow: visible;
+    height: 94%;
+    width: 48%;
+    display: inline-block;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}

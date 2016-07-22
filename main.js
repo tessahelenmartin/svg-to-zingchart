@@ -73,14 +73,16 @@ function mainCallback(SVGObject,shapesArray)
                 "height": "40px"
             },
             "legend": {
+                "layout":"12x1",
                 "toggle-action": "none",
                 "background-color": "#0B4153",
                 "border-width": 0,
                 "border-color": "none",
                 "y": "0",
                 "x": "80%",
-                "height":"100%",
+                "height":"95%",
                 "width":"20%",
+                "padding-bottom":"10px",
                 "shadow": 0,
                 "max-items":12,
                 "overflow":"scroll",
@@ -102,6 +104,7 @@ function mainCallback(SVGObject,shapesArray)
                     }
                 },
                 "item": {
+                    "overflow":"wrap",
                     "font-color": "#fff",
                     "font-family": 'Exo 2, sans-serif',
                     "font-size": "15px",
@@ -116,8 +119,8 @@ function mainCallback(SVGObject,shapesArray)
                     "background-color": "#082F3D",
                     "border-width": 0,
                     "border-color": "none",
-                    "height": "30px",
-                    "padding": "5px 10px"
+                    "height": "5%",
+                    "padding": "0 0 0 20px",
                 }
             },
             "plotarea":{
@@ -215,8 +218,15 @@ function mainCallback(SVGObject,shapesArray)
     zingchart.shape_click = function(p) {
         if (SVGObject.getElementById(p.shapeid).getAttribute("class") == "ROUTE"){
             document.getElementById("loading").style.visibility = "visible";
-            pokescript.pokeLocationFunction(JSON.parse(SVGObject.getElementById(p.shapeid).getAttribute("areaid")));
+            pokescript.beginRoute(JSON.parse(SVGObject.getElementById(p.shapeid).getAttribute("areaid")));
         }
+    };
+    zingchart.legend_item_click = function(p) {
+        document.getElementById("loading").style.visibility = "visible";
+        document.getElementById("pokemon_image").src = "holder.png";
+        document.getElementById("radar").style.visibility = "hidden";
+        var pokeText = zingchart.exec('CHARTDIV', 'getseriesdata', {'plotindex' : p.plotindex}).text;
+        pokescript.selectPokemon(pokeText.slice(0,pokeText.indexOf('<')));
     };
     document.getElementById("loading").style.visibility = "hidden";
 }
