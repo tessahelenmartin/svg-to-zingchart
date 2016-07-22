@@ -341,8 +341,8 @@ function render_Radar(name,pokeURL, stats_name, stats_value){
             backgroundColor: "#116381",
             "border-radius":"5vmin",
             x: "70%",
-            y: "10%",
-            height:"80%",
+            y: "0%",
+            height:"90%",
             "item": {
                 "font-color": "#fff",
                 "font-family": 'Exo 2, sans-serif',
@@ -555,8 +555,8 @@ function typeEffectivity(types_in) {
             backgroundColor: "#116381",
             "border-radius":"5vmin",
             x: "70%",
-            y: "10%",
-            height:"80%",
+            y: "0%",
+            height:"90%",
             "item": {
                 "font-color": "#fff",
                 "font-family": 'Exo 2, sans-serif',
