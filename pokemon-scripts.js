@@ -304,6 +304,7 @@ function render_Radar(name,pokeURL, stats_name, stats_value){
             "font-family": 'Exo 2, sans-serif',
             "shadow":false
         },
+        x:"-25%",
         "title" : {
             visible:false,
             // "font-color": "#fff",
@@ -546,7 +547,7 @@ function typeEffectivity(types_in) {
             // "font-family": 'Exo 2, sans-serif',
             visible:false
         },
-        x:"-20%",
+        x:"-25%",
         "legend": {
             "layout":"10x2",
             "toggle-action": "none",
