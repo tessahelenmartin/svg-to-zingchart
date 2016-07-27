@@ -2,6 +2,7 @@
  * Created by tmartin on 7/12/16.
  */
 var versions = require('./versions');
+var ssvgToZing = require('./svg-to-zing');
 var pokeVersion;
 var pokeVersionArray = [];
 var min = null;
@@ -14,26 +15,29 @@ var locationName = "";
 var responseArray = [];
 var flag = 1;
 module.exports = {
-    beginRoute: function (inVal) {
-        methodIndex = [];
-        pokemonSERIES = [];
-        levelsINDEX = [];
-        pokeJSON = [];
-        locationName = "";
-        responseArray = [];
-        min = null;
-        max = null;
-        for (var i = 0; i < document.getElementById("selectMethod").elements.length; i++){
-            if (document.getElementById("selectMethod").elements[i].checked) {
-                methodIndex.push(document.getElementById("selectMethod").elements[i].value)
-                console.log(document.getElementById("selectMethod").elements[i].value)
-            }
+    createDropDown:removeOptions
+};
+var valuestempjson = []
+var jsontemparray = [393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 382, 383, 384];
+jsontemparray.forEach(function (value){
+    valuestempjson.push(ssvgToZing.out(value));
+});
+
+function beginRoute(inVal) {
+    methodIndex = [];
+    pokemonSERIES = [];
+    levelsINDEX = [];
+    pokeJSON = [];
+    locationName = "";
+    responseArray = [];
+    min = null;
+    max = null;
+    for (var i = 0; i < document.getElementById("selectMethod").elements.length; i++){
+        if (document.getElementById("selectMethod").elements[i].checked) {
+            methodIndex.push(document.getElementById("selectMethod").elements[i].value)
         }
-        pokeLocationFunction(inVal,pokeLocationFunction)
-    },
-    createDropDown:selectRegion,
-    pokemonOut:[levelsINDEX, pokeJSON],
-    selectPokemon:infoAboutSelectedPokemon
+    }
+    pokeLocationFunction(inVal,pokeLocationFunction)
 };
 
 function pokeLocationFunction (array_in, cbfxn) {
@@ -44,7 +48,6 @@ function pokeLocationFunction (array_in, cbfxn) {
             array_in.pop()
             var tempLocation = JSON.parse(location.response);
             var tempArray = [];
-            console.log(JSON.parse(location.response).name);
             tempLocation.name.split("-").forEach(function (val) {
                 tempArray.push(val.charAt(0).toUpperCase() + val.slice(1));
             });
@@ -81,7 +84,6 @@ function pokeLocationFunction (array_in, cbfxn) {
 function pokemonOnRoute(callback_in) {
     var possiblePokemon = [];
     for (var y = 0; y < responseArray.length; y++){
-        console.log(responseArray[y][1].pokemon_encounters);
         for (var k = 0; k < responseArray[y][1].pokemon_encounters.length; k++)
         {
             possiblePokemon.push([responseArray[y][0],responseArray[y][1].pokemon_encounters[k]]);
@@ -91,7 +93,6 @@ function pokemonOnRoute(callback_in) {
     pokemonSERIES = [];
     levelsINDEX = [];
     var colorArray = colorOptions.slice();
-    console.log(possiblePokemon)
     for (var i = 0; i < possiblePokemon.length; i++)
     {
         if (i == possiblePokemon.length-1)
@@ -111,10 +112,7 @@ function handlePokemon(pokemon, areaName, colorArray, boolval) {
         if (pokemon.version_details[versionNUM].version.name == pokeVersion.name) {
             var rand = Math.floor(Math.random() * (colorArray.length-1));
             var color = colorArray[rand];
-            console.log(colorArray[rand]);
-            console.log(rand);
             colorArray.splice(rand,1);
-            console.log(colorArray[rand]);
             for (var encounter = 0; encounter < pokemon.version_details[versionNUM].encounter_details.length; encounter++) {
                 var thisEncounter = pokemon.version_details[versionNUM].encounter_details[encounter];
                 if(methodIndex.includes(thisEncounter.method.name)){
@@ -150,8 +148,6 @@ function handlePokemon(pokemon, areaName, colorArray, boolval) {
                         currentColor[2] -= 60;
                     }
 
-
-                    console.log(areaName.slice(locationName.length) == "Area");
                     if (areaName == locationName || areaName.slice(locationName.length) == "Area")
                     {
                         thisPokemonEncounters.push([pokemon.pokemon.name.charAt(0).toUpperCase() + pokemon.pokemon.name.slice(1),parseInt(thisEncounter.chance), parseInt(thisEncounter.min_level),  parseInt(thisEncounter.max_level), thisEncounter.method.name,  "rgb(" + currentColor.join(",")+")"]);
@@ -162,14 +158,17 @@ function handlePokemon(pokemon, areaName, colorArray, boolval) {
                     }
                                     }
                 if (encounter == pokemon.version_details[versionNUM].encounter_details.length - 1) {
-                    pokemonSERIES.push(thisPokemonEncounters);
-                    if (boolval)
-                    {
-                        outputPokeJSON()
+                    if (thisPokemonEncounters.length != 0) {
+                        console.log(thisPokemonEncounters)
+                        pokemonSERIES.push(thisPokemonEncounters);
                     }
                 }
             }
         }
+    }
+    if (boolval)
+    {
+        outputPokeJSON()
     }
 }
 
@@ -237,6 +236,7 @@ function outputPokeJSON() {
                 data : pokeJSON
             });
             if (!locationName.endsWith("Area")){locationName += " Area"}
+            console.log(levelsINDEX)
             zingchart.exec('CHARTDIV', 'modify', {
                 data : {
                     "title": {
@@ -273,7 +273,6 @@ function infoAboutSelectedPokemon(string_in) {
             var stats_value_obj = [];
             for (i = 0; i < 6; i++)
             {
-                console.log(pokeJSON.stats[i].stat.name)
                 if (pokeJSON.stats[i].stat.name.startsWith("special-"))
                 {
                     stats_name_obj.push("s. "+pokeJSON.stats[i].stat.name.slice(8));
@@ -298,8 +297,7 @@ function infoAboutSelectedPokemon(string_in) {
 
 function render_Radar(name,pokeURL, stats_name, stats_value){
     max_Val = Math.ceil(Math.max(...stats_value)/25)*25;
-    console.log(max_Val)
-    var myConfig = {
+    var myRadar = {
         "globals": {
             "font-family": 'Exo 2, sans-serif',
             "shadow":false
@@ -449,7 +447,7 @@ function render_Radar(name,pokeURL, stats_name, stats_value){
 
     zingchart.render({
         id : 'radar',
-        data : myConfig,
+        data : myRadar,
     });
     document.getElementById("pokemon_image").src = pokeURL;
     document.getElementById("radar").style.visibility = "visible";
@@ -461,7 +459,6 @@ function typeEffectivity(types_in) {
     var this_pokemon_index_array = [];
     types_in.forEach(function (type) {
         this_pokemon_index_array.push(poke.indexOf(type));
-        console.log(type)
     })
     var string_type_name = types_in.toString().replace(","," ");
     var effectivity = [
@@ -496,7 +493,7 @@ function typeEffectivity(types_in) {
         }
         return effectivity_value;
     }
-    val_array = [
+    var val_array = [
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,calculateEffectivity([0],this_pokemon_index_array)],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,calculateEffectivity([1],this_pokemon_index_array)],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,calculateEffectivity([2],this_pokemon_index_array)],
@@ -535,8 +532,8 @@ function typeEffectivity(types_in) {
         calculateEffectivity(this_pokemon_index_array,[17]),
         calculateEffectivity(this_pokemon_index_array,this_pokemon_index_array)]
     ]
-    console.log(val_array)
-    var myConfig = {
+
+    var myChord = {
         "type": "chord",
         "background-color": "transparent",
         "title": {
@@ -547,7 +544,7 @@ function typeEffectivity(types_in) {
             // "font-family": 'Exo 2, sans-serif',
             visible:false
         },
-        x:"-25%",
+        x:"-20%",
         "legend": {
             "layout":"10x2",
             "toggle-action": "none",
@@ -557,7 +554,7 @@ function typeEffectivity(types_in) {
             "border-radius":"5vmin",
             x: "70%",
             y: "0%",
-            height:"90%",
+            height:"85%",
             "item": {
                 "font-color": "#fff",
                 "font-family": 'Exo 2, sans-serif',
@@ -781,43 +778,66 @@ function typeEffectivity(types_in) {
             },
         }]
     };
-
     zingchart.render({
         id : 'chord',
-        data : myConfig,
+        data : myChord,
     });
 }
 
 
 
-
-
-
-
-function selectRegion(region) {
+function removeOptions(region,render_obj) {
     var gameSelect = document.getElementById("select_Version");
-    for (var i = 0; i < gameSelect.options.length; i++)
-    {
-        gameSelect.options[i] = null;
+    if (gameSelect.options.length == 0){
+        selectRegion(region,render_obj);
     }
+    else
+    {
+        while(gameSelect.options.length != 0){
+            gameSelect.remove(length-1);
+            if(gameSelect.options.length == 0)
+            {
+                selectRegion(region,render_obj);
+            }
+        }
+    }
+}
+
+
+
+function selectRegion(region,render_obj) {
+    var gameSelect = document.getElementById("select_Version");
     var location = new XMLHttpRequest();
     var url = 'http://pokeapi.co/api/v2/region/'+region;
     location.onreadystatechange = function() {
         if (location.readyState == 4 && location.status == 200) {
-            JSON.parse(location.response).version_groups.forEach(function (group) {
+            var v_groups = JSON.parse(location.response).version_groups;
+            for (var k = 0; k < v_groups.length; k ++)
+            {
+                var group = v_groups[k];
                 versions().some(function (version_in) {
                     if (version_in.name == group.name){
                         version_in.versions.forEach(function (temp) {
                             pokeVersionArray.push(temp);
                             var newoptions = document.createElement("option");
-                            newoptions.text = temp.name;
+                            newoptions.text = ""
+                            var holdName =[];
+                            temp.name.split("-").forEach(function (val) {
+                                holdName.push(val.charAt(0).toUpperCase() + val.slice(1));
+                            });
+                            newoptions.text = holdName.join(" ");
+                            newoptions.value = temp.name;
                             gameSelect.options.add(newoptions);
                         });
                         return true;
                     }
                 });
-            });
-            versionSelect();
+                if (k == v_groups.length -1)
+                {
+                    versionSelect();
+                    renderShape(render_obj[0],render_obj[1]);
+                }
+            }
             gameSelect.onchange = versionSelect;
         }
     };
@@ -830,7 +850,8 @@ function versionSelect() {
         if (vers.name == document.getElementById("select_Version").value)
         {
             pokeVersion = vers;
-
+            pokeJSON = [];
+            return true;
         }
     });
     if (flag)
@@ -844,5 +865,200 @@ function versionSelect() {
 }
 
 
-var colorOptions = [[255,153,153],[255,204,153],[255,255,153],[204,255,153],[153,255,153],[153,255,204],[153,255,255],[153,204,255],[153,153,255],[204,153,255],[255,153,255],[255,153,204],[185,83,83],[185,134,83],[185,185,83],[134,185,83],[83,185,83],[83,185,134],[83,185,185],[83,134,185],[83,83,185],[134,83,185],[185,83,185],[185,83,134]];
+var colorOptions = [[255,153,153],[255,204,153],[255,255,153],[204,255,153],[153,255,153],[153,255,204],[153,255,255],[153,204,255],[153,153,255],[204,153,255],[255,153,255],[255,153,204],[185,83,83],[185,134,83],[185,185,83],[134,185,83],[83,185,83],[83,185,134],[83,185,185],[83,134,185],[83,83,185],[134,83,185],[185,83,185],[185,83,134],[255,183,183],[255,234,183],[255,255,183],[234,255,183],[183,255,183],[183,255,234],[183,255,255],[183,234,255],[183,183,255],[234,183,255],[255,183,255],[255,183,234],[185,113,113],[185,134,113],[185,185,113],[134,185,113],[113,185,113],[113,185,134],[113,185,185],[113,134,185],[113,113,185],[134,113,185],[185,113,185],[185,113,134]];
 
+
+function renderShape(SVGObject,shapesArray)
+{
+    zingchart.render({
+        id: "SHAPESDIV",
+        width: "100%",
+        height: "100%",
+        margins: 0,
+        backgroundColor: "transparent",
+        data: {
+            backgroundColor: "transparent",
+            "shapes": shapesArray
+        }
+    });
+    zingchart.render({
+        id: "CHARTDIV",
+        width: "100%",
+        height: "100%",
+        backgroundColor: "transparent",
+        data: {
+            id: "pokemonRoute",
+            "type": "bar",
+            "background-color": "transparent",
+            "fill-angle": 45,
+            "stacked": true,
+            width: "100%",
+            height: "100%",
+            "title": {
+                "text": "Likelyhood of Encountering Pokemon",
+                "text-align": "left",
+                "font-family": 'Exo 2, sans-serif',
+                "font-size": "20px",
+                "font-color": "#fff",
+                "background-color": "none",
+                "padding": "20px 0 0 20px",
+                "height": "40px"
+            },
+            "legend": {
+                "layout":"12x1",
+                "toggle-action": "none",
+                "background-color": "#0B4153",
+                "border-width": 0,
+                "border-color": "none",
+                "y": "0",
+                "x": "80%",
+                "height":"95%",
+                "width":"20%",
+                "padding-bottom":"10px",
+                "shadow": 0,
+                "max-items":12,
+                "overflow":"scroll",
+                "scroll":{
+                    "bar":{
+                        "background-color":"#0D4A61",
+                        "border-left":"1px solid #0D4A61",
+                        "border-right":"1px solid #0D4A61",
+                        "border-top":"1px solid #0D4A61",
+                        "border-bottom":"1px solid #0D4A61",
+                    },
+                    "handle":{
+                        "background-color":"#116381",
+                        "border-left":"2px solid #116381",
+                        "border-right":"2px solid #116381",
+                        "border-top":"2px solid #116381",
+                        "border-bottom":"2px solid #116381",
+                        "border-radius":"15px"
+                    }
+                },
+                "item": {
+                    "overflow":"wrap",
+                    "font-color": "#fff",
+                    "font-family": 'Exo 2, sans-serif',
+                    "font-size": "15px",
+                    "font-weight": "normal",
+                    "alpha": 0.6
+                },
+                "header": {
+                    "text": "POKEMON ON ROUTE",
+                    "font-family": 'Exo 2, sans-serif',
+                    "font-size": "15px",
+                    "font-color": "#fff",
+                    "background-color": "#082F3D",
+                    "border-width": 0,
+                    "border-color": "none",
+                    "height": "5%",
+                    "padding": "0 0 0 20px",
+                }
+            },
+            "plotarea":{
+                "margin-left":"10%",
+                "margin-right":"25%",
+                "margin-top":"15%",
+                "margin-bottom":"20%"
+            },
+            "plot": {
+                "alpha": 0.8,
+                "bar-width": "10px",
+                "hover-state": {
+                    "background-color": "#212339",
+                    "alpha": 1
+                },
+                "animation": {
+                    "delay": 0,
+                    "effect": 3,
+                    "speed": 1000,
+                    "method": 0,
+                    "sequence": 1
+                }
+            },
+            "scale-x": {
+                "values": [],
+                "items-overlap": false,
+                "line-color": "#E6ECED",
+                "line-width": "1px",
+                "tick": {
+                    "line-color": "#E6ECED",
+                    "line-width": ".75px",
+                },
+                "label": {
+                    "text": "Pokemon Level",
+                    "font-family": 'Exo 2, sans-serif',
+                    "font-weight": "normal",
+                    "font-size": "20px",
+                    "font-color": "#fff",
+                    "padding-top": "30px"
+                },
+                "guide": {
+                    "visible": false
+                },
+                "item": {
+                    "font-color": "#fff",
+                    "font-family": "Exo 2, sans-serif",
+                    "font-size": "10px",
+                    "font-angle": -48,
+                    "offset-x": "5px"
+                }
+            },
+            "scale-y": {
+                "line-color": "#E6ECED",
+                "line-width": "1px",
+                "tick": {
+                    "line-color": "#E6ECED",
+                    "line-width": ".75px",
+                },
+                "label": {
+                    "text": "Encounter Chance",
+                    "font-family": 'Exo 2, sans-serif',
+                    "font-weight": "normal",
+                    "font-size": "20px",
+                    "font-color": "#fff"
+                },
+                "guide": {
+                    "visible":false
+                },
+                "item": {
+                    "font-color": "#fff",
+                    "font-family": "Exo 2, sans-serif",
+                    "font-size": "10px",
+                    "padding": "3px"
+                }
+            },
+            "tooltip": {
+                "text": "Chance of encountering a level %k %t: %v",
+                "font-family": 'Exo 2, sans-serif',
+                "font-size": "15px",
+                "font-weight": "normal",
+                "font-color": "#fff",
+                "decimals": 0,
+                "text-align": "left",
+                "border-radius": "8px",
+                "padding": "10px 10px",
+                "background-color": "#0B4153",
+                "alpha": 0.95,
+                "shadow": 0,
+                "border-width": 0,
+                "border-color": "none"
+            },
+            "series": pokeJSON
+        }
+    });
+    zingchart.shape_click = function(p) {
+        if (SVGObject.getElementById(p.shapeid).getAttribute("class") == "ROUTE" || SVGObject.getElementById(p.shapeid).getAttribute("class") == "LANDMARK"){
+            document.getElementById("loading").style.visibility = "visible";
+            beginRoute(JSON.parse(SVGObject.getElementById(p.shapeid).getAttribute("areaid")));
+        }
+    };
+    zingchart.legend_item_click = function(p) {
+        document.getElementById("loading").style.visibility = "visible";
+        document.getElementById("pokemon_image").src = "holder.png";
+        document.getElementById("radar").style.visibility = "hidden";
+        var pokeText = zingchart.exec('CHARTDIV', 'getseriesdata', {'plotindex' : p.plotindex}).text;
+        infoAboutSelectedPokemon(pokeText.slice(0,pokeText.indexOf('<')));
+    };
+    document.getElementById("loading").style.visibility = "hidden";
+}

@@ -2,8 +2,9 @@
  * Created by tmartin on 7/8/16.
  */
 
-module.exports = function (val_in) {
-    return makeShape(val_in);
+module.exports = {
+    mkshape:makeShape,
+    out:consoleLogAREAINFO
 };
 
 function pathToPolygon(array) {
@@ -12,6 +13,8 @@ function pathToPolygon(array) {
     var position = 0;
     var pointCount = 0; //CURVE
     var curvePoints = [];
+    var coordinateCount = 0; //CURVE
+    var coordinateArray = []; //CURVE
     var recentStart = [0,0];
     array.forEach(function (value) {
         if (isNaN(parseFloat(value))){
@@ -50,54 +53,39 @@ function pathToPolygon(array) {
                     }
                     break;
                 case 'C':
-                    if (position == 0) {
-                        if (pointCount == 0)
-                        {
-                            curvePoints.push([pointsArray[pointsArray.length-1][0],pointsArray[pointsArray.length-1][1]]);
-                        }
-                        curvePoints.push([parseFloat(value)]);
-                        position = 1;
+                    coordinateArray.push(parseFloat(value));
+                    coordinateCount++;
+                    if (coordinateCount == 6){
+                        coordinateArray.push(1);
+                        coordinateCount = 0;
+                        pointsArray.push(coordinateArray);
+                        coordinateArray = [];
+
                     }
-                    else {
-                        curvePoints[curvePoints.length-1].push(parseFloat(value));
-                        pointCount++;
-                        position = 0;
-                        if (pointCount == 3)
-                        {
-                            var vals = bezier(curvePoints);
-                            var distance = (Math.pow(Math.pow((curvePoints[0][0]-curvePoints[1][0]),2) + Math.pow((curvePoints[0][1]-curvePoints[1][1]),2),1/2)+Math.pow(Math.pow((curvePoints[1][0]-curvePoints[2][0]),2) + Math.pow((curvePoints[1][1]-curvePoints[2][1]),2),1/2)+Math.pow(Math.pow((curvePoints[2][0]-curvePoints[3][0]),2) + Math.pow((curvePoints[2][1]-curvePoints[3][1]),2),1/2)/4);
-                            for (var t = 0; t < distance;t++) {
-                                pointsArray.push(vals(t/distance));
-                            }
-                            curvePoints = [];
-                            pointCount = 0;
-                        }
-                    }
-                    // if (position == 5) {
-                    //     curvePoints.push(parseFloat(value) - curvePoints[position - 4]);
-                    //     pointsArray.push(curvePoints);
-                    //     position = 0;
-                    //     curvePoints = [];
-                    // }
-                    // else if (position == 4){
-                    //     curvePoints.push(parseFloat(value) - curvePoints[position - 4]);
-                    //     position++;
-                    // }
-                    // else if (position == 2 || position ==3){
-                    //     curvePoints.push(parseFloat(value) - curvePoints[position - 2]);
-                    //     position++;
-                    // }
-                    // else if (position == 0){
-                    //     var prev = pointsArray[pointsArray.length-1];
-                    //     curvePoints.push(prev[prev.length-2]);
-                    //     curvePoints.push(prev[prev.length-1]);
-                    //     curvePoints.push(parseFloat(value));
-                    //     position++;
+                    // if (position == 0) {
+                    //     if (pointCount == 0)
+                    //     {
+                    //         curvePoints.push([pointsArray[pointsArray.length-1][0],pointsArray[pointsArray.length-1][1]]);
+                    //     }
+                    //     curvePoints.push([parseFloat(value)]);
+                    //     position = 1;
                     // }
                     // else {
-                    //     curvePoints.push(parseFloat(value));
-                    //     position++;
+                    //     curvePoints[curvePoints.length-1].push(parseFloat(value));
+                    //     pointCount++;
+                    //     position = 0;
+                    //     if (pointCount == 3)
+                    //     {
+                    //         var vals = bezier(curvePoints);
+                    //         var distance = (Math.pow(Math.pow((curvePoints[0][0]-curvePoints[1][0]),2) + Math.pow((curvePoints[0][1]-curvePoints[1][1]),2),1/2)+Math.pow(Math.pow((curvePoints[1][0]-curvePoints[2][0]),2) + Math.pow((curvePoints[1][1]-curvePoints[2][1]),2),1/2)+Math.pow(Math.pow((curvePoints[2][0]-curvePoints[3][0]),2) + Math.pow((curvePoints[2][1]-curvePoints[3][1]),2),1/2)/4);
+                    //         for (var t = 0; t < distance;t++) {
+                    //             pointsArray.push(vals(t/distance));
+                    //         }
+                    //         curvePoints = [];
+                    //         pointCount = 0;
+                    //     }
                     // }
+                    //
                     break;
                 case 'A':
                     //handle arc
@@ -112,6 +100,8 @@ function pathToLine(array) {
     var currentLetter = "";
     var position = 0;
     var pointCount = 0; //CURVE
+    var coordinateCount = 0; //CURVE
+    var coordinateArray = []; //CURVE
     var curvePoints = [];
     var recentStart = [0,0];
     array.forEach(function (value) {
@@ -151,7 +141,7 @@ function pathToLine(array) {
                     }
                     break;
                 case 'C':
-                    if (position == 0) {
+                    /*if (position == 0) {
                         if (pointCount == 0)
                         {
                             curvePoints.push([pointsArray[pointsArray.length-1][0],pointsArray[pointsArray.length-1][1]]);
@@ -173,6 +163,18 @@ function pathToLine(array) {
                             curvePoints = [];
                             pointCount = 0;
                         }
+                    }*/
+                    coordinateArray.push(parseFloat(value));
+                    coordinateCount++;
+                    if (coordinateCount == 6){
+                        coordinateArray.push(1);
+                        coordinateCount = 0;
+                        pointsArray.push(coordinateArray);
+                        coordinateArray = [];
+
+                    }
+                    else {
+                        coordinateCount++;
                     }
                     break;
                 case 'A':
@@ -183,6 +185,21 @@ function pathToLine(array) {
     });
     return pointsArray;
 }
+var values = []
+function consoleLogAREAINFO(str)
+{
+    var location = new XMLHttpRequest();
+    var url = 'http://pokeapi.co/api/v2/location-area/'+str[str.length-1];
+    location.onreadystatechange = function() {
+        if (location.readyState == 4 && location.status == 200) {
+            console.log(location.response)
+            return (location.response);
+        }
+    };
+    location.open("GET", url, true);
+    location.send();
+}
+
 
 function makeShape(path) {
     var lineColor_in = "black";
@@ -205,6 +222,13 @@ function makeShape(path) {
                     strokeWidth_in = value.substr(13);
                 }
             });
+            if(path.getAttribute("areaid"))
+            {
+                JSON.parse(path.getAttribute("areaid")).forEach(function (r) {
+                    values.push(r)
+                })
+                console.log(values)
+            }
             return {
                 id: path.getAttribute("id"),
                 type: "line",
@@ -250,6 +274,36 @@ function makeShape(path) {
         }
     }
     else if (path.getAttribute("class") == "CITY") {
+        var circleR = path.getAttribute("r").trim();
+        var circleX = path.getAttribute("cx").trim();
+        var circleY = path.getAttribute("cy").trim();
+        lineColor_in = "black";
+        strokeWidth_in = "5";
+        style_array = path.getAttribute("style").split(";");
+        style_array.forEach(function (value) {
+            value.trim();
+            if (value.startsWith("stroke:")) {
+                lineColor_in = value.substr(7);
+            }
+            else if (value.startsWith("fill:")) {
+                fillColor_in = value.substr(5);
+            }
+            if (value.startsWith("stroke-width:")) {
+                strokeWidth_in = value.substr(13);
+            }
+        });
+        return {
+            id: path.getAttribute("id"),
+            type:"circle",
+            borderWidth:strokeWidth_in,
+            borderColor:lineColor_in,
+            backgroundColor: fillColor_in,
+            size:circleR + "px",
+            x: circleX + "px",
+            y: circleY + "px",
+        };
+    }
+    else if (path.getAttribute("class") == "LANDMARK") {
         var circleR = path.getAttribute("r").trim();
         var circleX = path.getAttribute("cx").trim();
         var circleY = path.getAttribute("cy").trim();

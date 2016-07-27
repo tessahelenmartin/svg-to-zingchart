@@ -8,7 +8,7 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
-   regionID="hoenn"
+   regionID="kalos"
    id="svg2"
    viewBox="0 0 600 399.99999"
    width="600"
@@ -90,199 +90,199 @@
      style="fill:#986749;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[588]"
+     areaid="[]"
      id="kalos-route-1"
      d="M 395.83449,332.9866 395.99625,307.10427"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[591]"
+     areaid="[713]"
      id="kalos-route-2"
      d="M 394.46068,278.96989 395.99625,307.10427"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[594]"
+     areaid="[714]"
      id="kalos-route-3"
      d="M 370.43744,239.16314 394.46068,278.96989"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[597]"
+     areaid="[715]"
      id="kalos-route-4"
      d="M 370.43744,239.16314 316.24632,165.56026"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[602]"
+     areaid="[716]"
      id="kalos-route-5"
      d="M 255.0993,243.36904 316.24632,165.56026"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[606]"
+     areaid="[717]"
      id="kalos-route-6"
      d="M 189.09935,208.42786 255.0993,243.36904"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[609]"
+     areaid="[718]"
      id="kalos-route-7"
      d="M 162.73172,264.07489 255.0993,243.36904"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[612]"
+     areaid="[719]"
      id="kalos-route-8"
      d="M 112.30041,245.99652 141.20383,312.08394 162.73172,264.07489"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[615]"
+     areaid="[720]"
      id="kalos-route-9"
      d="M 141.20383,312.08394 234.00412,307.28395"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[618]"
+     areaid="[721]"
      id="kalos-route-10"
      d="M 56.614156,217.81022 112.30041,245.99652"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[621]"
+     areaid="[722]"
      id="kalos-route-11"
      d="M 73.92297,203.2514 56.614156,217.81022"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[626]"
+     areaid="[723]"
      id="kalos-route-12"
      d="M 211.90816,133.69265 93.011189,175.91319"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[629]"
+     areaid="[724]"
      id="kalos-route-13"
      d="M 211.90816,133.69265 316.24632,165.56026"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[631]"
+     areaid="[725]"
      id="kalos-route-14"
      d="M 316.56984,72.707391 316.24632,165.56026"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[635]"
+     areaid="[726]"
      id="kalos-route-15"
      d="M 417.34918,132.88381 316.56984,72.707391"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[638]"
+     areaid="[727]"
      id="kalos-route-16"
      d="M 417.34918,132.88381 316.24632,165.56026"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[641]"
+     areaid="[728]"
      id="kalos-route-17"
      d="M 417.34918,132.88381 521.68735,184.97201"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[644]"
+     areaid="[729]"
      id="kalos-route-18"
      d="M 564.06966,206.64847 521.68735,184.97201"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[647]"
+     areaid="[730]"
      id="kalos-route-19"
      d="M 505.67265,242.23668 564.06966,206.64847"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[650]"
+     areaid="[731]"
      id="kalos-route-20"
      d="M 487.39325,303.22191 505.67265,242.23668"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[653]"
+     areaid="[732]"
      id="kalos-route-21"
      d="M 505.67265,242.23668 447.27564,221.36905"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[655]"
+     areaid="[733]"
      id="kalos-route-22"
      d="M 370.43744,239.16314 447.27564,221.36905"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[676]"
+     areaid="[754,755,756,757,758]"
      id="terminus-cave-route"
      d="M 565.04026,149.22203 521.68735,184.97201"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[657]"
+     areaid="[758,749,750,751,751]"
      id="victory-road-route"
      d="M 447.9227,182.222 447.27564,221.36905"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[672]"
+     areaid="[753]"
      id="connecting-cave-route"
      d="M 112.30041,245.99652 162.73172,264.07489"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[671]"
+     areaid="[738,739,740,741]"
      id="reflection-cave-route"
      d="M 93.011189,175.91319 73.92297,203.2514"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[661]"
+     areaid="[742,743,744,745,746]"
      id="azure-bay-route"
      d="M 153.1876,91.957356 211.90816,133.69265"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[640]"
+     areaid="[]"
      id="frost-cavern-route"
      d="M 457.9521,94.222079 417.34918,132.88381"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.02976012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <circle
      r="5"
@@ -363,7 +363,7 @@
      class="CITY" />
   <circle
      style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5222"
+     id="pokemon-village"
      cx="487.83081"
      cy="302.26083"
           r="5"
@@ -426,7 +426,7 @@
      class="CITY" />
   <circle
      style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5242"
+     id="santalune-forest"
      cx="394.7215"
      cy="278.69751"
           r="5"
