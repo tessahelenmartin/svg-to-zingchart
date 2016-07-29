@@ -1,0 +1,77 @@
+{
+  "type-effective":
+  {
+    "1": {
+      "target_type_id": 18,
+      "damage_factor": 100
+    },
+    "2": {
+      "target_type_id": 18,
+      "damage_factor": 50
+    },
+    "3": {
+      "target_type_id": 18,
+      "damage_factor": 100
+    },
+    "4": {
+      "target_type_id": 18,
+      "damage_factor": 200
+    },
+    "5": {
+      "target_type_id": 18,
+      "damage_factor": 100
+    },
+    "6": {
+      "target_type_id": 18,
+      "damage_factor": 100
+    },
+    "7": {
+      "target_type_id": 18,
+      "damage_factor": 50
+    },
+    "8": {
+      "target_type_id": 18,
+      "damage_factor": 100
+    },
+    "9": {
+      "target_type_id": 18,
+      "damage_factor": 200
+    },
+    "10": {
+      "target_type_id": 18,
+      "damage_factor": 100
+    },
+    "11": {
+      "target_type_id": 18,
+      "damage_factor": 100
+    },
+    "12": {
+      "target_type_id": 18,
+      "damage_factor": 100
+    },
+    "13": {
+      "target_type_id": 18,
+      "damage_factor": 100
+    },
+    "14": {
+      "target_type_id": 18,
+      "damage_factor": 100
+    },
+    "15": {
+      "target_type_id": 18,
+      "damage_factor": 100
+    },
+    "16": {
+      "target_type_id": 18,
+      "damage_factor": 0
+    },
+    "17": {
+      "target_type_id": 18,
+      "damage_factor": 50
+    },
+    "18": {
+      "target_type_id": 18,
+      "damage_factor": 100
+    }
+  }
+}

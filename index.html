@@ -7,6 +7,18 @@
     <title>SVG to ZingChart</title>
     <script src="https://demos-stage.zingchart.com/zingchart/zingchart.min.js"></script>
     <script src="https://demos-stage.zingchart.com/zingchart/modules/zingchart-chord.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBycMEEmsomu7Ro9xatViYpnBh9XH2YTvY",
+            authDomain: "pokemon-zingchart.firebaseapp.com",
+            databaseURL: "https://pokemon-zingchart.firebaseio.com",
+            storageBucket: "pokemon-zingchart.appspot.com",
+        };
+        firebase.initializeApp(config);
+    </script>
+
 </head>
 <body>
     <script src="bezier.js"></script>
@@ -32,11 +44,11 @@
                         <p class="largerLabel">Version: </p>
                         <select id="select_Version" disabled></select>
                         <form id ="selectMethod">
-                            <p class="checkboxLabel">walk</p>       <input class = "checkboxElt" type="checkbox" name="method" id ="walk_input" value="walk" checked disabled>     <label for="walk_input"><span><span></span></span></label>
-                            <p class="checkboxLabel">old-rod</p>    <input class = "checkboxElt" type="checkbox" name="method" id = "old_rod_input" value="old-rod" disabled>      <label for="old_rod_input"><span><span></span></span></label>
-                            <p class="checkboxLabel">good-rod</p>   <input class = "checkboxElt" type="checkbox" name="method" id = "good_rod_input" value="good-rod" disabled>    <label for="good_rod_input"><span><span></span></span></label>
-                            <p class="checkboxLabel">super-rod</p>  <input class = "checkboxElt" type="checkbox" name="method" id = "super_rod_input" value="super-rod" disabled>  <label for="super_rod_input"><span><span></span></span></label>
-                            <p class="checkboxLabel">surf</p>       <input class = "checkboxElt" type="checkbox" name="method" id = "surf_input" value="surf" disabled>            <label for="surf_input"><span><span></span></span></label>
+                            <p class="checkboxLabel">walk</p>       <input class = "checkboxElt" type="checkbox" name="method" id ="walk_input" value="1" checked disabled>     <label for="walk_input"><span><span></span></span></label>
+                            <p class="checkboxLabel">old-rod</p>    <input class = "checkboxElt" type="checkbox" name="method" id = "old_rod_input" value="2" disabled>      <label for="old_rod_input"><span><span></span></span></label>
+                            <p class="checkboxLabel">good-rod</p>   <input class = "checkboxElt" type="checkbox" name="method" id = "good_rod_input" value="3" disabled>    <label for="good_rod_input"><span><span></span></span></label>
+                            <p class="checkboxLabel">super-rod</p>  <input class = "checkboxElt" type="checkbox" name="method" id = "super_rod_input" value="4" disabled>  <label for="super_rod_input"><span><span></span></span></label>
+                            <p class="checkboxLabel">surf</p>       <input class = "checkboxElt" type="checkbox" name="method" id = "surf_input" value="5" disabled>            <label for="surf_input"><span><span></span></span></label>
                         </form>
                     </div>
                     </div>

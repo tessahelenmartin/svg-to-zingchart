@@ -1,0 +1,74 @@
+{
+  "encounters-method-prose":[
+  {
+    "1": {
+      "identifier": "walk",
+      "order": 1
+    },
+    "2": {
+      "identifier": "old-rod",
+      "order": 10
+    },
+    "3": {
+      "identifier": "good-rod",
+      "order": 11
+    },
+    "4": {
+      "identifier": "super-rod",
+      "order": 12
+    },
+    "5": {
+      "identifier": "surf",
+      "order": 14
+    },
+    "6": {
+      "identifier": "rock-smash",
+      "order": 16
+    },
+    "7": {
+      "identifier": "headbutt",
+      "order": 17
+    },
+    "8": {
+      "identifier": "dark-grass",
+      "order": 5
+    },
+    "9": {
+      "identifier": "grass-spots",
+      "order": 2
+    },
+    "10": {
+      "identifier": "cave-spots",
+      "order": 3
+    },
+    "11": {
+      "identifier": "bridge-spots",
+      "order": 4
+    },
+    "12": {
+      "identifier": "super-rod-spots",
+      "order": 13
+    },
+    "13": {
+      "identifier": "surf-spots",
+      "order": 15
+    },
+    "14": {
+      "identifier": "yellow-flowers",
+      "order": 6
+    },
+    "15": {
+      "identifier": "purple-flowers",
+      "order": 7
+    },
+    "16": {
+      "identifier": "red-flowers",
+      "order": 8
+    },
+    "17": {
+      "identifier": "rough-terrain",
+      "order": 9
+    }
+  }
+]
+}

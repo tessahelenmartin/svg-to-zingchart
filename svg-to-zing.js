@@ -4,7 +4,6 @@
 
 module.exports = {
     mkshape:makeShape,
-    out:consoleLogAREAINFO
 };
 
 function pathToPolygon(array) {
@@ -185,22 +184,6 @@ function pathToLine(array) {
     });
     return pointsArray;
 }
-var values = []
-function consoleLogAREAINFO(str)
-{
-    var location = new XMLHttpRequest();
-    var url = 'http://pokeapi.co/api/v2/location-area/'+str[str.length-1];
-    location.onreadystatechange = function() {
-        if (location.readyState == 4 && location.status == 200) {
-            console.log(location.response)
-            return (location.response);
-        }
-    };
-    location.open("GET", url, true);
-    location.send();
-}
-
-
 function makeShape(path) {
     var lineColor_in = "black";
     var fillColor_in = "none";
@@ -222,13 +205,6 @@ function makeShape(path) {
                     strokeWidth_in = value.substr(13);
                 }
             });
-            if(path.getAttribute("areaid"))
-            {
-                JSON.parse(path.getAttribute("areaid")).forEach(function (r) {
-                    values.push(r)
-                })
-                console.log(values)
-            }
             return {
                 id: path.getAttribute("id"),
                 type: "line",
@@ -304,9 +280,9 @@ function makeShape(path) {
         };
     }
     else if (path.getAttribute("class") == "LANDMARK") {
-        var circleR = path.getAttribute("r").trim();
-        var circleX = path.getAttribute("cx").trim();
-        var circleY = path.getAttribute("cy").trim();
+         circleR = path.getAttribute("r").trim();
+         circleX = path.getAttribute("cx").trim();
+         circleY = path.getAttribute("cy").trim();
         lineColor_in = "black";
         strokeWidth_in = "5";
         style_array = path.getAttribute("style").split(";");
