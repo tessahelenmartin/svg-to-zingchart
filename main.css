@@ -4,6 +4,7 @@ body
     background-color: #04171E;
 }
 
+
 #TOP {
     background-color: transparent;
     width: 100%;
@@ -241,12 +242,13 @@ input[type=checkbox]:not(old):disabled + label{
 #pokemon_header > p {
     padding: 0;
     padding-left: 5px;
+    display: inline-block;
     vertical-align: middle;
 }
 #pokemon_header_types {
-    margin-left: 0.75%;
+    margin-left: 3%;
     display: inline-block;
-    width:50%;
+    width:100%;
 }
 
 .types {
@@ -255,7 +257,8 @@ input[type=checkbox]:not(old):disabled + label{
     border: solid;
     border-radius: 15px;
     width: fit-content;
-    padding: 3px;
+    padding: 2px;
+    height: 100%;
     padding-left: 15px;
     padding-right: 15px;
     margin-left: 0.75%;
@@ -334,7 +337,8 @@ input[type=checkbox]:not(old):disabled + label{
 }
 
 #pokemon_image{
-    height:90%;
+    width:80%;
+    margin: 5%;
     left:0;
     background:url(holder.svg);
     background-size: 100% 100%;
@@ -346,7 +350,10 @@ input[type=checkbox]:not(old):disabled + label{
     background-color: #082F3D;
     border-radius: 0.5vmin;
     margin-left:2%;
+    overflow: hidden;
     height: 80%;
+    text-align: center;
+    width: 25vw;
 }
 
 #secondary_div {

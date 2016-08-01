@@ -24,13 +24,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="955"
+     inkscape:window-width="1436"
+     inkscape:window-height="855"
      id="namedview65"
      showgrid="false"
-     inkscape:zoom="0.73"
-     inkscape:cx="68.415012"
-     inkscape:cy="115.77205"
+     inkscape:zoom="2.0648"
+     inkscape:cx="402.65"
+     inkscape:cy="173.89"
      inkscape:window-x="0"
      inkscape:window-y="1"
      inkscape:window-maximized="1"
@@ -54,7 +54,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -90,389 +90,380 @@
      style="fill:#986749;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[]"
+     locationid="588"
      id="kalos-route-1"
      d="M 395.83449,332.9866 395.99625,307.10427"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[713]"
+     locationid="591"
      id="kalos-route-2"
      d="M 394.46068,278.96989 395.99625,307.10427"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[714]"
+     locationid="594"
      id="kalos-route-3"
      d="M 370.43744,239.16314 394.46068,278.96989"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[715]"
+     locationid="597"
      id="kalos-route-4"
      d="M 370.43744,239.16314 316.24632,165.56026"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[716]"
+     locationid="602"
      id="kalos-route-5"
      d="M 255.0993,243.36904 316.24632,165.56026"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[717]"
+     locationid="606"
      id="kalos-route-6"
      d="M 189.09935,208.42786 255.0993,243.36904"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[718]"
+     locationid="609"
      id="kalos-route-7"
      d="M 162.73172,264.07489 255.0993,243.36904"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[719]"
+     locationid="612"
      id="kalos-route-8"
      d="M 112.30041,245.99652 141.20383,312.08394 162.73172,264.07489"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[720]"
+     locationid="615"
      id="kalos-route-9"
      d="M 141.20383,312.08394 234.00412,307.28395"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[721]"
+     locationid="618"
      id="kalos-route-10"
      d="M 56.614156,217.81022 112.30041,245.99652"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[722]"
+     locationid="621"
      id="kalos-route-11"
      d="M 73.92297,203.2514 56.614156,217.81022"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[723]"
+     locationid="626"
      id="kalos-route-12"
      d="M 211.90816,133.69265 93.011189,175.91319"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[724]"
+     locationid="629"
      id="kalos-route-13"
      d="M 211.90816,133.69265 316.24632,165.56026"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[725]"
+     locationid="631"
      id="kalos-route-14"
      d="M 316.56984,72.707391 316.24632,165.56026"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[726]"
+     locationid="635"
      id="kalos-route-15"
      d="M 417.34918,132.88381 316.56984,72.707391"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[727]"
+     locationid="638"
      id="kalos-route-16"
      d="M 417.34918,132.88381 316.24632,165.56026"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[728]"
+     locationid="641"
      id="kalos-route-17"
      d="M 417.34918,132.88381 521.68735,184.97201"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[729]"
+     locationid="641"
      id="kalos-route-18"
      d="M 564.06966,206.64847 521.68735,184.97201"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[730]"
+     locationid="647"
      id="kalos-route-19"
      d="M 505.67265,242.23668 564.06966,206.64847"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[731]"
+     locationid="650"
      id="kalos-route-20"
      d="M 487.39325,303.22191 505.67265,242.23668"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[732]"
+     locationid="653"
      id="kalos-route-21"
      d="M 505.67265,242.23668 447.27564,221.36905"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[733]"
+     locationid="655"
      id="kalos-route-22"
      d="M 370.43744,239.16314 447.27564,221.36905"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[754,755,756,757,758]"
-     id="terminus-cave-route"
-     d="M 565.04026,149.22203 521.68735,184.97201"
+     locationid="657"
+     id="victory-road"
+     d="M 447.92,182.22 447.28,221.37"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
   <path
      inkscape:connector-curvature="0"
-     areaid="[758,749,750,751,751]"
-     id="victory-road-route"
-     d="M 447.9227,182.222 447.27564,221.36905"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     class="ROUTE" />
-  <path
-     inkscape:connector-curvature="0"
-     areaid="[753]"
-     id="connecting-cave-route"
-     d="M 112.30041,245.99652 162.73172,264.07489"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     class="ROUTE" />
-  <path
-     inkscape:connector-curvature="0"
-     areaid="[738,739,740,741]"
-     id="reflection-cave-route"
-     d="M 93.011189,175.91319 73.92297,203.2514"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     class="ROUTE" />
-  <path
-     inkscape:connector-curvature="0"
-     areaid="[742,743,744,745,746]"
-     id="azure-bay-route"
+     locationid="661"
+     id="azure-bay"
      d="M 153.1876,91.957356 211.90816,133.69265"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      class="ROUTE" />
-  <path
-     inkscape:connector-curvature="0"
-     areaid="[]"
-     id="frost-cavern-route"
-     d="M 457.9521,94.222079 417.34918,132.88381"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     class="ROUTE" />
   <circle
+     locationid="620"
      r="5"
-          cy="217.61598"
-     cx="57.206776"
-     id="path5198"
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     class="CITY" />
+     cy="217.62"
+     cx="57.207"
+     id="geosenge-town"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     class="LANDMARK" />
   <circle
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5200"
-     cx="93.352394"
-     cy="175.75119"
-          r="5"
-     class="CITY" />
-  <circle
+     locationid="624"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     id="shalour-city"
+     cx="93.352"
+     cy="175.75"
      r="5"
-          cy="246.21219"
-     cx="112.79781"
-     id="ellipse5202"
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     class="CITY" />
+     class="LANDMARK" />
   <circle
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5204"
-     cx="140.59093"
-     cy="312.31494"
-          r="5"
-     class="CITY" />
-  <circle
+     locationid="611"
      r="5"
-          cy="264.05621"
-     cx="162.89838"
-     id="ellipse5206"
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     class="CITY" />
+     cy="246.21"
+     cx="112.8"
+     id="cyllage-city"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     class="LANDMARK" />
   <circle
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5208"
-     cx="169.07515"
-     cy="237.51892"
-          r="5"
-     class="CITY" />
-  <circle
+     locationid="614"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     id="ambrette-town"
+     cx="140.59"
+     cy="312.31"
      r="5"
-          cy="208.46521"
-     cx="189.20688"
-     id="ellipse5210"
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     class="CITY" />
+     class="LANDMARK" />
   <circle
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5212"
-     cx="254.86378"
-     cy="243.00938"
-          r="5"
-     class="CITY" />
-  <circle
+     locationid="672"
      r="5"
-          cy="165.45651"
-     cx="316.28842"
-     id="ellipse5214"
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     class="CITY" />
+     cy="264.06"
+     cx="162.9"
+     id="connecting-cave"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     class="LANDMARK" />
   <circle
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5216"
-     cx="370.27811"
-     cy="238.89154"
-          r="5"
-     class="CITY" />
-  <circle
+     locationid="617"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     id="battle-chateau"
+     cx="169.08"
+     cy="237.52"
      r="5"
-          cy="307.98001"
-     cx="395.86536"
-     id="ellipse5220"
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     class="CITY" />
+     class="LANDMARK" />
   <circle
+     locationid="608"
+     r="5"
+     cy="208.47"
+     cx="189.21"
+     id="parfum-palace"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     class="LANDMARK" />
+  <circle
+     locationid="604"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     id="camphrier-town"
+     cx="254.86"
+     cy="243.01"
+     r="5"
+     class="LANDMARK" />
+  <circle
+     locationid="599"
+     r="5"
+     cy="165.46"
+     cx="316.29"
+     id="lumiose-city"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     class="LANDMARK" />
+  <circle
+     locationid="593"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     id="santalune-city"
+     cx="370.28"
+     cy="238.89"
+     r="5"
+     class="LANDMARK" />
+  <circle
+     locationid="590"
+     r="5"
+     cy="307.98"
+     cx="395.87"
+     id="aquacorde-town"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     class="LANDMARK" />
+  <circle
+     locationid="652"
      style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
      id="pokemon-village"
      cx="487.83081"
      cy="302.26083"
-          r="5"
-     class="CITY" />
-  <circle
      r="5"
-          cy="241.86559"
-     cx="505.90359"
-     id="ellipse5224"
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     class="CITY" />
+     class="LANDMARK" />
   <circle
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5226"
-     cx="447.56735"
-     cy="221.73387"
-          r="5"
-     class="CITY" />
-  <circle
+     locationid="649"
      r="5"
-          cy="185.13072"
-     cx="522.37512"
-     id="ellipse5228"
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     class="CITY" />
+     cy="241.87"
+     cx="505.9"
+     id="snowbelle-city"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     class="LANDMARK" />
   <circle
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5230"
-     cx="564.23999"
-     cy="206.86383"
-          r="5"
-     class="CITY" />
-  <circle
+     locationid="643"
      r="5"
-          cy="148.52757"
-     cx="565.61255"
-     id="ellipse5232"
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     class="CITY" />
+     cy="185.13"
+     cx="522.38"
+     id="anistar-city"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     class="LANDMARK" />
   <circle
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5234"
-     cx="416.9122"
-     cy="132.7424"
-          r="5"
-     class="CITY" />
-  <circle
+     locationid=""
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     id="couriway-town"
+     cx="564.24"
+     cy="206.86"
      r="5"
-          cy="93.851593"
-     cx="458.09082"
-     id="ellipse5236"
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     class="CITY" />
+     class="LANDMARK" />
   <circle
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5238"
-     cx="316.74594"
-     cy="72.576012"
-          r="5"
-     class="CITY" />
+     locationid="676"
+     r="5"
+     cy="148.53"
+     cx="565.61"
+     id="terminus-cave"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     class="LANDMARK" />
   <circle
+     locationid="637"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     id="dendemille-town"
+     cx="416.91"
+     cy="132.74"
+     r="5"
+     class="LANDMARK" />
+  <circle
+     locationid="640"
+     r="5"
+     cy="93.852"
+     cx="458.09"
+     id="frost-cavern"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     class="LANDMARK" />
+  <circle
+     locationid="633"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     id="laverre-city"
+     cx="316.75"
+     cy="72.576"
+     r="5"
+     class="LANDMARK" />
+  <circle
+     locationid="593"
      style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
      id="santalune-forest"
      cx="394.7215"
      cy="278.69751"
-          r="5"
-     class="CITY" />
-  <circle
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5244"
-     cx="395.86536"
-     cy="333.37347"
-          r="5"
-     class="CITY" />
-  <circle
      r="5"
-          cy="307.17938"
-     cx="234.16011"
-     id="ellipse5248"
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     class="CITY" />
+     class="LANDMARK" />
   <circle
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5250"
-     cx="74.135735"
-     cy="203.20355"
-          r="5"
-     class="CITY" />
-  <circle
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5252"
-     cx="249.03014"
-     cy="152.41663"
-          r="5"
-     class="CITY" />
-  <circle
+     locationid="587"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     id="vaniville-town"
+     cx="395.87"
+     cy="333.37"
      r="5"
-          cy="59.536152"
-     cx="316.80319"
-     id="ellipse5254"
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     class="CITY" />
+     class="LANDMARK" />
   <circle
+     locationid="671"
      r="5"
-          cy="113.98331"
-     cx="403.44968"
-     id="ellipse5256"
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     class="CITY" />
+     cy="307.18"
+     cx="234.16"
+     id="glittering-cave"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     class="LANDMARK" />
+  <circle
+     locationid="623"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     id="reflection-cave"
+     cx="74.136"
+     cy="203.2"
+     r="5"
+     class="LANDMARK" />
+  <circle
+     locationid="674"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     id="kalos-power-plant"
+     cx="249.03"
+     cy="152.42"
+     r="5"
+     class="LANDMARK" />
+  <circle
+     locationid="634"
+     r="5"
+     cy="59.536"
+     cx="316.8"
+     id="poke-ball-factory"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     class="LANDMARK" />
+  <circle
+     locationid="677"
+     r="5"
+     cy="113.98"
+     cx="403.45"
+     id="lost-hotel"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     class="LANDMARK" />
   <path
      inkscape:connector-curvature="0"
      class="LAND"
@@ -480,17 +471,19 @@
      d="M 356.6534,-5.6744412 C 352.75253,9.760066 346.99913,39.81483 359.22433,46.800661 375.84397,56.297596 449.44513,56.297817 462.50343,76.47884 475.56173,96.659842 514.73701,84.788811 556.28615,107.34406 597.83529,129.89931 600.20946,202.31441 590.71251,226.05678 581.21558,249.79914 556.28572,292.534 563.40843,316.27636 566.90583,327.93432 547.25328,353.51932 528.67274,357.60206 509.4126,361.83413 490.7734,344.55557 469.62571,356.63997 461.66669,361.18797 463.87875,366.3501 451.05877,371.27619 428.98679,379.75737 388.01056,387.53673 358.92706,390.27095 337.92255,392.24563 322.19935,379.30186 302.16775,378.2157 281.94516,377.11919 257.44569,387.88114 242.88771,389.87928 182.34467,398.1891 169.286,394.62705 149.10498,401.74975 147.3578,402.3664 145.45659,403.72719 143.44693,405.67444 L 600,405.67444 600,-5.6744412 356.6534,-5.6744412 Z"
      style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   <circle
+     locationid=""
      r="5"
-          cy="133.52968"
-     cx="212.09569"
-     id="ellipse5563"
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     class="CITY" />
+     cy="133.53"
+     cx="212.1"
+     id="coumarine-city"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1"
+     class="LANDMARK" />
   <circle
-     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445337;stroke-opacity:1"
-     id="ellipse5565"
-     cx="153.75604"
-     cy="92.398132"
-          r="5"
-     class="CITY" />
+     locationid="628"
+     class="LANDMARK"
+     r="5"
+     cy="181.27"
+     cx="447.6"
+     id="kalos-elite-four"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.16445;stroke-opacity:1" />
 </svg>

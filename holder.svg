@@ -9,9 +9,9 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
    id="svg4173"
-   viewBox="0 0 96.000004 96.000005"
-   height="27.093334mm"
-   width="27.093334mm"
+   viewBox="0 0 76.663073 76.663074"
+   height="21.636023mm"
+   width="21.636023mm"
    inkscape:version="0.91 r13725"
    sodipodi:docname="holder.svg"
    inkscape:export-filename="/Users/tmartin/Desktop/svg-to-zingchart/holder.png"
@@ -27,16 +27,20 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="955"
+     inkscape:window-height="957"
      id="namedview6"
      showgrid="false"
      inkscape:zoom="2.4583333"
-     inkscape:cx="84.490428"
-     inkscape:cy="65.258202"
+     inkscape:cx="4.4490821"
+     inkscape:cy="55.490201"
      inkscape:window-x="0"
      inkscape:window-y="1"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg4173" />
+     inkscape:current-layer="svg4173"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <defs
      id="defs4175" />
   <metadata
@@ -47,33 +51,34 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <path
      style="opacity:1;fill:#0b4153;fill-opacity:1;stroke:#0b4153;stroke-width:5.25000048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 48 12.193359 A 35.706537 35.706537 0 0 0 12.292969 47.900391 L 36.28125 47.900391 A 11.726007 11.726007 0 0 1 36.273438 47.699219 A 11.726007 11.726007 0 0 1 48 35.974609 A 11.726007 11.726007 0 0 1 59.726562 47.699219 A 11.726007 11.726007 0 0 1 59.716797 47.900391 L 83.707031 47.900391 A 35.706537 35.706537 0 0 0 48 12.193359 z "
-     id="circle4177" />
+     d="M 38.331536,2.6244315 A 35.706537,35.706537 0 0 0 2.6245046,38.331463 L 26.612786,38.331463 A 11.726007,11.726007 0 0 1 26.604974,38.130291 11.726007,11.726007 0 0 1 38.331536,26.405681 11.726007,11.726007 0 0 1 50.058098,38.130291 11.726007,11.726007 0 0 1 50.048333,38.331463 L 74.038567,38.331463 A 35.706537,35.706537 0 0 0 38.331536,2.6244315 Z"
+     id="circle4177"
+     inkscape:connector-curvature="0" />
   <g
-     transform="translate(41.734543,100.7919)"
+     transform="translate(32.066079,91.222972)"
      id="layer1" />
   <circle
      style="opacity:1;fill:none;fill-opacity:1;stroke:#0b4153;stroke-width:5.25000048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path4164"
      r="35.706539"
-     cy="47.900467"
-     cx="48.000004" />
+     cy="38.331539"
+     cx="38.331539" />
   <circle
      style="opacity:1;fill:#ffffff;fill-opacity:0;stroke:#0b4153;stroke-width:5.25000048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="circle4170"
-     cy="47.700001"
-     cx="48.000004"
+     cy="38.131073"
+     cx="38.331539"
      r="11.726007" />
   <circle
      r="4.7595959"
-     cx="48.000004"
-     cy="47.699505"
+     cx="38.331539"
+     cy="38.130577"
      id="circle4168"
      style="opacity:1;fill:#0b4153;fill-opacity:1;stroke:none;stroke-width:0.69981253;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
 </svg>

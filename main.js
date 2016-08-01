@@ -10,6 +10,7 @@ function beginApp() {
         document.getElementById("loading").visibility = "visible";
         var location = new XMLHttpRequest();
         var url = '/' + document.getElementById('select_Region').value + '.svg';
+        console.log(url)
         location.onreadystatechange = function() {
             if (location.readyState == 4 && location.status == 200) {
                 SVGSTRING = location.response;
@@ -23,6 +24,7 @@ function beginApp() {
     function loadSVG() {
         var parser = new DOMParser();
         var SVGObject = parser.parseFromString(SVGSTRING, "image/svg+xml");
+        console.log(SVGObject)
         var pathList = SVGObject.getElementsByTagName("path");
         var pathArray = Array.from(pathList);
         var shapesArray = [];

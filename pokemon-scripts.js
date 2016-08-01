@@ -2,7 +2,6 @@
  * Created by tmartin on 7/12/16.
  */
 var versions = require('./versions');
-var svgToZing = require('./svg-to-zing');
 var pokeVersion;
 var pokeVersionArray = [];
 var min = null;
@@ -17,7 +16,6 @@ var flag = 1;
 var svg_stored;
 var shapes_stored;
 var region_stored;
-var location_areas;
 module.exports = {
     createDropDown:removeOptions
 };
@@ -41,6 +39,121 @@ var regions = {
         "name": "Kalos"
     }
 };
+
+var stats = {
+    "1": 'HP',
+    "2": 'Attack',
+    "3": 'Defense',
+    "4": 'S. Attack',
+    "5": 'S. Defense',
+    "6": 'Speed',
+    "7": 'Accuracy',
+    "8": 'Evasion'
+}
+
+var types = {
+        "1": {
+            "identifier": "normal",
+            "generation_id": 1,
+            "damage_class_id": 2
+        },
+        "2": {
+            "identifier": "fighting",
+            "generation_id": 1,
+            "damage_class_id": 2
+        },
+        "3": {
+            "identifier": "flying",
+            "generation_id": 1,
+            "damage_class_id": 2
+        },
+        "4": {
+            "identifier": "poison",
+            "generation_id": 1,
+            "damage_class_id": 2
+        },
+        "5": {
+            "identifier": "ground",
+            "generation_id": 1,
+            "damage_class_id": 2
+        },
+        "6": {
+            "identifier": "rock",
+            "generation_id": 1,
+            "damage_class_id": 2
+        },
+        "7": {
+            "identifier": "bug",
+            "generation_id": 1,
+            "damage_class_id": 2
+        },
+        "8": {
+            "identifier": "ghost",
+            "generation_id": 1,
+            "damage_class_id": 2
+        },
+        "9": {
+            "identifier": "steel",
+            "generation_id": 2,
+            "damage_class_id": 2
+        },
+        "10": {
+            "identifier": "fire",
+            "generation_id": 1,
+            "damage_class_id": 3
+        },
+        "11": {
+            "identifier": "water",
+            "generation_id": 1,
+            "damage_class_id": 3
+        },
+        "12": {
+            "identifier": "grass",
+            "generation_id": 1,
+            "damage_class_id": 3
+        },
+        "13": {
+            "identifier": "electric",
+            "generation_id": 1,
+            "damage_class_id": 3
+        },
+        "14": {
+            "identifier": "psychic",
+            "generation_id": 1,
+            "damage_class_id": 3
+        },
+        "15": {
+            "identifier": "ice",
+            "generation_id": 1,
+            "damage_class_id": 3
+        },
+        "16": {
+            "identifier": "dragon",
+            "generation_id": 1,
+            "damage_class_id": 3
+        },
+        "17": {
+            "identifier": "dark",
+            "generation_id": 2,
+            "damage_class_id": 3
+        },
+        "18": {
+            "identifier": "fairy",
+            "generation_id": 6,
+            "damage_class_id": ""
+        },
+        "10001": {
+            "identifier": "unknown",
+            "generation_id": 2,
+            "damage_class_id": ""
+        },
+        "10002": {
+            "identifier": "shadow",
+            "generation_id": 3,
+            "damage_class_id": ""
+        }
+    }
+
 var method_names = ["walk", "old-rod","good-rod","super-rod","surf","rock-smash","headbutt","dark-grass","grass-spots","cave-spots","bridge-spots","super-rod-spots","surf-spots","yellow-flowers","purple-flowers","red-flowers","rough-terrain"]
 var pokedex = []
 
@@ -56,7 +169,7 @@ function accessDatabaseCHILD(ref_in,str,val_comp,callbackfunction,pass)
 {
     ref_in.orderByChild(str).equalTo(val_comp).once("value").then(function(snapshot) {
         var temp_database_array = [];
-        console.log(str + " " + snapshot.numChildren())
+        console.log(str+": "+snapshot.numChildren())
         snapshot.forEach(function (snap_child) {
             temp_database_array.push(snap_child.val());
             if (temp_database_array.length == snapshot.numChildren())
@@ -98,8 +211,13 @@ function pokeLocationFunction (inVal) {
 function getAllAreasInLocation(location_in,location_id){
     locationName = location_in;
     accessDatabaseCHILD(firebase.database().ref("location-areas"), "location_id", location_id, function (areas) {
-        console.log(methodIndex)
+        if (areas.length != 0){
             getEncountersAtAreaGivenMethod(areas,methodIndex.slice(),[[areas[0]["identifier"],methodIndex[0]]]);
+        }
+        else
+        {
+            alert("We're sorry, we don't detect any wild pokemon in this area!")
+        }
     },1)
 }
 
@@ -165,7 +283,10 @@ function getEncountersAtAreaGivenMethod(a_in, m_in, encounters_array) {
 
 
 function pokemonOnRoute(possiblePokemonEncounters_areas,callback_in) {
-    console.log(possiblePokemonEncounters_areas);
+    if (possiblePokemonEncounters_areas.length == 0){
+        alert("We're sorry, we don't detect any wild pokemon in this area!");
+        return;
+    }
     pokemonSERIES = [];
     levelsINDEX = [];
     var colorArray = colorOptions.slice();
@@ -175,17 +296,17 @@ function pokemonOnRoute(possiblePokemonEncounters_areas,callback_in) {
         for (var p = 2; p < possiblePokemonEncounters.length; p ++) {
             if ((r == possiblePokemonEncounters_areas.length-1) && (p == possiblePokemonEncounters.length-1))
             {
-                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p], possiblePokemonEncounters_areas[r][0],possiblePokemonEncounters_areas[r][1], colorArray, true);
+                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], possiblePokemonEncounters_areas[r][0],possiblePokemonEncounters_areas[r][1], colorArray, true);
             }
             else
             {
-                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p], possiblePokemonEncounters_areas[r][0],possiblePokemonEncounters_areas[r][1], colorArray, false);
+                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], possiblePokemonEncounters_areas[r][0],possiblePokemonEncounters_areas[r][1], colorArray, false);
             }
         }
     }
 }
 
-function handlePokemon(pokemon_name, pokemon, areadifferentiator, methodNumber, colorArray, boolval) {
+function handlePokemon(pokemon_name, pokemon_id, pokemon, areadifferentiator, methodNumber, colorArray, boolval) {
     var rand = Math.floor(Math.random() * (colorArray.length-1));
     var color = colorArray[rand];
     colorArray.splice(rand,1);
@@ -221,13 +342,13 @@ function handlePokemon(pokemon_name, pokemon, areadifferentiator, methodNumber, 
         currentColor[2] -= 60;
     }
 
-    console.log([pokemon_name,parseInt(pokemon.rarity), parseInt(pokemon.min_level),  parseInt(pokemon.max_level), method_names[methodNumber-1],  "rgb(" + currentColor.join(",")+")"]);
+    console.log([pokemon_name,parseInt(pokemon.rarity), parseInt(pokemon.min_level),  parseInt(pokemon.max_level), method_names[methodNumber-1],  "rgb(" + currentColor.join(",")+")"],pokemon_id);
     if (areadifferentiator == "")
     {
-        pokemonSERIES.push([pokemon_name,parseInt(pokemon.rarity), parseInt(pokemon.min_level),  parseInt(pokemon.max_level), method_names[methodNumber-1],  "rgb(" + currentColor.join(",")+")"]);
+        pokemonSERIES.push([pokemon_name,parseInt(pokemon.rarity), parseInt(pokemon.min_level),  parseInt(pokemon.max_level), method_names[methodNumber-1],  "rgb(" + currentColor.join(",")+")",pokemon_id]);
     }
     else {
-        pokemonSERIES.push([pokemon_name,parseInt(pokemon.rarity), parseInt(pokemon.min_level),  parseInt(pokemon.max_level), method_names[methodNumber-1] + ", " + areadifferentiator, "rgb(" + currentColor.join(",") + ")"]);
+        pokemonSERIES.push([pokemon_name,parseInt(pokemon.rarity), parseInt(pokemon.min_level),  parseInt(pokemon.max_level), method_names[methodNumber-1] + ", " + areadifferentiator, "rgb(" + currentColor.join(",") + ")",pokemon_id]);
     }
     if (boolval)
     {
@@ -248,7 +369,7 @@ function outputPokeJSON(callback) {
 
     for (var p = pokemonSERIES.length - 1; p >= 0; p-- ){
         count++
-        var text = pokemonSERIES[p][0] + "<br> (" + pokemonSERIES[p][4] + ")";
+        var text = pokemonSERIES[p][0] +" (ID: "+ pokemonSERIES[p][6] +")"+ "<br> (" + pokemonSERIES[p][4] + ")";
         var index = -1;
         for (var r = 0; r < JSONStorage.length; r++)
         {
@@ -299,8 +420,6 @@ function outputPokeJSON(callback) {
 
 }
 function updateChart() {
-
-
     zingchart.exec('CHARTDIV', 'setseriesdata', {
         data : pokeJSON
     });
@@ -317,49 +436,41 @@ function updateChart() {
     });
 }
 
-function infoAboutSelectedPokemon(string_in) {
-    var pokemon_name = string_in.charAt(0).toLowerCase() + string_in.slice(1);
-    var pokemon_XML = new XMLHttpRequest();
-    document.getElementById("pokemon_header_types").innerHTML = "";
-    var url = 'http://pokeapi.co/api/v2/pokemon/'+pokemon_name;
-    pokemon_XML.onreadystatechange = function() {
-        if (pokemon_XML.readyState == 4 && pokemon_XML.status == 200) {
-            var pokeJSON = JSON.parse(pokemon_XML.response);
-            document.getElementById("pokemon_header_title").innerHTML = string_in;
-            var pokeURL = pokeJSON.sprites.front_default;
-            var array_types = [];
-            for (var i = 0; i < pokeJSON.types.length; i++)
-            {
-                array_types.push(pokeJSON.types[i].type.name.charAt(0).toUpperCase() + pokeJSON.types[i].type.name.slice(1));
-                document.getElementById("pokemon_header_types").innerHTML += "<div class=types id=" +pokeJSON.types[i].type.name + " ><p>"+pokeJSON.types[i].type.name.charAt(0).toUpperCase() + pokeJSON.types[i].type.name.slice(1)+"</p></div>";
+function infoAboutSelectedPokemon(pokename,id_in) {
+    var poke_id = parseInt(id_in);
+    document.getElementById("pokemon_header_types").innerHTML = pokename.charAt(0).toUpperCase() + pokename.slice(1);
+    accessDatabaseCHILD(firebase.database().ref("pokemon-stats"), "pokemon_id", poke_id, function (pokemon_stats) {
+        var stats_name_obj = [];
+        var stats_value_obj = [];
+        for (var q = 0; q < pokemon_stats.length;q++) {
+            stats_name_obj.push(stats[pokemon_stats[q].stat_id]);
+            stats_value_obj.push(pokemon_stats[q].base_stat);
+            if (q == pokemon_stats.length-1) {
+                console.log(stats_name_obj)
+                console.log(stats_value_obj)
+                render_Radar(id_in, stats_name_obj, stats_value_obj);
+                accessDatabaseCHILD(firebase.database().ref("pokemon-types"), "pokemon_id", poke_id, function (pokemon_types) {
+                    if (pokemon_types.length == 2)
+                    {
+                        var type1 = types[pokemon_types[0].type_id].identifier;
+                        var type2 = types[pokemon_types[1].type_id].identifier;
+                        document.getElementById("pokemon_header_types").innerHTML += "<div class=types id=" + type1 + " ><p>"+type1.charAt(0).toUpperCase() + type1.slice(1)+"</p></div>";
+                        document.getElementById("pokemon_header_types").innerHTML += "<div class=types id=" + type2 + " ><p>"+type2.charAt(0).toUpperCase() + type2.slice(1)+"</p></div>";
+                        typeEffectivity([pokemon_types[0].type_id,pokemon_types[1].type_id], type1.charAt(0).toUpperCase() + type1.slice(1)+" "+type2.charAt(0).toUpperCase() + type2.slice(1))
+                    }
+                    else
+                    {
+                        var type = types[pokemon_types[0].type_id].identifier;
+                        document.getElementById("pokemon_header_types").innerHTML += "<div class=types id=" + type + " ><p>"+type.charAt(0).toUpperCase() + type.slice(1)+"</p></div>";
+                        typeEffectivity([pokemon_types[0].type_id],type.charAt(0).toUpperCase() + type.slice(1))
+                    }
+                },1);
             }
-            var stats_name_obj = [];
-            var stats_value_obj = [];
-            for (i = 0; i < 6; i++)
-            {
-                if (pokeJSON.stats[i].stat.name.startsWith("special-"))
-                {
-                    stats_name_obj.push("s. "+pokeJSON.stats[i].stat.name.slice(8));
-                }
-                else
-                {
-                    stats_name_obj.push(pokeJSON.stats[i].stat.name);
-                }
-                stats_value_obj.push(pokeJSON.stats[i].base_stat);
-                if (i == 5) {
-                    render_Radar(string_in,pokeURL, stats_name_obj, stats_value_obj);
-                    typeEffectivity(array_types)
-                }
-            }
-
         }
-    };
-    pokemon_XML.open("GET", url, true);
-    pokemon_XML.send();
+    },1);
 }
 
-
-function render_Radar(name,pokeURL, stats_name, stats_value){
+function render_Radar(id_in, stats_name, stats_value){
     max_Val = Math.ceil(Math.max(...stats_value)/25)*25;
     var myRadar = {
         "globals": {
@@ -513,18 +624,16 @@ function render_Radar(name,pokeURL, stats_name, stats_value){
         id : 'radar',
         data : myRadar,
     });
-    document.getElementById("pokemon_image").src = pokeURL;
+    document.getElementById("pokemon_image").src = "sugimori/"+id_in+".png";
     document.getElementById("radar").style.visibility = "visible";
     document.getElementById("loading").style.visibility = "hidden";
 }
 
-function typeEffectivity(types_in) {
-    var poke = ["Normal","Fire","Water","Electric","Grass","Ice","Fighting","Poison","Ground","Flying","Psychic","Bug","Rock","Ghost","Dragon","Dark","Steel","Fairy"];
+function typeEffectivity(types_in, typename) {
     var this_pokemon_index_array = [];
     types_in.forEach(function (type) {
-        this_pokemon_index_array.push(poke.indexOf(type));
+        this_pokemon_index_array.push(type-1);
     })
-    var string_type_name = types_in.toString().replace(","," ");
     var effectivity = [
         [1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1, 0.5,   0,   1,   1, 0.5,   1],
         [1, 0.5, 0.5,   1,   2,   2,   1,   1,   1,   1,   1,   2, 0.5,   1, 0.5,   1,   2,   1],
@@ -601,11 +710,6 @@ function typeEffectivity(types_in) {
         "type": "chord",
         "background-color": "transparent",
         "title": {
-            // "text": "Pokemon Type Effectivity Chart for "+string_type_name,
-            // "background-color": "transparent",
-            // textAlign:"center",
-            // "font-color": "#fff",
-            // "font-family": 'Exo 2, sans-serif',
             visible:false
         },
         x:"-20%",
@@ -832,7 +936,7 @@ function typeEffectivity(types_in) {
                 },
             },
         },{
-            text:string_type_name,
+            text:typename,
             "values": val_array[18],
             "style": {
                 "band": {
@@ -856,7 +960,7 @@ function removeOptions(region,render_obj) {
     document.getElementById("select_Version").disabled = true;
     Array.prototype.slice.call(document.getElementsByClassName("checkboxElt")).forEach(function (currentElt) {
         currentElt.disabled = true;
-    })
+    });
     svg_stored = render_obj[0];
     shapes_stored = render_obj[1];
     region_stored = parseInt(region);
@@ -883,12 +987,11 @@ function selectRegion() {
         for (var group = 0; group < version_groups.length; group++)
         {
             accessDatabaseCHILD(firebase.database().ref("version"), "version_group_id", version_groups[group]["version_group_id"], function (versions_in_group){
-                tempcount++;
                 for (var individual = 0; individual < versions_in_group.length; individual++) {
                     var temp = versions_in_group[individual];
                     pokeVersionArray.push(temp);
                     var newoptions = document.createElement("option");
-                    newoptions.text = ""
+                    newoptions.text = "";
                     var holdName = [];
                     temp.identifier.split("-").forEach(function (val) {
                         holdName.push(val.charAt(0).toUpperCase() + val.slice(1));
@@ -896,9 +999,16 @@ function selectRegion() {
                     newoptions.text = holdName.join(" ");
                     newoptions.value = temp.id;
                     gameSelect.options.add(newoptions);
-                    if (tempcount == version_groups.length -1 && (individual == versions_in_group.length - 1)) {
-                        flag = 1;
-                        versionSelect();
+                    console.log("(tempcount == version_groups.length -1) && (individual == versions_in_group.length - 1) = " + tempcount.toString() + "==" + (version_groups.length -1).toString() + " " + individual.toString() + "==" + (versions_in_group.length - 1).toString());
+                    if (individual == versions_in_group.length - 1) {
+                        if (tempcount == version_groups.length - 1) {
+                            flag = 1;
+                            versionSelect();
+                        }
+                        else
+                        {
+                            tempcount++;
+                        }
                     }
                 }
             },1);
@@ -1121,7 +1231,7 @@ function renderShape()
         document.getElementById("pokemon_image").src = "holder.png";
         document.getElementById("radar").style.visibility = "hidden";
         var pokeText = zingchart.exec('CHARTDIV', 'getseriesdata', {'plotindex' : p.plotindex}).text;
-        infoAboutSelectedPokemon(pokeText.slice(0,pokeText.indexOf('<')));
+        infoAboutSelectedPokemon(pokeText.slice(0,pokeText.indexOf('<')),pokeText.slice(pokeText.indexOf('(ID: ')+5,pokeText.indexOf(')')));
     };
     document.getElementById("loading").style.visibility = "hidden";
 }
