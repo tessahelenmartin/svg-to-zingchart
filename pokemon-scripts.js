@@ -11,13 +11,16 @@ var pokeJSON = [];
 var levelsINDEX = [];
 var methodIndex = [];
 var locationName = "";
+var selected_areaName = "";
+var selected_areaID;
+var selected_method;
 var responseArray = [];
-var flag = 1;
 var svg_stored;
 var shapes_stored;
 var region_stored;
+var selectedShapeID = null;
 module.exports = {
-    createDropDown:removeOptions
+    createDropDown:initialFunction
 };
 var regions = {
     "1": {
@@ -194,12 +197,26 @@ function beginRoute(inVal) {
     responseArray = [];
     min = null;
     max = null;
-    for (var i = 0; i < document.getElementById("selectMethod").elements.length; i++){
-        if (document.getElementById("selectMethod").elements[i].checked) {
-            methodIndex.push(document.getElementById("selectMethod").elements[i].value)
-        }
-    }
-    pokeLocationFunction(inVal)
+    createPokedex();
+    document.getElementById("select_Method").options.length = 0;
+    var tempOptionMethod = document.createElement("option");
+    tempOptionMethod.text = "select method";
+    tempOptionMethod.selected = true;
+    tempOptionMethod.disabled = true;
+    document.getElementById("select_Method").add(tempOptionMethod)
+    document.getElementById("select_Location_Area").options.length = 0;
+    var tempOptionArea = document.createElement("option");
+    tempOptionArea.text = "select area";
+    tempOptionArea.selected = true;
+    tempOptionArea.disabled = true;
+    document.getElementById("select_Location_Area").add(tempOptionArea)
+    document.getElementById("select_Version").options.length = 0;
+    var tempOptionVersion = document.createElement("option");
+    tempOptionVersion.text = "select version";
+    tempOptionVersion.selected = true;
+    tempOptionVersion.disabled = true;
+    document.getElementById("select_Version").add(tempOptionVersion)
+    pokeLocationFunction(inVal);
 };
 
 function pokeLocationFunction (inVal) {
@@ -212,7 +229,13 @@ function getAllAreasInLocation(location_in,location_id){
     locationName = location_in;
     accessDatabaseCHILD(firebase.database().ref("location-areas"), "location_id", location_id, function (areas) {
         if (areas.length != 0){
-            getEncountersAtAreaGivenMethod(areas,methodIndex.slice(),[[areas[0]["identifier"],methodIndex[0]]]);
+            document.getElementById("select_Location_Area").options.length = 0;
+            var tempOptionArea = document.createElement("option");
+            tempOptionArea.text = "select area";
+            tempOptionArea.selected = true;
+            tempOptionArea.disabled = true;
+            document.getElementById("select_Location_Area").add(tempOptionArea)
+            selectLocationArea(areas)
         }
         else
         {
@@ -221,94 +244,172 @@ function getAllAreasInLocation(location_in,location_id){
     },1)
 }
 
-function getEncountersAtAreaGivenMethod(a_in, m_in, encounters_array) {
-    console.log(encounters_array)
-    var m_elt = m_in[0];
-    var array_location = encounters_array.slice();
-    firebase.database().ref("encounters/"+ a_in[0]["id"] + "/"+pokeVersion+","+ m_elt).once("value").then(postFirebase);
-    function postFirebase(snapshot){
-        if (snapshot.numChildren() > 0) {
-            console.log(array_location);
-            snapshot.forEach(function (snap_child) {
-                array_location[array_location.length-1].push(snap_child.val());
-                if (array_location[array_location.length-1].length == (snapshot.numChildren()+2))
-                {
-                    if (m_in.length <= 1)
-                    {
-                        if (a_in.length <= 1)
-                        {
-                            pokemonOnRoute(array_location,handlePokemon);
-                        }
-                        else
-                        {
-                            console.log([a_in[1]["identifier"],methodIndex[0]]);
-                            array_location.push([a_in[1]["identifier"],methodIndex[0]]);
-                            getEncountersAtAreaGivenMethod(a_in.slice(1), methodIndex.slice(), array_location);
-                        }
-                    }
-                    else
-                    {
-                        console.log([a_in[0]["identifier"],m_in[1]]);
-                        array_location.push([a_in[0]["identifier"],m_in[1]]);
-                        getEncountersAtAreaGivenMethod(a_in,m_in.slice(1),array_location);
-                    }
-                }
-            })
+function formatLocationArea(name) {
+    function hyphenLowerToSpaceUpper(match) {
+        return ' ' + match.slice(1).toUpperCase();
+    }
+    return name.replace(/\-([a-z])|\-\d/g, hyphenLowerToSpaceUpper);
+}
+
+function selectLocationArea(areas_in){
+    for (var i = 0; i < areas_in.length; i++){
+        var newoptions = document.createElement("option");
+        if (areas_in[i].identifier != "")
+        {
+            newoptions.text = formatLocationArea(locationName[0].toUpperCase() + locationName.slice(1)) + " " + formatLocationArea(areas_in[i].identifier[0].toUpperCase() + areas_in[i].identifier.slice(1));
         }
         else
         {
-            array_location.pop();
-            if (m_in.length <= 1)
-            {
-                if (a_in.length <= 1)
+            newoptions.text = formatLocationArea(locationName[0].toUpperCase() + locationName.slice(1));
+        }
+        newoptions.value = areas_in[i].id;
+        document.getElementById("select_Location_Area").options.add(newoptions);
+        if (i == areas_in.length - 1)
+        {
+            document.getElementById("select_Location_Area").disabled = false;
+            document.getElementById("select_Location_Area").onchange = function () {
+                if (document.getElementById("select_Location_Area").value != "")
                 {
-                    pokemonOnRoute(array_location,handlePokemon);
+                    document.getElementById("select_Method").options.length = 0;
+                    var tempOptionMethod = document.createElement("option");
+                    tempOptionMethod.text = "select method";
+                    tempOptionMethod.selected = true;
+                    tempOptionMethod.disabled = true;
+                    document.getElementById("select_Method").add(tempOptionMethod)
+                    document.getElementById("select_Version").options.length = 0;
+                    var tempOptionVersion = document.createElement("option");
+                    tempOptionVersion.text = "select version";
+                    tempOptionVersion.selected = true;
+                    tempOptionVersion.disabled = true;
+                    document.getElementById("select_Version").add(tempOptionVersion)
+                    setMethodOptions()
                 }
-                else
-                {
-                    console.log([a_in[1]["identifier"],methodIndex[0]]);
-                    array_location.push([a_in[1]["identifier"],methodIndex[0]]);
-                    getEncountersAtAreaGivenMethod(a_in.slice(1), methodIndex.slice(), array_location);
-                }
-            }
-            else
-            {
-                console.log([a_in[0]["identifier"],m_in[1]]);
-                array_location.push([a_in[0]["identifier"],m_in[1]]);
-                getEncountersAtAreaGivenMethod(a_in,m_in.slice(1),array_location);
             }
         }
     }
 }
 
+function setMethodOptions(){
+    selected_areaName = document.getElementById("select_Location_Area").options[document.getElementById("select_Location_Area").selectedIndex].text;
+    selected_areaID = document.getElementById("select_Location_Area").value;
+    console.log("location-area-methods/"+selected_areaID)
+    firebase.database().ref("location-area-methods/"+selected_areaID).once("value").then(function (snapMethods) {
+        snapMethods.val().forEach(function (method_indiv) {
+            console.log(method_indiv)
+            var newoptions = document.createElement("option");
+            newoptions.text = method_names[method_indiv-1];
+            newoptions.value = method_indiv;
+            document.getElementById("select_Method").options.add(newoptions);
+            if (snapMethods.numChildren() == document.getElementById("select_Method").options.length-1)
+            {
+                document.getElementById("select_Method").disabled = false;
+                document.getElementById("select_Method").onchange = function () {
+                    if (document.getElementById("select_Method").value != "")
+                    {
+                        document.getElementById("select_Version").options.length = 0;
+                        var tempOptionVersion = document.createElement("option");
+                        tempOptionVersion.text = "select version";
+                        tempOptionVersion.selected = true;
+                        tempOptionVersion.disabled = true;
+                        document.getElementById("select_Version").add(tempOptionVersion)
+                        selectRegion();
+                    }
+                }
+            }
+        })
+    });
+}
+function initialFunction(region,render_obj) {
+    selectedShapeID = null;
+    document.getElementById("select_Method").options.length = 0;
+    var tempOptionMethod = document.createElement("option");
+    tempOptionMethod.text = "select method";
+    tempOptionMethod.selected = true;
+    tempOptionMethod.disabled = true;
+    document.getElementById("select_Method").add(tempOptionMethod)
+    document.getElementById("select_Location_Area").options.length = 0;
+    var tempOptionArea = document.createElement("option");
+    tempOptionArea.text = "select area";
+    tempOptionArea.selected = true;
+    tempOptionArea.disabled = true;
+    document.getElementById("select_Location_Area").add(tempOptionArea)
+    document.getElementById("select_Version").options.length = 0;
+    var tempOptionVersion = document.createElement("option");
+    tempOptionVersion.text = "select version";
+    tempOptionVersion.selected = true;
+    tempOptionVersion.disabled = true;
+    document.getElementById("select_Version").add(tempOptionVersion)
+    svg_stored = render_obj[0];
+    shapes_stored = render_obj[1];
+    region_stored = parseInt(region);
+    renderShape();
+}
 
-function pokemonOnRoute(possiblePokemonEncounters_areas,callback_in) {
-    if (possiblePokemonEncounters_areas.length == 0){
+
+function getEncountersAtAreaGivenMethod(a_in, m_in) {
+    methodIndex = [];
+    pokemonSERIES = [];
+    levelsINDEX = [];
+    pokeJSON = [];
+    locationName = "";
+    responseArray = [];
+    min = null;
+    max = null;
+    var version_IN;
+    if (pokeVersion == 25 || pokeVersion == 26) {
+        version_IN = (pokeVersion%25)+7;
+    }
+    else
+    {
+        version_IN = pokeVersion;
+    }
+    firebase.database().ref("encounters/"+ a_in + "/"+version_IN+","+ m_in).once("value").then(postFirebase);
+    function postFirebase(snapshot){
+        var snaparray = [];
+        if (snapshot.numChildren() > 0) {
+            snapshot.forEach(function (snap_child) {
+                snaparray.push(snap_child.val())
+                if (snaparray.length == snapshot.numChildren())
+                {
+                    pokemonOnRoute(snaparray,a_in,m_in,handlePokemon)
+                }
+            })
+        }
+        else
+        {
+            alert("We're sorry, we don't detect any wild pokemon in this area!")
+        }
+    }
+}
+
+
+function pokemonOnRoute(possiblePokemonEncounters,a_in,m_in,callback_in) {
+    if (possiblePokemonEncounters.length == 0){
         alert("We're sorry, we don't detect any wild pokemon in this area!");
         return;
     }
     pokemonSERIES = [];
     levelsINDEX = [];
     var colorArray = colorOptions.slice();
-    for (var r = 0; r < possiblePokemonEncounters_areas.length; r++)
-    {
-        var possiblePokemonEncounters = possiblePokemonEncounters_areas[r];
-        for (var p = 2; p < possiblePokemonEncounters.length; p ++) {
-            if ((r == possiblePokemonEncounters_areas.length-1) && (p == possiblePokemonEncounters.length-1))
+    console.log("location-area-encounter-rates/"+ a_in+"/"+m_in)
+    firebase.database().ref("location-area-encounter-rates/"+ a_in+"/"+m_in).once("value").then(postFirebase);
+    function postFirebase(snapshot){
+        for (var p = 0; p < possiblePokemonEncounters.length; p ++) {
+            if (p == possiblePokemonEncounters.length-1)
             {
-                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], possiblePokemonEncounters_areas[r][0],possiblePokemonEncounters_areas[r][1], colorArray, true);
+                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, true, snapshot.val());
             }
             else
             {
-                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], possiblePokemonEncounters_areas[r][0],possiblePokemonEncounters_areas[r][1], colorArray, false);
+                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, false, snapshot.val());
             }
         }
     }
 }
 
-function handlePokemon(pokemon_name, pokemon_id, pokemon, areadifferentiator, methodNumber, colorArray, boolval) {
+function handlePokemon(pokemon_name, pokemon_id, pokemon, colorArray, boolval, rate) {
+    console.log(pokemon_id)
     var rand = Math.floor(Math.random() * (colorArray.length-1));
-    var color = colorArray[rand];
     colorArray.splice(rand,1);
     if ((min == null) || pokemon.min_level < min) {
         min = pokemon.min_level;
@@ -316,40 +417,8 @@ function handlePokemon(pokemon_name, pokemon_id, pokemon, areadifferentiator, me
     if ((max == null) || pokemon.max_level > max) {
         max = pokemon.max_level;
     }
-    var currentColor = color.slice();
-    if (methodNumber == 2)
-    {
-        currentColor[0] -= 15;
-        currentColor[1] -= 15;
-        currentColor[2] -= 15;
-    }
-    else if (methodNumber == 3)
-    {
-        currentColor[0] -= 30;
-        currentColor[1] -= 30;
-        currentColor[2] -= 30;
-    }
-    else if (methodNumber == 4)
-    {
-        currentColor[0] -= 45;
-        currentColor[1] -= 45;
-        currentColor[2] -= 45;
-    }
-    else if (methodNumber == 5)
-    {
-        currentColor[0] -= 60;
-        currentColor[1] -= 60;
-        currentColor[2] -= 60;
-    }
-
-    console.log([pokemon_name,parseInt(pokemon.rarity), parseInt(pokemon.min_level),  parseInt(pokemon.max_level), method_names[methodNumber-1],  "rgb(" + currentColor.join(",")+")"],pokemon_id);
-    if (areadifferentiator == "")
-    {
-        pokemonSERIES.push([pokemon_name,parseInt(pokemon.rarity), parseInt(pokemon.min_level),  parseInt(pokemon.max_level), method_names[methodNumber-1],  "rgb(" + currentColor.join(",")+")",pokemon_id]);
-    }
-    else {
-        pokemonSERIES.push([pokemon_name,parseInt(pokemon.rarity), parseInt(pokemon.min_level),  parseInt(pokemon.max_level), method_names[methodNumber-1] + ", " + areadifferentiator, "rgb(" + currentColor.join(",") + ")",pokemon_id]);
-    }
+    console.log(pokemon_name+ " at rate*rarity "+ parseInt(rate)*parseInt(pokemon.rarity)/100);
+    pokemonSERIES.push([pokemon_name,parseInt(rate)*parseInt(pokemon.rarity)/100, parseInt(pokemon.min_level),  parseInt(pokemon.max_level),  "rgb(" + colorArray[rand].join(",")+")",pokemon_id]);
     if (boolval)
     {
         outputPokeJSON(updateChart)
@@ -369,7 +438,7 @@ function outputPokeJSON(callback) {
 
     for (var p = pokemonSERIES.length - 1; p >= 0; p-- ){
         count++
-        var text = pokemonSERIES[p][0] +" (ID: "+ pokemonSERIES[p][6] +")"+ "<br> (" + pokemonSERIES[p][4] + ")";
+        var text = pokemonSERIES[p][0] + "(ID: "+ pokemonSERIES[p][5] +")";
         var index = -1;
         for (var r = 0; r < JSONStorage.length; r++)
         {
@@ -399,7 +468,7 @@ function outputPokeJSON(callback) {
                 methodCatch[i - min] = pokemonSERIES[p][1];
             }
             count++;
-            JSONStorage.push([text,methodCatch,count,pokemonSERIES[p][5]]);
+            JSONStorage.push([text,methodCatch,count,pokemonSERIES[p][4]]);
         }
         if (p == 0)
         {
@@ -426,7 +495,7 @@ function updateChart() {
     zingchart.exec('CHARTDIV', 'modify', {
         data : {
             "title": {
-                "text": "Likelyhood of Encountering Pokemon in " + locationName
+                "text": "Likelyhood of Encountering Pokemon in " + selected_areaName + " with method " + method_names[selected_method-1]
             },
             "scale-x": {
                 "values": levelsINDEX
@@ -446,8 +515,6 @@ function infoAboutSelectedPokemon(pokename,id_in) {
             stats_name_obj.push(stats[pokemon_stats[q].stat_id]);
             stats_value_obj.push(pokemon_stats[q].base_stat);
             if (q == pokemon_stats.length-1) {
-                console.log(stats_name_obj)
-                console.log(stats_value_obj)
                 render_Radar(id_in, stats_name_obj, stats_value_obj);
                 accessDatabaseCHILD(firebase.database().ref("pokemon-types"), "pokemon_id", poke_id, function (pokemon_types) {
                     if (pokemon_types.length == 2)
@@ -952,41 +1019,17 @@ function typeEffectivity(types_in, typename) {
     });
 }
 
-
-
-function removeOptions(region,render_obj) {
-    createPokedex();
-    var gameSelect = document.getElementById("select_Version");
-    document.getElementById("select_Version").disabled = true;
-    Array.prototype.slice.call(document.getElementsByClassName("checkboxElt")).forEach(function (currentElt) {
-        currentElt.disabled = true;
-    });
-    svg_stored = render_obj[0];
-    shapes_stored = render_obj[1];
-    region_stored = parseInt(region);
-    if (gameSelect.options.length == 0){
-        selectRegion();
-    }
-    else
-    {
-        while(gameSelect.options.length != 0){
-            gameSelect.remove(length-1);
-            if(gameSelect.options.length == 0)
-            {
-                selectRegion();
-            }
-        }
-    }
-}
-
-
 function selectRegion() {
+    selected_method = document.getElementById("select_Method").value;
     var tempcount = 0;
     var gameSelect = document.getElementById("select_Version");
+    console.log(region_stored)
     accessDatabaseCHILD(firebase.database().ref("version-groups-regions"), "region_id", region_stored, function (version_groups) {
+        console.log(version_groups);
         for (var group = 0; group < version_groups.length; group++)
         {
             accessDatabaseCHILD(firebase.database().ref("version"), "version_group_id", version_groups[group]["version_group_id"], function (versions_in_group){
+                console.log(versions_in_group);
                 for (var individual = 0; individual < versions_in_group.length; individual++) {
                     var temp = versions_in_group[individual];
                     pokeVersionArray.push(temp);
@@ -999,11 +1042,9 @@ function selectRegion() {
                     newoptions.text = holdName.join(" ");
                     newoptions.value = temp.id;
                     gameSelect.options.add(newoptions);
-                    console.log("(tempcount == version_groups.length -1) && (individual == versions_in_group.length - 1) = " + tempcount.toString() + "==" + (version_groups.length -1).toString() + " " + individual.toString() + "==" + (versions_in_group.length - 1).toString());
                     if (individual == versions_in_group.length - 1) {
                         if (tempcount == version_groups.length - 1) {
-                            flag = 1;
-                            versionSelect();
+                            document.getElementById("select_Version").disabled = false;
                         }
                         else
                         {
@@ -1014,26 +1055,14 @@ function selectRegion() {
             },1);
         }
     },1);
-    gameSelect.onchange = versionSelect;
+    document.getElementById("select_Version").onchange = versionSelect;
 }
 
 function versionSelect() {
-    pokeVersionArray.some(function (vers) {
-        if (vers.id == document.getElementById("select_Version").value)
-        {
-            pokeVersion = vers.id;
-            pokeJSON = [];
-            return true;
-        }
-    });
-    if (flag)
+    if (document.getElementById("select_Version").value != "select version")
     {
-        renderShape();
-        document.getElementById("select_Version").disabled = false;
-        Array.prototype.slice.call(document.getElementsByClassName("checkboxElt")).forEach(function (currentElt) {
-            currentElt.disabled = false;
-            flag = 0;
-        })
+        pokeVersion = document.getElementById("select_Version").value;
+        getEncountersAtAreaGivenMethod(document.getElementById("select_Location_Area").value,document.getElementById("select_Method").value);
     }
 }
 
@@ -1202,12 +1231,12 @@ function renderShape()
                 }
             },
             "tooltip": {
-                "text": "Chance of encountering a level %k %t: %v",
+                "text": "Chance of encountering a level %k %t: %v%",
                 "font-family": 'Exo 2, sans-serif',
                 "font-size": "15px",
                 "font-weight": "normal",
                 "font-color": "#fff",
-                "decimals": 0,
+                "decimals": 2,
                 "text-align": "left",
                 "border-radius": "8px",
                 "padding": "10px 10px",
@@ -1221,7 +1250,54 @@ function renderShape()
         }
     });
     zingchart.shape_click = function(p) {
-        if (svg_stored.getElementById(p.shapeid).getAttribute("class") == "ROUTE" || svg_stored.getElementById(p.shapeid).getAttribute("class") == "LANDMARK"){
+        if (svg_stored.getElementById(p.shapeid).getAttribute("class") == "ROUTE"){
+            console.log(p.shapeid)
+            if (selectedShapeID != null)
+            {
+                zingchart.exec('SHAPESDIV', 'updateobject', {
+                    'type':'shape',
+                    'data' : {
+                        'id' : selectedShapeID,
+                        'line-color' : 'black',
+                        'border-color' : 'black',
+                        'background-color': 'black'
+                    }
+                });
+            }
+            selectedShapeID = p.shapeid;
+            zingchart.exec('SHAPESDIV', 'updateobject', {
+                'type':'shape',
+                'data' : {
+                    'id' : selectedShapeID,
+                    'line-color' : 'red'
+                }
+            });
+            document.getElementById("loading").style.visibility = "visible";
+            beginRoute(JSON.parse(svg_stored.getElementById(p.shapeid).getAttribute("locationid")));
+        }
+        else if (svg_stored.getElementById(p.shapeid).getAttribute("class") == "LANDMARK"){
+            console.log(p.shapeid)
+            if (selectedShapeID != null)
+            {
+                zingchart.exec('SHAPESDIV', 'updateobject', {
+                    'type':'shape',
+                    'data' : {
+                        'id' : selectedShapeID,
+                        'border-color' : 'black',
+                        'background-color': 'black',
+                        'line-color' : 'black'
+                    }
+                });
+            }
+            selectedShapeID = p.shapeid;
+            zingchart.exec('SHAPESDIV', 'updateobject', {
+                'type':'shape',
+                'data' : {
+                    'id' : selectedShapeID,
+                    'border-color' : 'red',
+                    'background-color': 'red'
+                }
+            });
             document.getElementById("loading").style.visibility = "visible";
             beginRoute(JSON.parse(svg_stored.getElementById(p.shapeid).getAttribute("locationid")));
         }
@@ -1231,7 +1307,7 @@ function renderShape()
         document.getElementById("pokemon_image").src = "holder.png";
         document.getElementById("radar").style.visibility = "hidden";
         var pokeText = zingchart.exec('CHARTDIV', 'getseriesdata', {'plotindex' : p.plotindex}).text;
-        infoAboutSelectedPokemon(pokeText.slice(0,pokeText.indexOf('<')),pokeText.slice(pokeText.indexOf('(ID: ')+5,pokeText.indexOf(')')));
+        infoAboutSelectedPokemon(pokeText.slice(0,pokeText.indexOf('(')),pokeText.slice(pokeText.indexOf('(ID: ')+5,pokeText.indexOf(')')));
     };
     document.getElementById("loading").style.visibility = "hidden";
 }

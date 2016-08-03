@@ -100,12 +100,11 @@ body
 #selectDataVisualizationPreferences
 {
     text-align: left;
-    height:14%;
+    height:16%;
     width:100%;
     background-color: #0B4153;
     display: flex;
     align-items: center;
-    padding: 1%;
     color: #fff;
     padding-left: 2%;
 }
@@ -127,22 +126,18 @@ body
     color: #fff;
 }
 
-.checkboxLabel {
-    display: inline-block;
-}
 p {
     margin: 0;
 }
 .textHeader
 {
     margin:0;
-}
-#mapForm {
     display: inline-block;
+    margin-right: 4px;
 }
-
 .largerLabel {
     display: inline-block;
+    margin-right: 4px;
 }
 
 #loading {
@@ -170,55 +165,55 @@ select:disabled {
     opacity: 0.5;
 }
 
-input[type=checkbox]:not(old){
-    width     : 2em;
-    margin    : 0;
-    padding   : 0;
-    font-size : 1em;
-    opacity   : 0;
-}
-input[type=checkbox]:not(old) + label{
-    display      : inline-block;
-    margin-left  : -2em;
-    line-height  : 1.5em;
-}
+/*input[type=checkbox]:not(old){*/
+    /*width     : 2em;*/
+    /*margin    : 0;*/
+    /*padding   : 0;*/
+    /*font-size : 1em;*/
+    /*opacity   : 0;*/
+/*}*/
+/*input[type=checkbox]:not(old) + label{*/
+    /*display      : inline-block;*/
+    /*margin-left  : -2em;*/
+    /*line-height  : 1.5em;*/
+/*}*/
 
-input[type=checkbox]:not(old) + label > span {
-    display          : inline-block;
-    width            : 0.875em;
-    height           : 0.875em;
-    margin           : 0.25em 0.5em 0.25em 0.25em;
-    border           : 0.0625em solid #B6CBD2;
-    border-radius    : 0.25em;
-    background       : #B6CBD2;
-    background-image :    -moz-linear-gradient(#fff,#B6CBD2);
-    background-image :     -ms-linear-gradient(#fff,#B6CBD2);
-    background-image :      -o-linear-gradient(#fff,#B6CBD2);
-    background-image : -webkit-linear-gradient(#fff,#B6CBD2);
-    background-image :         linear-gradient(#fff,#B6CBD2);
-    vertical-align   : bottom;
-}
-input[type=checkbox]:not(old):checked + label > span:before{
-    content     : '✓';
-    display     : block;
-    width       : 1em;
-    color       : #1786AE;
-    font-size   : 0.875em;
-    line-height : 1em;
-    text-align  : center;
-    text-shadow : 0 0 0.0714em #082F3D;
-    font-weight : bold;
-}
-input[type=checkbox]:not(old):checked + label > span{
-    background-image :    -moz-linear-gradient(#B6CBD2,#fff);
-    background-image :     -ms-linear-gradient(#B6CBD2,#fff);
-    background-image :      -o-linear-gradient(#B6CBD2,#fff);
-    background-image : -webkit-linear-gradient(#B6CBD2,#fff);
-    background-image :         linear-gradient(#B6CBD2,#fff);
-}
-input[type=checkbox]:not(old):disabled + label{
-    opacity: 0.5;
-}
+/*input[type=checkbox]:not(old) + label > span {*/
+    /*display          : inline-block;*/
+    /*width            : 0.875em;*/
+    /*height           : 0.875em;*/
+    /*margin           : 0.25em 0.5em 0.25em 0.25em;*/
+    /*border           : 0.0625em solid #B6CBD2;*/
+    /*border-radius    : 0.25em;*/
+    /*background       : #B6CBD2;*/
+    /*background-image :    -moz-linear-gradient(#fff,#B6CBD2);*/
+    /*background-image :     -ms-linear-gradient(#fff,#B6CBD2);*/
+    /*background-image :      -o-linear-gradient(#fff,#B6CBD2);*/
+    /*background-image : -webkit-linear-gradient(#fff,#B6CBD2);*/
+    /*background-image :         linear-gradient(#fff,#B6CBD2);*/
+    /*vertical-align   : bottom;*/
+/*}*/
+/*input[type=checkbox]:not(old):checked + label > span:before{*/
+    /*content     : '✓';*/
+    /*display     : block;*/
+    /*width       : 1em;*/
+    /*color       : #1786AE;*/
+    /*font-size   : 0.875em;*/
+    /*line-height : 1em;*/
+    /*text-align  : center;*/
+    /*text-shadow : 0 0 0.0714em #082F3D;*/
+    /*font-weight : bold;*/
+/*}*/
+/*input[type=checkbox]:not(old):checked + label > span{*/
+    /*background-image :    -moz-linear-gradient(#B6CBD2,#fff);*/
+    /*background-image :     -ms-linear-gradient(#B6CBD2,#fff);*/
+    /*background-image :      -o-linear-gradient(#B6CBD2,#fff);*/
+    /*background-image : -webkit-linear-gradient(#B6CBD2,#fff);*/
+    /*background-image :         linear-gradient(#B6CBD2,#fff);*/
+/*}*/
+/*input[type=checkbox]:not(old):disabled + label{*/
+    /*opacity: 0.5;*/
+/*}*/
 
 #pokemon_header {
     text-align: left;

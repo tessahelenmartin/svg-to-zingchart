@@ -26,35 +26,35 @@
         <div class="alignMiddle">
             <div id="MAP" class="topVisualizations">
                 <div id="selectDataVisualizationPreferencesHeader">
-                    <p class="textHeader">Select data specifications</p>
-                </div>
-                <div id="selectDataVisualizationPreferences">
-                    <div id = "innerselectDataVisualizationPreferences">
-                    <form id ="mapForm">
-                        <p class="largerLabel">Region: </p>
-                        <select id="select_Region">
-                            <option selected disabled>Select Region</option>
-                            <option name="hoenn">Hoenn</option>
-                            <option name="kalos">Kalos</option>
-                            <option name="sinnoh">Sinnoh</option>
-                            <option name="johto">Johto</option>
-                        </select>
-                    </form>
-                    <div id ="chartForm">
-                        <p class="largerLabel">Version: </p>
-                        <select id="select_Version" disabled></select>
-                        <form id ="selectMethod">
-                            <p class="checkboxLabel">walk</p>       <input class = "checkboxElt" type="checkbox" name="method" id ="walk_input" value="1" checked disabled>     <label for="walk_input"><span><span></span></span></label>
-                            <p class="checkboxLabel">old-rod</p>    <input class = "checkboxElt" type="checkbox" name="method" id = "old_rod_input" value="2" disabled>      <label for="old_rod_input"><span><span></span></span></label>
-                            <p class="checkboxLabel">good-rod</p>   <input class = "checkboxElt" type="checkbox" name="method" id = "good_rod_input" value="3" disabled>    <label for="good_rod_input"><span><span></span></span></label>
-                            <p class="checkboxLabel">super-rod</p>  <input class = "checkboxElt" type="checkbox" name="method" id = "super_rod_input" value="4" disabled>  <label for="super_rod_input"><span><span></span></span></label>
-                            <p class="checkboxLabel">surf</p>       <input class = "checkboxElt" type="checkbox" name="method" id = "surf_input" value="5" disabled>            <label for="surf_input"><span><span></span></span></label>
-                        </form>
-                    </div>
-                    </div>
+                    <p class="textHeader">Region: </p>
+                    <select id="select_Region">
+                        <option selected disabled>select region</option>
+                        <option name="hoenn">Hoenn</option>
+                        <option name="kalos">Kalos</option>
+                        <option name="sinnoh">Sinnoh</option>
+                        <option name="johto">Johto</option>
+                    </select>
                 </div>
                 <div id="pseudoTable">
                     <div id="SHAPESDIV">
+                    </div>
+                </div>
+                <div id="selectDataVisualizationPreferences">
+                    <div id = "innerselectDataVisualizationPreferences">
+                    <div id ="chartForm">
+                        <p class="largerLabel">Location Area: </p>
+                        <select id="select_Location_Area" disabled>
+                            <option selected disabled>select area</option>
+                        </select><br>
+                        <p class="largerLabel">Method: </p>
+                        <select id="select_Method" disabled>
+                            <option selected disabled>select method</option>
+                        </select><br>
+                        <p class="largerLabel">Version: </p>
+                        <select id="select_Version" disabled>
+                            <option selected disabled>select version</option>
+                        </select>
+                    </div>
                     </div>
                 </div>
             </div>
