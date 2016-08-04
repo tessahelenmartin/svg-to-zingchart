@@ -6,6 +6,9 @@ module.exports = {
     mkshape:makeShape,
 };
 
+
+
+
 function pathToPolygon(array) {
     var pointsArray = [];
     var currentLetter = "";
@@ -140,29 +143,6 @@ function pathToLine(array) {
                     }
                     break;
                 case 'C':
-                    /*if (position == 0) {
-                        if (pointCount == 0)
-                        {
-                            curvePoints.push([pointsArray[pointsArray.length-1][0],pointsArray[pointsArray.length-1][1]]);
-                        }
-                        curvePoints.push([parseFloat(value)]);
-                        position = 1;
-                    }
-                    else {
-                        curvePoints[curvePoints.length-1].push(parseFloat(value));
-                        pointCount++;
-                        position = 0;
-                        if (pointCount == 3)
-                        {
-                            var vals = bezier(curvePoints);
-                            var distance = (Math.pow(Math.pow((curvePoints[0][0]-curvePoints[1][0]),2) + Math.pow((curvePoints[0][1]-curvePoints[1][1]),2),1/2)+Math.pow(Math.pow((curvePoints[1][0]-curvePoints[2][0]),2) + Math.pow((curvePoints[1][1]-curvePoints[2][1]),2),1/2)+Math.pow(Math.pow((curvePoints[2][0]-curvePoints[3][0]),2) + Math.pow((curvePoints[2][1]-curvePoints[3][1]),2),1/2)/4);
-                            for (var t = 0; t < distance;t++) {
-                                pointsArray.push(vals(t/distance));
-                            }
-                            curvePoints = [];
-                            pointCount = 0;
-                        }
-                    }*/
                     coordinateArray.push(parseFloat(value));
                     coordinateCount++;
                     if (coordinateCount == 6){
@@ -214,7 +194,9 @@ function makeShape(path) {
                 //FOR POKEMON
                 "hover-state": {
                     "lineColor": "#FFD700",
-                }
+                },
+                zIndex:2,
+                cursor: "pointer"
             };
         }
     }
@@ -242,8 +224,9 @@ function makeShape(path) {
                 backgroundColor: fillColor_in,
                 points: points_in,
                 "shadow": true,
-                "shadow-distance": 3,
-                "shadow-color": "#0D485F",
+                "shadow-angle":0,
+                "shadow-blur":"3px",
+                "shadow-color": "#082f3d",
                 "shadow-alpha": 1,
                 flat: true
             };
@@ -274,9 +257,10 @@ function makeShape(path) {
             borderWidth:strokeWidth_in,
             borderColor:lineColor_in,
             backgroundColor: fillColor_in,
-            size:circleR + "px",
-            x: circleX + "px",
-            y: circleY + "px",
+            size:circleR,
+            x: circleX,
+            y: circleY,
+            zIndex:1
         };
     }
     else if (path.getAttribute("class") == "LANDMARK") {
@@ -304,13 +288,15 @@ function makeShape(path) {
             borderWidth:strokeWidth_in,
             borderColor:lineColor_in,
             backgroundColor: fillColor_in,
-            size:circleR + "px",
-            x: circleX + "px",
-            y: circleY + "px",
+            size:circleR,
+            x: circleX,
+            y: circleY,
             "hover-state": {
                 "borderColor": "#FFD700",
                 "backgroundColor": "#FFD700",
-            }
+            },
+            zIndex:1,
+            cursor: "pointer"
         };
     }
 }

@@ -4,7 +4,6 @@ var SVGSTRING;
 var location_areas;
 
 window.addEventListener("load", beginApp);
-
 function beginApp() {
     document.getElementById('select_Region').addEventListener("change", function () {
         document.getElementById("loading").visibility = "visible";

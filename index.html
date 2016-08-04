@@ -26,17 +26,24 @@
         <div class="alignMiddle">
             <div id="MAP" class="topVisualizations">
                 <div id="selectDataVisualizationPreferencesHeader">
-                    <p class="textHeader">Region: </p>
+                    <!--<div class="number"></div>-->
+                    <p class="textHeader">Region:</p>
                     <select id="select_Region">
-                        <option selected disabled>select region</option>
-                        <option name="hoenn">Hoenn</option>
-                        <option name="kalos">Kalos</option>
-                        <option name="sinnoh">Sinnoh</option>
+                        <option selected disabled>Select Region</option>
+                        <option name="kanto">Kanto</option>
                         <option name="johto">Johto</option>
+                        <option name="hoenn">Hoenn</option>
+                        <option name="sinnoh">Sinnoh</option>
+                        <option name="unova">Unova</option>
+                        <option name="kalos">Kalos</option>
                     </select>
                 </div>
-                <div id="pseudoTable">
-                    <div id="SHAPESDIV">
+                <div id="alignMapCenter">
+                    <div id="wrapMap">
+                        <div id="wrapper">
+                            <div id="SHAPESDIV">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="selectDataVisualizationPreferences">
@@ -44,15 +51,15 @@
                     <div id ="chartForm">
                         <p class="largerLabel">Location Area: </p>
                         <select id="select_Location_Area" disabled>
-                            <option selected disabled>select area</option>
+                            <option selected disabled>Select Area</option>
                         </select><br>
                         <p class="largerLabel">Method: </p>
                         <select id="select_Method" disabled>
-                            <option selected disabled>select method</option>
+                            <option selected disabled>Select Method</option>
                         </select><br>
                         <p class="largerLabel">Version: </p>
                         <select id="select_Version" disabled>
-                            <option selected disabled>select version</option>
+                            <option selected disabled>Select Version</option>
                         </select>
                     </div>
                     </div>
