@@ -1,5 +1,4 @@
-  {
-    "location-areas":[
+[
     {
       "id": 1,
       "location_id": 1,
@@ -2977,12 +2976,6 @@
       "identifier": ""
     },
     {
-      "id": 541,
-      "location_id": 92,
-      "game_index": 99,
-      "identifier": ""
-    },
-    {
       "id": 542,
       "location_id": 93,
       "game_index": 100,
@@ -3052,12 +3045,6 @@
       "id": 553,
       "location_id": 104,
       "game_index": 112,
-      "identifier": ""
-    },
-    {
-      "id": 554,
-      "location_id": 86,
-      "game_index": 113,
       "identifier": ""
     },
     {
@@ -4297,4 +4284,3 @@
       "identifier": ""
     }
   ]
-  }

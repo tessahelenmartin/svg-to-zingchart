@@ -18432,61 +18432,61 @@
     "rate": 2
   },
   {
-    "location_area_id": 541,
+    "location_area_id": 306,
     "encounter_method_id": 1,
     "version_id": 10,
     "rate": 21
   },
   {
-    "location_area_id": 541,
+    "location_area_id": 306,
     "encounter_method_id": 1,
     "version_id": 11,
     "rate": 21
   },
   {
-    "location_area_id": 541,
+    "location_area_id": 306,
     "encounter_method_id": 2,
     "version_id": 10,
     "rate": 20
   },
   {
-    "location_area_id": 541,
+    "location_area_id": 306,
     "encounter_method_id": 2,
     "version_id": 11,
     "rate": 20
   },
   {
-    "location_area_id": 541,
+    "location_area_id": 306,
     "encounter_method_id": 3,
     "version_id": 10,
     "rate": 20
   },
   {
-    "location_area_id": 541,
+    "location_area_id": 306,
     "encounter_method_id": 3,
     "version_id": 11,
     "rate": 20
   },
   {
-    "location_area_id": 541,
+    "location_area_id": 306,
     "encounter_method_id": 4,
     "version_id": 10,
     "rate": 20
   },
   {
-    "location_area_id": 541,
+    "location_area_id": 306,
     "encounter_method_id": 4,
     "version_id": 11,
     "rate": 20
   },
   {
-    "location_area_id": 541,
+    "location_area_id": 306,
     "encounter_method_id": 5,
     "version_id": 10,
     "rate": 2
   },
   {
-    "location_area_id": 541,
+    "location_area_id": 306,
     "encounter_method_id": 5,
     "version_id": 11,
     "rate": 2
@@ -18948,49 +18948,49 @@
     "rate": 2
   },
   {
-    "location_area_id": 554,
+    "location_area_id": 285,
     "encounter_method_id": 2,
     "version_id": 10,
     "rate": 10
   },
   {
-    "location_area_id": 554,
+    "location_area_id": 285,
     "encounter_method_id": 2,
     "version_id": 11,
     "rate": 10
   },
   {
-    "location_area_id": 554,
+    "location_area_id": 285,
     "encounter_method_id": 3,
     "version_id": 10,
     "rate": 10
   },
   {
-    "location_area_id": 554,
+    "location_area_id": 285,
     "encounter_method_id": 3,
     "version_id": 11,
     "rate": 10
   },
   {
-    "location_area_id": 554,
+    "location_area_id": 285,
     "encounter_method_id": 4,
     "version_id": 10,
     "rate": 10
   },
   {
-    "location_area_id": 554,
+    "location_area_id": 285,
     "encounter_method_id": 4,
     "version_id": 11,
     "rate": 10
   },
   {
-    "location_area_id": 554,
+    "location_area_id": 285,
     "encounter_method_id": 5,
     "version_id": 10,
     "rate": 1
   },
   {
-    "location_area_id": 554,
+    "location_area_id": 285,
     "encounter_method_id": 5,
     "version_id": 11,
     "rate": 1

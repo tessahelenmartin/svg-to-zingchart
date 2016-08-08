@@ -24,13 +24,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1436"
-     inkscape:window-height="855"
+     inkscape:window-width="1920"
+     inkscape:window-height="957"
      id="namedview65"
      showgrid="false"
      inkscape:zoom="2.2"
-     inkscape:cx="354.09"
-     inkscape:cy="345.45"
+     inkscape:cx="274.3913"
+     inkscape:cy="359.27788"
      inkscape:window-x="0"
      inkscape:window-y="1"
      inkscape:window-maximized="1"
@@ -84,248 +84,318 @@
      class="LAND" />
   <path
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 111.46046,252.79479 111.46046,290.33564"
+     d="M 111.554,253.099 111.554,290.33564"
      areaid="[393]"
      locationid="449"
      id="hoenn-route-101"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[394]"
      locationid="450"
      id="hoenn-route-102"
-     d="M 110.44691,253.5272 43.227934,253.5272 M 43.227934,233.77199 43.227934,253.56679"
+     d="M 111.554,253.099 43.227934,253.099 M 43.227934,233.77199 43.227934,253.099"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
   <path
      areaid="[395]"
      locationid="451"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 162.60041,217.20373 111.46046,217.18394 111.46046,252.72551"
+     d="M 182.779,217.20373 111.554,217.18394 111.554,253.099"
      id="hoenn-route-103"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc" />
   <path
      areaid="[396]"
      locationid="452"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 43.227934,187.71937 43.227934,233.77199"
+     d="M 43.227934,186.71478 43.227934,233.77199"
      id="hoenn-route-104"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[397]"
      locationid="453"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 43.227934,254.60602 43.227934,343.40551"
+     d="M 43.227934,253.099 43.227934,343.40551"
      id="hoenn-route-105"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[398]"
      locationid="454"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 59.267596,367.58486 59.267596,343.40551 43.227934,343.40551"
+     d="M 59.267596,367.11968 59.267596,343.40551 43.227934,343.40551"
      id="hoenn-route-106"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc" />
   <path
      areaid="[399]"
      locationid="455"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 59.267596,366.72379 104.25737,366.65451 104.25737,361.15155 114.65855,361.22084"
+     d="M 59.267596,367.11968 104.25737,367.11968 104.25737,361.15155 114.65855,361.22084"
      id="hoenn-route-107"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
   <path
      areaid="[400]"
      locationid="456"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 114.16654,361.22084 174.43827,361.22084"
+     d="M 114.16654,361.22084 182.779,361.22084"
      id="hoenn-route-108"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[401]"
      locationid="457"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 174.43827,267.60131 174.43827,361.22084"
+     d="M 182.779,266.94313 182.779,361.22084"
      id="hoenn-route-109"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[402]"
      locationid="458"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 174.53667,266.28495 174.42843,252.17126 162.62993,252.13167 162.62993,217.06517"
+     d="M 182.779,266.94313 182.779,144.002"
      id="hoenn-route-110"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[403]"
      locationid="459"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 182.79267,143.33942 182.79267,23.39281"
+     d="M 182.779,143.33942 182.779,23.39281"
      id="hoenn-route-111"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[404]"
      locationid="460"
      id="hoenn-route-112"
-     d="M 128.85808,78.570827 182.79267,78.570827 M 158.37893,78.897442 158.37893,65.288514 182.75331,65.288514"
+     d="M 128.85808,78.570827 182.779,78.570827 M 158.37893,78.897442 158.37893,65.288514 182.779,65.288514"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccc" />
   <path
      areaid="[405]"
      locationid="461"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 103.27334,23.39281 182.79267,23.39281"
+     d="M 103.388,23.39281 182.779,23.39281"
      id="hoenn-route-113"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[406]"
      locationid="462"
      id="hoenn-route-114"
-     d="M 83.799422,23.39281 102.10235,23.39281 M 83.73054,23.462091 83.73054,59.023458 M 63.442336,59.023458 83.73054,59.023458"
+     d="M 62.842,59.023458 83.73054,59.023458 83.764981,23.42745 103.388,23.39281"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
   <path
      areaid="[407]"
      locationid="463"
      id="hoenn-route-115"
-     d="M 43.154132,186.88799 43.154132,59.023458 M 43.154132,59.023458 63.442336,59.023458"
+     d="M 43.154132,186.71478 43.154132,59.023458 62.842,59.023458"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc" />
   <path
      areaid="[408]"
      locationid="464"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 111.94263,143.84419 83.799422,144.02234 83.799422,185.7102 43.154132,185.7102"
+     d="M 111.928,144.002 83.799422,144.002 83.799422,186.71478 43.154132,186.71478"
      id="hoenn-route-116"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
   <path
      areaid="[409]"
      locationid="465"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 113.11362,143.84419 182.79267,143.84419"
+     d="M 111.928,144.002 182.779,144.002"
      id="hoenn-route-117"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[410]"
      locationid="466"
      id="hoenn-route-118"
-     d="M 185.93172,143.84419 255.61077,143.84419"
+     d="M 182.779,144.002 255.61077,144.002"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[411]"
      locationid="467"
      id="hoenn-route-119"
-     d="M 246.94148,143.33942 246.94148,26.084903 267.41911,26.084903"
+     d="M 246.94148,144.002 246.94148,26.084903 268.0046,26.084903"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc" />
   <path
      areaid="[412]"
      locationid="468"
      id="hoenn-route-120"
-     d="M 268.5901,26.084903 281.68752,26.015621 281.68752,86.053264"
+     d="M 268.0046,26.084903 281.68752,26.015621 281.68752,86.053264"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc" />
   <path
      areaid="[413]"
      locationid="469"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 281.68752,86.053264 408.28276,86.053264"
+     d="M 281.68752,86.053264 408.7832,86.053264"
      id="hoenn-route-121"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[414]"
      locationid="470"
      id="hoenn-route-122"
-     d="M 346.13153,86.053264 346.13153,128.50321 361.87599,128.50321 361.87599,144.33906"
+     d="M 346.13153,86.053264 346.13153,128.50321 361.87599,128.50321 361.87599,144.002"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
   <path
      areaid="[415]"
      locationid="471"
      id="hoenn-route-123"
-     d="M 255.61077,143.84419 361.87599,143.84419"
+     d="M 255.61077,144.002 361.87599,144.002"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[416,417]"
      locationid="472"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 454.79778,171.6163 454.79778,86.053264 M 513.61316,91.02176 470.31591,91.02176 470.31591,86.053264 452.6034,86.053264 408.18436,86.053264"
+     d="M 455.30869,173.769 455.30869,86.053264 M 513.61316,91.378066 470.31591,91.378066 470.31591,86.053264 455.30869,86.053264 408.6848,86.053264"
      id="hoenn-route-124"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccccc" />
   <path
      areaid="[418]"
      locationid="473"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 513.61316,91.02176 513.61316,56.380851 523.45344,56.380851"
+     d="M 513.61316,91.378066 513.61316,56.380851 523.45344,56.380851"
      id="hoenn-route-125"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc" />
   <path
      areaid="[419,420]"
      locationid="474"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 456.11638,173.92239 513.61316,173.92239"
+     d="M 455.30869,173.769 513.61316,173.769"
      id="hoenn-route-126"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[421]"
      locationid="475"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 513.61316,91.734373 513.61316,185.75969"
+     d="M 513.61316,91.378066 513.61316,185.75969"
      id="hoenn-route-127"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[422]"
      locationid="476"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 513.61316,217.7085 568.81714,217.7085 M 568.81714,194.94448 568.81714,217.7085 M 513.61316,185.75969 513.61316,217.7085 513.61316,248.67747"
+     d="M 568.81714,194.23681 568.81714,217.7085 513.61316,217.7085 M 513.61316,185.75969 513.61316,217.7085 513.61316,248.67747"
      id="hoenn-route-128"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccccc" />
   <path
      areaid="[423]"
      locationid="477"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 483.53141,266.31464 513.61316,266.31464 M 513.61316,248.67747 513.61316,266.31464"
+     d="M 513.61316,248.67747 513.61316,266.94313 483.53141,266.94313"
      id="hoenn-route-129"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc" />
   <path
      areaid="[424]"
      locationid="478"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 444.17028,266.31464 483.53141,266.31464"
+     d="M 444.17028,266.94313 483.53141,266.94313"
      id="hoenn-route-130"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[425]"
      locationid="479"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 406.91496,266.31464 444.17028,266.31464"
+     d="M 405.566,266.94313 444.17028,266.94313"
      id="hoenn-route-131"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[426]"
      locationid="480"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 332.82747,266.31464 406.2163,266.31464"
+     d="M 332.82747,266.94313 405.566,266.94313"
      id="hoenn-route-132"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[427]"
      locationid="481"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 250.13957,266.31464 332.82747,266.31464"
+     d="M 250.13957,266.94313 332.82747,266.94313"
      id="hoenn-route-133"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      areaid="[428]"
      locationid="482"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 174.26115,266.31464 250.13957,266.31464"
+     d="M 182.779,266.94313 250.13957,266.94313"
      id="hoenn-route-134"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
   <path
      locationid="444"
      style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 568.5121,193.52915 568.81714,180.09837 568.81714,180.09837 564.11349,180.09837 564.11349,157.1265 564.11349,180.09837"
+     d="M 568.5121,194.23681 568.81714,180.09837 568.81714,180.09837 564.11349,180.09837 564.11349,157.1265 564.11349,180.09837"
      id="hoenn-victory-road"
-     class="ROUTE" />
+     class="ROUTE"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccccc" />
   <circle
      locationid="567"
      r="5"
@@ -388,7 +458,7 @@
      style="display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.98688012;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
      id="pacificlog-town"
      cx="405.76053"
-     cy="266.37149"
+     cy="266.77155"
      class="LANDMARK" />
   <circle
      locationid="432"
@@ -440,8 +510,8 @@
   <circle
      locationid="430"
      r="5"
-     cy="266.37149"
-     cx="174.67131"
+     cy="266.77155"
+     cx="183.02571"
      id="slateport-city"
      style="display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.98688012;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
      class="LANDMARK" />

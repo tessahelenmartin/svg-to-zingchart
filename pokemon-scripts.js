@@ -678,13 +678,34 @@ function getEncountersAtAreaGivenMethod(a_in, m_in) {
                 snaparray.push(snap_child.val())
                 if (snaparray.length == snapshot.numChildren())
                 {
-                    pokemonOnRoute(snaparray,a_in,m_in,handlePokemon)
+                    pokemonOnRoute(snaparray,a_in,m_in,handlePokemon);
                 }
             })
         }
         else
         {
-            alert("We're sorry, we don't detect any wild pokemon in this area!")
+            if (pokeVersion == 10 || pokeVersion == 11) {
+                console.log("encounters/"+ a_in + "/"+(pokeVersion%10+1)+","+ m_in)
+                firebase.database().ref("encounters/"+ a_in + "/"+(pokeVersion%10+1)+","+ m_in).once("value").then(function (snaptwo) {
+                    var snaparray = [];
+                    if (snaptwo.numChildren() > 0) {
+                        snaptwo.forEach(function (snap_child) {
+                            snaparray.push(snap_child.val())
+                            if (snaparray.length == snaptwo.numChildren()) {
+                                pokemonOnRoute(snaparray, a_in, m_in, handlePokemon)
+                            }
+                        })
+                    }
+                    else
+                    {
+                        alert("We're sorry, we don't detect any wild pokemon in this area!")
+                    }
+                })
+            }
+            else
+            {
+                alert("We're sorry, we don't detect any wild pokemon in this area!")
+            }
         }
     }
 }
