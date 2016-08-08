@@ -580,6 +580,7 @@ function setMethodOptions(){
     selected_areaID = document.getElementById("select_Location_Area").value;
     console.log("location-area-methods/"+selected_areaID)
     firebase.database().ref("location-area-methods/"+selected_areaID).once("value").then(function (snapMethods) {
+        console.log("Methods available for area "+selected_areaID+" "+ snapMethods.numChildren());
         snapMethods.val().forEach(function (method_indiv) {
             console.log(method_indiv)
             var newoptions = document.createElement("option");
@@ -678,7 +679,7 @@ function getEncountersAtAreaGivenMethod(a_in, m_in) {
                 snaparray.push(snap_child.val())
                 if (snaparray.length == snapshot.numChildren())
                 {
-                    pokemonOnRoute(snaparray,a_in,m_in,handlePokemon);
+                    pokemonOnRoute(snaparray,handlePokemon);
                 }
             })
         }
@@ -692,7 +693,7 @@ function getEncountersAtAreaGivenMethod(a_in, m_in) {
                         snaptwo.forEach(function (snap_child) {
                             snaparray.push(snap_child.val())
                             if (snaparray.length == snaptwo.numChildren()) {
-                                pokemonOnRoute(snaparray, a_in, m_in, handlePokemon)
+                                pokemonOnRoute(snaparray, handlePokemon)
                             }
                         })
                     }
@@ -710,7 +711,7 @@ function getEncountersAtAreaGivenMethod(a_in, m_in) {
     }
 }
 
-function pokemonOnRoute(possiblePokemonEncounters,a_in,m_in,callback_in) {
+function pokemonOnRoute(possiblePokemonEncounters,callback_in) {
     if (possiblePokemonEncounters.length == 0){
         alert("We're sorry, we don't detect any wild pokemon in this area!");
         return;
@@ -718,23 +719,19 @@ function pokemonOnRoute(possiblePokemonEncounters,a_in,m_in,callback_in) {
     pokemonSERIES = [];
     levelsINDEX = [];
     var colorArray = colorOptions.slice();
-    console.log("location-area-encounter-rates/"+ a_in+"/"+m_in)
-    firebase.database().ref("location-area-encounter-rates/"+ a_in+"/"+m_in).once("value").then(postFirebase);
-    function postFirebase(snapshot){
-        for (var p = 0; p < possiblePokemonEncounters.length; p ++) {
-            if (p == possiblePokemonEncounters.length-1)
-            {
-                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, true, snapshot.val());
-            }
-            else
-            {
-                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, false, snapshot.val());
-            }
+    for (var p = 0; p < possiblePokemonEncounters.length; p ++) {
+        if (p == possiblePokemonEncounters.length-1)
+        {
+            callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, true);
+        }
+        else
+        {
+            callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, false);
         }
     }
 }
 
-function handlePokemon(pokemon_name, pokemon_id, pokemon, colorArray, boolval, rate) {
+function handlePokemon(pokemon_name, pokemon_id, pokemon, colorArray, boolval) {
     console.log(pokemon_id)
     var rand = Math.floor(Math.random() * (colorArray.length-1));
     colorArray.splice(rand,1);
@@ -744,8 +741,9 @@ function handlePokemon(pokemon_name, pokemon_id, pokemon, colorArray, boolval, r
     if ((max == null) || pokemon.max_level > max) {
         max = pokemon.max_level;
     }
-    console.log(pokemon_name+ " at rate*rarity "+ parseInt(rate)*parseInt(pokemon.rarity)/100);
-    pokemonSERIES.push([pokemon_name,parseInt(rate)*parseInt(pokemon.rarity)/100, parseInt(pokemon.min_level),  parseInt(pokemon.max_level),  "rgb(" + colorArray[rand].join(",")+")",pokemon_id]);
+
+    console.log(pokemon_name+ " at rarity "+parseInt(pokemon.rarity));
+    pokemonSERIES.push([pokemon_name,parseInt(pokemon.rarity), parseInt(pokemon.min_level),  parseInt(pokemon.max_level),  "rgb(" + colorArray[rand].join(",")+")",pokemon_id]);
     if (boolval)
     {
         outputPokeJSON(updateChart)
@@ -1373,3 +1371,6 @@ function accessDatabaseCHILD(ref_in,str,val_comp,callbackfunction,pass) {
         })
     });
 }
+
+
+//"location-area-methods" : [ null, [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], null, null, null, null, null, [ 1 ], null, null, null, null, null, [ 1 ], null, null, null, null, null, [ 1 ], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5, 6 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], null, [ 1, 2, 3, 4, 5 ], null, [ 1 ], null, null, [ 2, 3, 4, 5, 6 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], null, [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5, 6 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 6 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], null, [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5, 6 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5, 6 ], [ 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 6 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 6 ], [ 1 ], [ 1 ], null, [ 1, 2, 3, 4, 5, 6 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5, 6 ], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 6 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 6 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5, 6 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5, 6 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 6 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 6 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5, 6 ], [ 1, 6 ], [ 1, 2, 3, 4, 5, 6 ], [ 1 ], [ 1, 6 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 6 ], [ 1 ], [ 1, 6 ], [ 1, 6 ], [ 1, 6 ], [ 1, 6 ], [ 1, 6 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5, 6 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1, 6 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 4, 5 ], [ 4, 5 ], null, [ 1, 8 ], [ 1, 8 ], [ 1, 8 ], [ 1, 4, 5, 8 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], null, null, null, [ 1 ], [ 1 ], [ 1 ], [ 1, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 8 ], [ 1, 4, 5 ], [ 1, 8 ], [ 1, 4, 5, 8 ], [ 1, 4, 5 ], null, null, [ 1, 4, 5, 8 ], null, [ 1, 4, 5, 8 ], [ 1 ], [ 1, 4, 5, 8 ], [ 1, 4, 5 ], [ 1, 4, 5 ], [ 1, 8 ], null, [ 1 ], [ 1 ], null, [ 1 ], [ 1 ], [ 1 ], [ 1 ], null, null, [ 1, 8 ], [ 1 ], [ 1 ], [ 1, 4, 5 ], [ 1 ], [ 1 ], [ 1, 4, 5, 8 ], [ 1, 8 ], [ 1, 4, 5, 8 ], [ 1, 4, 5, 8 ], [ 1, 4, 5, 8 ], [ 1, 8 ], [ 1, 8 ], [ 1, 4, 5, 8 ], [ 1, 4, 5, 8 ], [ 4, 5 ], [ 4, 5 ], [ 1, 8 ], [ 4, 5 ], [ 4, 5 ], [ 4, 5 ], [ 1 ], [ 1, 4, 5 ], [ 1, 8 ], [ 1, 4, 5, 8 ], [ 1 ], [ 1, 4, 5 ], [ 1, 8 ], [ 1 ], [ 1, 4, 5 ], [ 1, 4, 5, 8 ], [ 1 ], [ 1, 4, 5 ], [ 1, 4, 5 ], [ 4, 5 ], [ 1, 4, 5 ], [ 1, 4, 5 ], [ 1, 8 ], [ 1, 8 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 4, 5 ], [ 1 ], [ 1, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 4, 5 ], [ 1 ], [ 1, 4, 5, 8 ], [ 1, 4, 5 ], null, [ 1, 4, 5, 8 ], [ 1, 4, 5, 8 ], [ 4, 5 ] ],
