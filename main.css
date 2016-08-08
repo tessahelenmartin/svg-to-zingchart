@@ -321,7 +321,7 @@ select:disabled {
     height: 75%;
     margin: 5%;
     left:0;
-    background:url(holder.svg);
+    background:url(UI_images/holder.svg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }

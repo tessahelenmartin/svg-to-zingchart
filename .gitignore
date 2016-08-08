@@ -1,4 +1,8 @@
 #gitignore file#
 node_modules
-.idea
+csv
 getAreaInfo.js
+server.js
+versions.js
+application.py
+.idea

@@ -435,7 +435,7 @@ function renderShape() {
     };
     zingchart.legend_item_click = function(p) {
         // document.getElementById("loading").style.visibility = "visible";
-        document.getElementById("pokemon_image").src = "holder.png";
+        document.getElementById("pokemon_image").src = "UI_images/holder.png";
         document.getElementById("radar").style.visibility = "hidden";
         var pokeText = zingchart.exec('CHARTDIV', 'getseriesdata', {'plotindex' : p.plotindex}).text;
         infoAboutSelectedPokemon(pokeText.slice(0,pokeText.indexOf('(')),pokeText.slice(pokeText.indexOf('(ID: ')+5,pokeText.indexOf(')')));
