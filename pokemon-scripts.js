@@ -42,27 +42,27 @@ var regions = {
 var stats = {
     "1": {
         text:'HP',
-        color: '#8b1a1a'
+        color: '#b20000'
     },
     "2": {
         text:'Attack',
-        color: '#ff7f00'
+        color: '#d8732b'
     },
     "3": {
         text:'Defense',
-        color: '#daa520'
+        color: '#dfbb2b'
     },
     "4": {
         text:'S. Attack',
-        color: 'OliveDrab'
+        color: '#6890F0'
     },
     "5": {
         text:'S. Defense',
-        color: '#27408b'
+        color: '#78C850'
     },
     "6": {
         text:'Speed',
-        color: '#551a8b'
+        color: '#F85888'
     },
     "7": {
         text:'Accuracy',
@@ -859,7 +859,6 @@ function infoAboutSelectedPokemon(pokename,id_in) {
     document.getElementById("pokemon_header_types").innerHTML = pokename.charAt(0).toUpperCase() + pokename.slice(1);
     accessDatabaseCHILD(firebase.database().ref("pokemon-stats"), "pokemon_id", poke_id, function (pokemon_stats) {
         var stats_name_obj = [];
-        var stats_color_obj = [];
         var stats_value_obj = [];
         var effort_obj = [];
         for (var q = 0; q < pokemon_stats.length;q++) {
@@ -868,6 +867,27 @@ function infoAboutSelectedPokemon(pokename,id_in) {
             effort_obj.push(pokemon_stats[q].effort);
             if (q == pokemon_stats.length-1) {
                 render_stats_graph(pokename,stats_name_obj, stats_value_obj, effort_obj);
+                document.getElementById("nature").onchange = function () {
+                    render_stats_graph(pokename,stats_name_obj, stats_value_obj, effort_obj);
+                }
+                document.getElementById("HP").onchange = function () {
+                    render_stats_graph(pokename,stats_name_obj, stats_value_obj, effort_obj);
+                }
+                document.getElementById("attack").onchange = function () {
+                    render_stats_graph(pokename,stats_name_obj, stats_value_obj, effort_obj);
+                }
+                document.getElementById("defense").onchange = function () {
+                    render_stats_graph(pokename,stats_name_obj, stats_value_obj, effort_obj);
+                }
+                document.getElementById("s_attack").onchange = function () {
+                    render_stats_graph(pokename,stats_name_obj, stats_value_obj, effort_obj);
+                }
+                document.getElementById("s_defense").onchange = function () {
+                    render_stats_graph(pokename,stats_name_obj, stats_value_obj, effort_obj);
+                }
+                document.getElementById("speed").onchange = function () {
+                    render_stats_graph(pokename,stats_name_obj, stats_value_obj, effort_obj);
+                }
                 render_Radar(pokename,id_in, stats_name_obj, stats_value_obj);
                 accessDatabaseCHILD(firebase.database().ref("pokemon-types"), "pokemon_id", poke_id, function (pokemon_types) {
                     if (pokemon_types.length == 2)
@@ -1327,19 +1347,22 @@ function typeEffectivity(types_in, typename) {
 }
 
 function render_stats_graph(pokename,stats_name, stats_value, effort_obj) {
-
-    var nature=[2,3] //lonely nature (+attack, -defense)
-    var levels=[10,20,30,40,50,60,70,80,90,100]
+    var nature_str=document.getElementById("nature").value.split(",");
+    var nature= [parseInt(nature_str[0]),parseInt(nature_str[1])];
+    var iv_values = [parseInt(document.getElementById("HP").value), parseInt(document.getElementById("attack").value), parseInt(document.getElementById("defense").value), parseInt(document.getElementById("s_attack").value), parseInt(document.getElementById("s_defense").value), parseInt(document.getElementById("speed").value)];
+    console.log(stats_name)
+    console.log(nature)
+    var levels=[10,20,30,40,50,60,70,80,90,100];
     var statsFinal = [];
     var k;
     for (var i = 0; i < stats_name.length; i++)
     {
-        var temp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        var temp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         if (stats_name[i] == "1")
         {
             for (k=0; k < 10; k++)
             {
-                temp[k]= Math.floor((stats_value[i]*2+Math.floor(Math.ceil(Math.sqrt(effort_obj[i])))/4)/100*levels[k])+levels[k]+10;
+                temp[k]= Math.floor((stats_value[i]*2+iv_values[i]+Math.floor(Math.ceil(Math.sqrt(effort_obj[i])))/4)/100*levels[k])+levels[k]+10;
                 if (k == 9)
                 {
                     statsFinal.push(temp)
@@ -1350,17 +1373,18 @@ function render_stats_graph(pokename,stats_name, stats_value, effort_obj) {
         {
             for (k=0; k < 10; k++)
             {
-                if (stats_name[i] == nature[0])
+                if (stats_name[i] == parseInt(nature[0]))
                 {
-                    temp[k]= Math.floor((((stats_value[i]*2+Math.floor(Math.ceil(Math.sqrt(effort_obj[i])))/4)/100*levels[k])+5)*1.1);
+                    console.log(stats_name[i])
+                    temp[k]= Math.floor((((stats_value[i]*2+iv_values[i]+Math.floor(Math.ceil(Math.sqrt(effort_obj[i])))/4)/100*levels[k])+5)*1.1);
                     if (k == 9)
                     {
                         statsFinal.push(temp)
                     }
                 }
-                else if (stats_name[i] == nature[1])
+                else if (stats_name[i] == parseInt(nature[1]))
                 {
-                    temp[k]= Math.floor((((stats_value[i]*2+Math.floor(Math.ceil(Math.sqrt(effort_obj[i])))/4)/100*levels[k])+5)*0.9);
+                    temp[k]= Math.floor((((stats_value[i]*2+iv_values[i]+Math.floor(Math.ceil(Math.sqrt(effort_obj[i])))/4)/100*levels[k])+5)*0.9);
                     if (k == 9)
                     {
                         statsFinal.push(temp)
@@ -1368,7 +1392,7 @@ function render_stats_graph(pokename,stats_name, stats_value, effort_obj) {
                 }
                 else
                 {
-                    temp[k]= Math.floor(((stats_value[i]*2+Math.floor(Math.ceil(Math.sqrt(effort_obj[i])))/4)/100*levels[k])+5);
+                    temp[k]= Math.floor(((stats_value[i]*2+iv_values[i]+Math.floor(Math.ceil(Math.sqrt(effort_obj[i])))/4)/100*levels[k])+5);
                     if (k == 9)
                     {
                         statsFinal.push(temp)
@@ -1394,9 +1418,6 @@ function render_stats_graph(pokename,stats_name, stats_value, effort_obj) {
                 "text": "%t at level %kt: %vt"
             }
         });
-        if (p == statsFinal.length - 1) {
-
-        }
     }
     var statsProgression = {
         "background-color": "transparent",
@@ -1407,7 +1428,7 @@ function render_stats_graph(pokename,stats_name, stats_value, effort_obj) {
             "text" : "Stats Progression for " + pokename.charAt(0).toUpperCase() + pokename.slice(1),
             "background-color":"transparent",
             "font-size":"15",
-            height:"10%",
+            height:"14.2857143%",
             textAlign:"center"
         },
         "scale-x": {
