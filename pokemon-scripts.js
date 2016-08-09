@@ -40,14 +40,38 @@ var regions = {
     }
 };
 var stats = {
-    "1": 'HP',
-    "2": 'Attack',
-    "3": 'Defense',
-    "4": 'S. Attack',
-    "5": 'S. Defense',
-    "6": 'Speed',
-    "7": 'Accuracy',
-    "8": 'Evasion'
+    "1": {
+        text:'HP',
+        color: '#8b1a1a'
+    },
+    "2": {
+        text:'Attack',
+        color: '#ff7f00'
+    },
+    "3": {
+        text:'Defense',
+        color: '#daa520'
+    },
+    "4": {
+        text:'S. Attack',
+        color: 'OliveDrab'
+    },
+    "5": {
+        text:'S. Defense',
+        color: '#27408b'
+    },
+    "6": {
+        text:'Speed',
+        color: '#551a8b'
+    },
+    "7": {
+        text:'Accuracy',
+        color: '#1A8B55'
+    },
+    "8": {
+        text:'Evasion',
+        color: '#47A0A2'
+    }
 }
 var types = {
         "1": {
@@ -299,7 +323,7 @@ function renderShape() {
                 },
                 "animation": {
                     "delay": 0,
-                    "effect": 3,
+                    "effect": 1,
                     "speed": 1000,
                     "method": 0,
                     "sequence": 1
@@ -835,14 +859,15 @@ function infoAboutSelectedPokemon(pokename,id_in) {
     document.getElementById("pokemon_header_types").innerHTML = pokename.charAt(0).toUpperCase() + pokename.slice(1);
     accessDatabaseCHILD(firebase.database().ref("pokemon-stats"), "pokemon_id", poke_id, function (pokemon_stats) {
         var stats_name_obj = [];
+        var stats_color_obj = [];
         var stats_value_obj = [];
         var effort_obj = [];
         for (var q = 0; q < pokemon_stats.length;q++) {
-            stats_name_obj.push(stats[pokemon_stats[q].stat_id]);
+            stats_name_obj.push(pokemon_stats[q].stat_id);
             stats_value_obj.push(pokemon_stats[q].base_stat);
             effort_obj.push(pokemon_stats[q].effort);
             if (q == pokemon_stats.length-1) {
-                render_stats_graph(stats_name, stats_value, effort_obj);
+                render_stats_graph(pokename,stats_name_obj, stats_value_obj, effort_obj);
                 render_Radar(pokename,id_in, stats_name_obj, stats_value_obj);
                 accessDatabaseCHILD(firebase.database().ref("pokemon-types"), "pokemon_id", poke_id, function (pokemon_types) {
                     if (pokemon_types.length == 2)
@@ -866,164 +891,110 @@ function infoAboutSelectedPokemon(pokename,id_in) {
 }
 
 function render_Radar(pokename,id_in, stats_name, stats_value){
-    max_Val = Math.ceil(Math.max(...stats_value)/25)*25;
-    var myRadar = {
-        "globals": {
-            "font-family": 'Exo 2, sans-serif',
-            "shadow":false
-        },
-        "title" : {
-            visible:true,
-            "font-color": "#fff",
-            "font-family": 'Exo 2, sans-serif',
-            "text" : "Base Stats for " + pokename.charAt(0).toUpperCase() + pokename.slice(1),
-            "background-color":"transparent",
-            "font-size":"15",
-            height:"10%",
-            textAlign:"center"
-        },
-        type: "radar",
-        backgroundColor: "transparent",
-        scale:{
-            sizeFactor: "100%"
-        },
-        plot: {
-            "background-color":"#fff",
-            aspect:"rose",
-            "animation": {
-                "effect":"ANIMATION_EXPAND_TOP",
-                "sequence":"ANIMATION_BY_PLOT_AND_NODE",
-                "speed":10
+    var max_Val = Math.ceil(Math.max(...stats_value)/25)*25;
+    var radar_series = []
+    var null_array = [null,null,null,null,null,null,null,null].slice(0,stats_value.length);
+    for (var t = 0; t < stats_value.length; t++)
+    {
+        var values_array = null_array.slice();
+        values_array[t]  = stats_value[t];
+        var names_array = null_array.slice();
+        names_array[t]  = stats[stats_name[t]].text;
+        radar_series.push({
+            "values" : values_array,
+            "data-band": names_array,
+            "target" : "_blank",
+            "background-color":stats[stats_name[t]].color,
+            "tooltip": {
+                "text":"%data-band: %v",
+                "background-color":stats[stats_name[t]].color,
+                "color":"#FFF",
+                "font-size":"14px"
             },
-            "stacked": true //To create a stacked radar chart.
-        },
-        "scale-k":{
-            "aspect":"circle",
-            "visible":false
-        },
-        // "legend": {
-        //     "layout":"6x1",
-        //     "toggle-action": "none",
-        //     "border-width": 0,
-        //     "border-color": "none",
-        //     backgroundColor: "#116381",
-        //     "border-radius":"5vmin",
-        //     x: "70%",
-        //     y: "0%",
-        //     height:"90%",
-        //     "item": {
-        //         "font-color": "#fff",
-        //         "font-family": 'Exo 2, sans-serif',
-        //         "font-size": "15px",
-        //         "font-weight": "600",
-        //     },
-        //
-        // },
-        "scale-v":{
-            "values": "0:"+ max_Val +":25",
-            "guide": {
-                "line-width":1,
-                "line-style":"FFF",
-                "line-color":"#FFF"
-            },
-            "item": {
-                "color":"#FFF"
-            },
-            "line-color":"#FFF",
-            alpha:0.6
-        },
-        plotarea:{
-            height:"100%",
-        },
-        "series" : [
-            {
-                "values" : [stats_value[0],null,null,null,null,null],
-                "data-band" : [stats_name[0],null,null,null,null,null],
-                "target" : "_blank",
-                "background-color":"#8b1a1a",
-                "tooltip": {
-                    "text":"%data-band: %v",
-                    "background-color":"#8b1a1a",
-                    "color":"#FFF",
-                    "font-size":"14px"
-                },
-                "text":stats_name[0]
-            },
-            {
-                "values" : [null,stats_value[1],null,null,null,null],
-                "data-band" : [null,stats_name[1],null,null,null,null],
-                "target" : "_blank",
-                "background-color":"#ff7f00",
-                "tooltip": {
-                    "text":"%data-band: %v",
-                    "background-color":"#ff7f00",
-                    "color":"#FFF",
-                    "font-size":"14px"
-                },
-                "text":stats_name[1]
-            },
-            {
-                "values" : [null,null,stats_value[2],null,null,null],
-                "data-band" : [null,null,stats_name[2],null,null,null],
-                "target" : "_blank",
-                "background-color":"#daa520",
-                "tooltip": {
-                    "text":"%data-band: %v",
-                    "background-color":"#daa520",
-                    "color":"#FFF",
-                    "font-size":"14px"
-                },
-                "text":stats_name[2]
-            },
-            {
-                "values" : [null,null,null,stats_value[3],null,null],
-                "data-band" : [null,null,null,stats_name[3],null,null],
-                "target" : "_blank",
-                "background-color":"OliveDrab",
-                "tooltip": {
-                    "text":"%data-band: %v",
-                    "background-color":"OliveDrab",
-                    "color":"#FFF",
-                    "font-size":"14px"
-                },
-                "text":stats_name[3]
-            },
-            {
-                "values" : [null,null,null,null,stats_value[4],null],
-                "data-band" : [null,null,null,null,stats_name[4],null],
-                "target" : "_blank",
-                "background-color":"#27408b",
-                "tooltip": {
-                    "text":"%data-band: %v",
-                    "background-color":"#27408b",
-                    "color":"#FFF",
-                    "font-size":"14px"
-                },
-                "text":stats_name[4]
-            },
-            {
-                "values" : [null,null,null,null,null,stats_value[5]],
-                "data-band" : [null,null,null,null,null,stats_name[5]],
-                "target" : "_blank",
-                "background-color":"#551a8b",
-                "tooltip": {
-                    "text":"%data-band: %v",
-                    "background-color":"#551a8b",
-                    "color":"#FFF",
-                    "font-size":"14px"
-                },
-                "text":stats_name[5]
-            },
-        ],
-    };
+            "text":stats[stats_name[1]].text
+            })
+        if (t == stats_value.length - 1)
+        {
 
-    zingchart.render({
-        id : 'radar',
-        data : myRadar,
-    });
-    document.getElementById("pokemon_image").src = "sugimori/"+id_in+".png";
-    document.getElementById("radar").style.visibility = "visible";
-    // document.getElementById("loading").style.visibility = "hidden";
+            var myRadar = {
+                "globals": {
+                    "font-family": 'Exo 2, sans-serif',
+                    "shadow":false
+                },
+                "title" : {
+                    visible:true,
+                    "font-color": "#fff",
+                    "font-family": 'Exo 2, sans-serif',
+                    "text" : "Base Stats for " + pokename.charAt(0).toUpperCase() + pokename.slice(1),
+                    "background-color":"transparent",
+                    "font-size":"15",
+                    height:"10%",
+                    textAlign:"center"
+                },
+                type: "radar",
+                backgroundColor: "transparent",
+                scale:{
+                    sizeFactor: "100%"
+                },
+                plot: {
+                    "background-color":"#fff",
+                    aspect:"rose",
+                    "animation": {
+                        "effect":"ANIMATION_EXPAND_TOP",
+                        "sequence":"ANIMATION_BY_PLOT_AND_NODE",
+                        "speed":10
+                    },
+                    "stacked": true //To create a stacked radar chart.
+                },
+                "scale-k":{
+                    "aspect":"circle",
+                    "visible":false
+                },
+                // "legend": {
+                //     "layout":"6x1",
+                //     "toggle-action": "none",
+                //     "border-width": 0,
+                //     "border-color": "none",
+                //     backgroundColor: "#116381",
+                //     "border-radius":"5vmin",
+                //     x: "70%",
+                //     y: "0%",
+                //     height:"90%",
+                //     "item": {
+                //         "font-color": "#fff",
+                //         "font-family": 'Exo 2, sans-serif',
+                //         "font-size": "15px",
+                //         "font-weight": "600",
+                //     },
+                //
+                // },
+                "scale-v":{
+                    "values": "0:"+ max_Val +":25",
+                    "guide": {
+                        "line-width":1,
+                        "line-style":"FFF",
+                        "line-color":"#FFF"
+                    },
+                    "item": {
+                        "color":"#FFF"
+                    },
+                    "line-color":"#FFF",
+                    alpha:0.6
+                },
+                plotarea:{
+                    height:"100%",
+                },
+                "series" : radar_series
+            };
+
+            zingchart.render({
+                id : 'radar',
+                data : myRadar,
+            });
+            document.getElementById("pokemon_image").src = "sugimori/"+id_in+".png";
+            document.getElementById("radar").style.visibility = "visible";
+        }
+    }
 }
 
 function typeEffectivity(types_in, typename) {
@@ -1355,27 +1326,156 @@ function typeEffectivity(types_in, typename) {
     });
 }
 
-function render_stats_graph(stats_name, stats_value, effort_obj) {
-    var levels=[0,10,20,30,40,50,60,70,80,90,100]
-    var values=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0]
+function render_stats_graph(pokename,stats_name, stats_value, effort_obj) {
+
+    var nature=[2,3] //lonely nature (+attack, -defense)
+    var levels=[10,20,30,40,50,60,70,80,90,100]
     var statsFinal = [];
-    for (i = 0; i < stats_value.length; i++)
+    var k;
+    for (var i = 0; i < stats_name.length; i++)
     {
-        statsFinal
-        for (k=0; k < 11; k++)
+        var temp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        if (stats_name[i] == "1")
         {
-            values[k]= (stats_value[]*2+(Math.sqrt(effort_obj)))
+            for (k=0; k < 10; k++)
+            {
+                temp[k]= Math.floor((stats_value[i]*2+Math.floor(Math.ceil(Math.sqrt(effort_obj[i])))/4)/100*levels[k])+levels[k]+10;
+                if (k == 9)
+                {
+                    statsFinal.push(temp)
+                }
+            }
+        }
+        else
+        {
+            for (k=0; k < 10; k++)
+            {
+                if (stats_name[i] == nature[0])
+                {
+                    temp[k]= Math.floor((((stats_value[i]*2+Math.floor(Math.ceil(Math.sqrt(effort_obj[i])))/4)/100*levels[k])+5)*1.1);
+                    if (k == 9)
+                    {
+                        statsFinal.push(temp)
+                    }
+                }
+                else if (stats_name[i] == nature[1])
+                {
+                    temp[k]= Math.floor((((stats_value[i]*2+Math.floor(Math.ceil(Math.sqrt(effort_obj[i])))/4)/100*levels[k])+5)*0.9);
+                    if (k == 9)
+                    {
+                        statsFinal.push(temp)
+                    }
+                }
+                else
+                {
+                    temp[k]= Math.floor(((stats_value[i]*2+Math.floor(Math.ceil(Math.sqrt(effort_obj[i])))/4)/100*levels[k])+5);
+                    if (k == 9)
+                    {
+                        statsFinal.push(temp)
+                    }
+                }
+            }
+        }
+    }
+    var stats_graph_progress = [];
+    for (var p = 0; p < statsFinal.length; p++)
+    {
+        stats_graph_progress.push({
+            text: stats[stats_name[p]].text,
+            values: statsFinal[p],
+            backgroundColor: stats[stats_name[p]].color,
+            lineColor: stats[stats_name[p]].color,
+            marker:{
+                backgroundColor: stats[stats_name[p]].color,
+                borderColor: stats[stats_name[p]].color
+
+            },
+            "tooltip": {
+                "text": "%t at level %kt: %vt"
+            }
+        });
+        if (p == statsFinal.length - 1) {
+
         }
     }
     var statsProgression = {
+        "background-color": "transparent",
+        "title" : {
+            visible:true,
+            "font-color": "#fff",
+            "font-family": 'Exo 2, sans-serif',
+            "text" : "Stats Progression for " + pokename.charAt(0).toUpperCase() + pokename.slice(1),
+            "background-color":"transparent",
+            "font-size":"15",
+            height:"10%",
+            textAlign:"center"
+        },
+        "scale-x": {
+            "values": [],
+            "items-overlap": false,
+            "line-color": "#E6ECED",
+            "line-width": "1px",
+            "tick": {
+                "line-color": "#E6ECED",
+                "line-width": ".75px",
+            },
+            "label": {
+                "text": "Pokemon Level",
+                "font-family": 'Exo 2, sans-serif',
+                "font-weight": "normal",
+                "font-size":"12.5",
+                "font-color": "#fff",
+            },
+            "guide": {
+                "visible": false
+            },
+            "item": {
+                "font-color": "#fff",
+                "font-family": "Exo 2, sans-serif",
+                "font-size": "10px",
+                "font-angle": -48,
+                "offset-x": "5px"
+            }
+        },
+        "scale-y": {
+            "line-color": "#E6ECED",
+            "line-width": "1px",
+            "tick": {
+                "line-color": "#E6ECED",
+                "line-width": ".75px",
+            },
+            "label": {
+                "text": "Stat Value",
+                "font-family": 'Exo 2, sans-serif',
+                "font-weight": "normal",
+                "font-size":"12.5",
+                "font-color": "#fff"
+            },
+            "guide": {
+                "visible":false
+            },
+            "item": {
+                "font-color": "#fff",
+                "font-family": "Exo 2, sans-serif",
+                "font-size": "10px",
+                "padding": "3px"
+            }
+        },
         type: "area",
         stacked: true,
+        height: "100%",
+        width: "100%",
         plot:{
-            aspect: "stepped",
-            alphaArea: 0.6
+            alphaArea: 0.6,
+            "animation": {
+                "delay": 0,
+                "effect": 1,
+                "speed": 1000,
+                "method": 0,
+                "sequence": 1
+            }
         },
-        series : [
-        ]
+        series : stats_graph_progress,
     };
     zingchart.render({
         id : 'stats_progression',
@@ -1402,30 +1502,3 @@ function accessDatabaseCHILD(ref_in,str,val_comp,callbackfunction,pass) {
         })
     });
 }
-
-
-//"location-area-methods" : [ null, [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], null, null, null, null, null, [ 1 ], null, null, null, null, null, [ 1 ], null, null, null, null, null, [ 1 ], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5, 6 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], null, [ 1, 2, 3, 4, 5 ], null, [ 1 ], null, null, [ 2, 3, 4, 5, 6 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], null, [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5, 6 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 6 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], null, [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5, 6 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5, 6 ], [ 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 6 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 6 ], [ 1 ], [ 1 ], null, [ 1, 2, 3, 4, 5, 6 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5, 6 ], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 6 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 6 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5, 6 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5, 6 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 6 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 6 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5, 6 ], [ 1, 6 ], [ 1, 2, 3, 4, 5, 6 ], [ 1 ], [ 1, 6 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 6 ], [ 1 ], [ 1, 6 ], [ 1, 6 ], [ 1, 6 ], [ 1, 6 ], [ 1, 6 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5, 6 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1, 6 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 2, 3, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 4, 5 ], [ 4, 5 ], null, [ 1, 8 ], [ 1, 8 ], [ 1, 8 ], [ 1, 4, 5, 8 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], null, null, null, [ 1 ], [ 1 ], [ 1 ], [ 1, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 8 ], [ 1, 4, 5 ], [ 1, 8 ], [ 1, 4, 5, 8 ], [ 1, 4, 5 ], null, null, [ 1, 4, 5, 8 ], null, [ 1, 4, 5, 8 ], [ 1 ], [ 1, 4, 5, 8 ], [ 1, 4, 5 ], [ 1, 4, 5 ], [ 1, 8 ], null, [ 1 ], [ 1 ], null, [ 1 ], [ 1 ], [ 1 ], [ 1 ], null, null, [ 1, 8 ], [ 1 ], [ 1 ], [ 1, 4, 5 ], [ 1 ], [ 1 ], [ 1, 4, 5, 8 ], [ 1, 8 ], [ 1, 4, 5, 8 ], [ 1, 4, 5, 8 ], [ 1, 4, 5, 8 ], [ 1, 8 ], [ 1, 8 ], [ 1, 4, 5, 8 ], [ 1, 4, 5, 8 ], [ 4, 5 ], [ 4, 5 ], [ 1, 8 ], [ 4, 5 ], [ 4, 5 ], [ 4, 5 ], [ 1 ], [ 1, 4, 5 ], [ 1, 8 ], [ 1, 4, 5, 8 ], [ 1 ], [ 1, 4, 5 ], [ 1, 8 ], [ 1 ], [ 1, 4, 5 ], [ 1, 4, 5, 8 ], [ 1 ], [ 1, 4, 5 ], [ 1, 4, 5 ], [ 4, 5 ], [ 1, 4, 5 ], [ 1, 4, 5 ], [ 1, 8 ], [ 1, 8 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 4, 5 ], [ 1 ], [ 1, 4, 5 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1, 4, 5 ], [ 1 ], [ 1, 4, 5, 8 ], [ 1, 4, 5 ], null, [ 1, 4, 5, 8 ], [ 1, 4, 5, 8 ], [ 4, 5 ] ],
-
-// def calculated_stat(base_stat, level, iv, effort, nature=None):
-// """Returns the calculated stat -- i.e. the value actually shown in the game
-// on a Pokémon's status tab.
-// """
-//
-// # Remember: this is from C; use floor division!
-//     stat = (base_stat * 2 + iv + effort // 4) * level // 100 + 5
-//
-// if nature:
-// stat = int(stat * nature)
-//
-// return stat
-//
-// def calculated_hp(base_stat, level, iv, effort, nature=None):
-// """Similar to `calculated_stat`, except with a slightly different formula
-// used specifically for HP.
-//     """
-//
-// # Shedinja's base stat of 1 is special; its HP is always 1
-// if base_stat == 1:
-// return 1
-//
-// return (base_stat * 2 + iv + effort // 4) * level // 100 + 10 + level
