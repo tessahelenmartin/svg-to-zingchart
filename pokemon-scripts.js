@@ -1018,35 +1018,41 @@ function render_Radar(pokename,id_in, stats_name, stats_value){
 }
 
 function typeEffectivity(types_in, typename) {
+
+    var effectivity = [
+        [1,1,1,1,1,0.5,1,0,0.5,1,1,1,1,1,1,1,1,1],
+        [2,1,0.5,0.5,1,2,0.5,0,2,1,1,1,1,0.5,2,1,2,0.5],
+        [1,2,1,1,1,0.5,2,1,0.5,1,1,2,0.5,1,1,1,1,1],
+        [1,1,1,0.5,0.5,0.5,1,0.5,0.5,1,1,2,1,1,1,1,1,2],
+        [1,1,0.5,0.5,2,2,0.5,1,0.5,0.5,2,0.5,1,1,1,0.5,1,1],
+        [1,0.5,2,1,0.5,1,2,1,0.5,2,1,1,1,1,2,1,1,1],
+        [1,0.5,0.5,0.5,1,1,1,0.5,0.5,0.5,1,2,1,2,1,1,2,0.5],
+        [0,1,1,1,1,1,1,2,1,1,1,1,1,2,1,1,0.5,1],
+        [1,1,1,1,1,2,1,1,0.5,0.5,0.5,1,0.5,1,2,1,1,2],
+        [1,1,1,1,1,0.5,2,1,2,0.5,0.5,2,1,1,2,0.5,1,1],
+        [1,1,1,1,2,2,1,1,1,2,0.5,0.5,1,1,1,0.5,1,1],
+        [1,1,0,2,1,2,0.5,1,2,2,1,0.5,2,1,1,1,1,1],
+        [1,1,2,1,0,1,1,1,1,1,2,0.5,0.5,1,1,0.5,1,1],
+        [1,2,1,2,1,1,1,1,0.5,1,1,1,1,0.5,1,1,0,1],
+        [1,1,2,1,2,1,1,1,0.5,0.5,0.5,2,1,1,0.5,2,1,1],
+        [1,1,1,1,1,1,1,1,0.5,1,1,1,1,1,1,2,1,0],
+        [1,0.5,1,1,1,1,1,2,1,1,1,1,1,2,1,1,0.5,0.5],
+        [1,2,1,0.5,1,1,1,1,0.5,0.5,1,1,1,1,1,2,2,1]
+    ];
     var this_pokemon_index_array = [];
     types_in.forEach(function (type) {
-        this_pokemon_index_array.push(type-1);
+        console.log(type)
+        console.log(types)
+        this_pokemon_index_array.push(parseInt(type));
     })
-    var effectivity = [
-        [1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1, 0.5,   0,   1,   1, 0.5,   1],
-        [1, 0.5, 0.5,   1,   2,   2,   1,   1,   1,   1,   1,   2, 0.5,   1, 0.5,   1,   2,   1],
-        [1,   2, 0.5,   1, 0.5,   1,   1,   1,   2,   1,   1,   1,   2,   1, 0.5,   1,   1,   1],
-        [1,   1,   2, 0.5, 0.5,   1,   1,   1,   0,   2,   1,   1,   1,   1, 0.5,   1,   1,   1],
-        [1, 0.5,   2,   1, 0.5,   1,   1, 0.5,   2, 0.5,   1, 0.5,   2,   1, 0.5,   1, 0.5,   1],
-        [1, 0.5, 0.5,   1,   2, 0.5,   1,   1,   2,   2,   1,   1,   1,   1,   2,   1, 0.5,   1],
-        [2,   1,   1,   1,   1,   2,   1, 0.5,   1, 0.5, 0.5, 0.5,   2,   0,   1,   2,   2, 0.5],
-        [1,   1,   1,   1,   2,   1,   1, 0.5, 0.5,   1,   1,   1, 0.5, 0.5,   1,   1, 0.5,   2],
-        [1,   2,   1,   2, 0.5,   1,   1,   2,   1,   0,   1, 0.5,   2,   1,   1,   1,   2,   1],
-        [1,   1,   1, 0.5,   2,   1,   2,   1,   1,   1,   1,   2, 0.5,   1,   1,   1, 0.5,   1],
-        [1,   1,   1,   1,   1,   1,   2,   2,   1,   1, 0.5,   1,   1,   1,   1,   0, 0.5,   1],
-        [1, 0.5,   1,   1,   2,   1, 0.5, 0.5,   1, 0.5,   2,   1,   1, 0.5,   1,   2, 0.5, 0.5],
-        [1,   2,   1,   1,   1,   2, 0.5,   1, 0.5,   2,   1,   2,   1,   1,   1,   1, 0.5,   1],
-        [0,   1,   1,   1,   1,   1,   1,   1,   1,   1,   2,   1,   1,   2,   1, 0.5,   1,   1],
-        [1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   2,   1, 0.5,   0],
-        [1,   1,   1,   1,   1,   1, 0.5,   1,   1,   1,   2,   1,   1,   2,   1, 0.5,   1, 0.5],
-        [1, 0.5, 0.5, 0.5,   1,   2,   1,   1,   1,   1,   1,   1,   2,   1,   1,   1, 0.5,   2],
-        [1, 0.5,   1,   1,   1,   1,   2, 0.5,   1,   1,   1,   1,   1,   1,   2,   2, 0.5,   1],
-    ];
     function calculateEffectivity(attack_index_array, defense_index_array)
     {
-        var effectivity_value = effectivity[defense_index_array[0]][attack_index_array[0]];
+        var effectivity_value = effectivity[attack_index_array[0]][defense_index_array[0]];
         if (defense_index_array.length == 2) {
-            effectivity_value = effectivity_value*effectivity[defense_index_array[1]][attack_index_array[0]];
+            effectivity_value = effectivity_value*effectivity[attack_index_array[0]][defense_index_array[1]];
+        }
+        else if (attack_index_array.length == 2) {
+            effectivity_value = effectivity_value*effectivity[attack_index_array[1]][defense_index_array[0]];
         }
         if (effectivity_value == 0)
         {
@@ -1145,6 +1151,10 @@ function typeEffectivity(types_in, typename) {
                 },
                 "label": {
                     visible: false
+                },
+                "tooltip":{
+                    "text-chord":"%text-source attacks %text-destination with effectivity  of x%value-source, <br>%text-destination attacks %text-source with effectivity of x%value-destination",
+                    "text":"Self-chord of item %text with value %value"
                 }
             },
             "palette":["#A8A878",
