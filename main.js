@@ -5,18 +5,21 @@ var SVGSTRING;
 window.addEventListener("load", beginApp);
 function beginApp() {
     document.getElementById('select_Region').addEventListener("change", function () {
-        document.getElementById("loading").visibility = "visible";
-        var location = new XMLHttpRequest();
-        var url = '/region_maps/' + document.getElementById('select_Region').value + '.svg';
-        console.log(url)
-        location.onreadystatechange = function() {
-            if (location.readyState == 4 && location.status == 200) {
-                SVGSTRING = location.response;
-                loadSVG();
-            }
-        };
-        location.open("GET", url, true);
-        location.send();
+        if (document.getElementById('select_Region').value != "")
+        {
+            document.getElementById("loading").visibility = "visible";
+            var location = new XMLHttpRequest();
+            var url = '/region_maps/' + document.getElementById('select_Region').value + '.svg';
+            console.log(url)
+            location.onreadystatechange = function() {
+                if (location.readyState == 4 && location.status == 200) {
+                    SVGSTRING = location.response;
+                    loadSVG();
+                }
+            };
+            location.open("GET", url, true);
+            location.send();
+        }
     }, false);
     function loadSVG() {
         var parser = new DOMParser();
