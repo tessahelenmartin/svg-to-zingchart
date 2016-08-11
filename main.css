@@ -368,6 +368,7 @@ select:disabled {
     flex-basis: auto;
     width:36vh;
     display: flex;
+    flex-direction:column;
     justify-content: center;
 }
 
@@ -398,10 +399,21 @@ select:disabled {
     vertical-align: center;
     overflow: visible;
     height: 100%;
+    margin-left:auto;
+    margin-right:auto;
     width: 34vh;
-    display: inline-block;
+    display:block;
 }
-
+#typesTitle
+{
+    height:fit-content;
+    text-align: center;
+    color: #FFF;
+    display: block;
+    width: 100%;
+    font-weight: 600;
+    padding-top:1vh;
+}
 #stats_progression {
     height:70%;
 }

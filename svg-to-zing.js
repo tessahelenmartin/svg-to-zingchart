@@ -36,6 +36,7 @@ function pathToPolygon(array) {
                         pointsArray[pointsArray.length-1].push(parseFloat(value));
                         recentStart[1] = parseFloat(value);
                         position = 0;
+                        currentLetter = "L";
 
                     }
                     else {
@@ -124,6 +125,7 @@ function pathToLine(array) {
                         pointsArray[pointsArray.length-1].push(parseFloat(value));
                         recentStart[1] = parseFloat(value);
                         position = 0;
+                        currentLetter = "L";
 
                     }
                     else {
@@ -195,8 +197,7 @@ function makeShape(path) {
                 "hover-state": {
                     "lineColor": "#FFD700",
                 },
-                zIndex:2,
-                cursor: "pointer"
+                zIndex:2
             };
         }
     }
@@ -295,8 +296,7 @@ function makeShape(path) {
                 "borderColor": "#FFD700",
                 "backgroundColor": "#FFD700",
             },
-            zIndex:1,
-            cursor: "pointer"
+            zIndex:1
         };
     }
 }
