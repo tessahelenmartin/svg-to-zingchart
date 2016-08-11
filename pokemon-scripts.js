@@ -1106,7 +1106,7 @@ function typeEffectivity(types_in, typename) {
                 }
                 else
                 {
-                    currentShape.tooltip.text = types[currentShape_id[1]].identifier.charAt(0).toUpperCase() + types[currentShape_id[1]].identifier.slice(1) + " type moves inflict x" + e_multiple + " damage on " + types[this_pokemon_index_array[0]+1].identifier + " " + types[this_pokemon_index_array[1]+1].identifier.charAt(0).toUpperCase() + types[this_pokemon_index_array[1]+1].identifier.slice(1)+ " type pokemon";
+                    currentShape.tooltip.text = types[currentShape_id[1]].identifier.charAt(0).toUpperCase() + types[currentShape_id[1]].identifier.slice(1) + " type moves inflict x" + e_multiple + " damage on " + types[this_pokemon_index_array[0]+1].identifier.charAt(0).toUpperCase() + types[this_pokemon_index_array[0]+1].identifier.slice(1)+ " " + types[this_pokemon_index_array[1]+1].identifier.charAt(0).toUpperCase() + types[this_pokemon_index_array[1]+1].identifier.slice(1)+ " type pokemon";
                 }
                 if (e_multiple == 0)
                 {
