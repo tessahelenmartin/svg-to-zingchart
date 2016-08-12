@@ -313,7 +313,7 @@ function renderShape() {
                 "margin-left":"10%",
                 "margin-right":"25%",
                 "margin-top":"15%",
-                "margin-bottom":"20%"
+                "margin-bottom":"30%"
             },
             "plot": {
                 "alpha": 0.8,

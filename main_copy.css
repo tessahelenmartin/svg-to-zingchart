@@ -325,6 +325,7 @@ select:disabled {
 }
 
 #pokemon_image_div{
+    vertical-align: center;
     margin: 5%;
     left:0;
     background:url(UI_images/holder.svg);
