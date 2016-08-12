@@ -3,9 +3,10 @@
  */
 module.exports = {
     entry: "./main.js",
-    output: {
-        filename: "bundle.js"
-    },
+    // output: {
+    //     filename: "dist.js"
+    // },
+    target: 'web',
     module: {
         noParse: /node_modules\/json-schema\/lib\/validate\.js/,
         loaders: [
