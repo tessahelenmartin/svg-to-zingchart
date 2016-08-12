@@ -205,6 +205,8 @@ function initialFunction(region,render_obj) {
     document.getElementById("select_Version").add(tempOptionVersion)
     svg_stored = render_obj[0];
     shapes_stored = render_obj[1];
+    // console.log(svg_stored)
+    // console.log(shapes_stored)
     region_stored = parseInt(region);
     prevMultiple = 1;
     createPokedex();
@@ -401,7 +403,6 @@ function renderShape() {
     });
     zingchart.shape_click = function(p) {
         if (svg_stored.getElementById(p.shapeid).getAttribute("class") == "ROUTE"){
-            console.log(p.shapeid)
             if (selectedShapeID != null)
             {
                 zingchart.exec('SHAPESDIV', 'updateobject', {
@@ -427,7 +428,6 @@ function renderShape() {
             beginRoute(JSON.parse(svg_stored.getElementById(p.shapeid).getAttribute("locationid")));
         }
         else if (svg_stored.getElementById(p.shapeid).getAttribute("class") == "LANDMARK"){
-            console.log(p.shapeid)
             if (selectedShapeID != null)
             {
                 zingchart.exec('SHAPESDIV', 'updateobject', {
@@ -601,11 +601,8 @@ function selectLocationArea(areas_in){
 function setMethodOptions(){
     selected_areaName = document.getElementById("select_Location_Area").options[document.getElementById("select_Location_Area").selectedIndex].text;
     selected_areaID = document.getElementById("select_Location_Area").value;
-    console.log("location-area-methods/"+selected_areaID)
     firebase.database().ref("location-area-methods/"+selected_areaID).once("value").then(function (snapMethods) {
-        console.log("Methods available for area "+selected_areaID+" "+ snapMethods.numChildren());
         snapMethods.val().forEach(function (method_indiv) {
-            console.log(method_indiv)
             var newoptions = document.createElement("option");
             newoptions.text = method_names[method_indiv-1];
             newoptions.value = method_indiv;
@@ -634,13 +631,10 @@ function selectRegion() {
     selected_method = document.getElementById("select_Method").value;
     var tempcount = 0;
     var gameSelect = document.getElementById("select_Version");
-    console.log(region_stored)
     accessDatabaseCHILD(firebase.database().ref("version-groups-regions"), "region_id", region_stored, function (version_groups) {
-        console.log(version_groups);
         for (var group = 0; group < version_groups.length; group++)
         {
             accessDatabaseCHILD(firebase.database().ref("version"), "version_group_id", version_groups[group]["version_group_id"], function (versions_in_group){
-                console.log(versions_in_group);
                 for (var individual = 0; individual < versions_in_group.length; individual++) {
                     var temp = versions_in_group[individual];
                     pokeVersionArray.push(temp);
@@ -709,7 +703,6 @@ function getEncountersAtAreaGivenMethod(a_in, m_in) {
         else
         {
             if (pokeVersion == 10 || pokeVersion == 11) {
-                console.log("encounters/"+ a_in + "/"+(pokeVersion%10+1)+","+ m_in)
                 firebase.database().ref("encounters/"+ a_in + "/"+(pokeVersion%10+1)+","+ m_in).once("value").then(function (snaptwo) {
                     var snaparray = [];
                     if (snaptwo.numChildren() > 0) {
@@ -768,7 +761,6 @@ function pokemonOnRoute(possiblePokemonEncounters,callback_in) {
 }
 
 function handlePokemon(pokemon_name, pokemon_id, pokemon, colorArray, boolval) {
-    console.log(pokemon_id)
     var rand = Math.floor(Math.random() * (colorArray.length-1));
     colorArray.splice(rand,1);
     if ((min == null) || pokemon.min_level < min) {
@@ -778,7 +770,6 @@ function handlePokemon(pokemon_name, pokemon_id, pokemon, colorArray, boolval) {
         max = pokemon.max_level;
     }
 
-    console.log(pokemon_name+ " at rarity "+parseInt(pokemon.rarity));
     pokemonSERIES.push([pokemon_name,parseInt(pokemon.rarity), parseInt(pokemon.min_level),  parseInt(pokemon.max_level),  "rgb(" + colorArray[rand].join(",")+")",pokemon_id]);
     if (boolval)
     {
@@ -1069,7 +1060,6 @@ function typeEffectivity(types_in, typename) {
         var e_multiple = 0;
         if (currentShape.shapeid != null)
         {
-            console.log(currentShape.shapeid+" wat")
             var currentShape_id = currentShape.shapeid.split("-");
             if (currentShape_id[0]=="defend")
             {
@@ -1119,7 +1109,6 @@ function typeEffectivity(types_in, typename) {
             {
                 if (types_in.length == 1)
                 {
-                    console.log(currentShape.shapeid+" not weird")
                     if (currentShape_id[2]=="only")
                     {
                         e_multiple = calculateEffectivity(this_pokemon_index_array[0],[currentShape_id[1]-1]);
@@ -1159,7 +1148,7 @@ function typeEffectivity(types_in, typename) {
                     }
                 else
                     {
-                        console.log(currentShapeArray.splice(shape_index,1))
+                        currentShapeArray.splice(shape_index,1)
                         shape_index--;
                     }
                 }
@@ -1260,7 +1249,7 @@ function typeEffectivity(types_in, typename) {
                     })
                 }
                 else {
-                    console.log(currentShapeArray.splice(shape_index, 1))
+                    currentShapeArray.splice(shape_index, 1)
                     shape_index--;
                 }
             }
@@ -1276,7 +1265,6 @@ function typeEffectivity(types_in, typename) {
             })
         }
     };
-    console.log(currentShapeArray)
     zingchart.render({
         width: "100%",
         height: "100%",
@@ -1295,8 +1283,6 @@ function render_stats_graph(pokename,stats_name, stats_value, effort_obj) {
     var nature_str=document.getElementById("nature").value.split(",");
     var nature= [parseInt(nature_str[0]),parseInt(nature_str[1])];
     var iv_values = [parseInt(document.getElementById("HP").value), parseInt(document.getElementById("attack").value), parseInt(document.getElementById("defense").value), parseInt(document.getElementById("s_attack").value), parseInt(document.getElementById("s_defense").value), parseInt(document.getElementById("speed").value)];
-    console.log(stats_name)
-    console.log(nature)
     var levels=[10,20,30,40,50,60,70,80,90,100];
     var statsFinal = [];
     var k;
@@ -1320,7 +1306,6 @@ function render_stats_graph(pokename,stats_name, stats_value, effort_obj) {
             {
                 if (stats_name[i] == parseInt(nature[0]))
                 {
-                    console.log(stats_name[i])
                     temp[k]= Math.floor((((stats_value[i]*2+iv_values[i]+Math.floor(Math.ceil(Math.sqrt(effort_obj[i])))/4)/100*levels[k])+5)*1.1);
                     if (k == 9)
                     {
@@ -1452,7 +1437,6 @@ function render_stats_graph(pokename,stats_name, stats_value, effort_obj) {
 function accessDatabaseCHILD(ref_in,str,val_comp,callbackfunction,pass) {
     ref_in.orderByChild(str).equalTo(val_comp).once("value").then(function(snapshot) {
         var temp_database_array = [];
-        console.log(str+": "+snapshot.numChildren())
         snapshot.forEach(function (snap_child) {
             temp_database_array.push(snap_child.val());
             if (temp_database_array.length == snapshot.numChildren())
