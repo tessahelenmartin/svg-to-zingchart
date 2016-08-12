@@ -646,13 +646,14 @@ input[type=range][orient=vertical]
 #info {
     text-align: center;
     flex:0;
-    flex-basis: 5vh;
+    flex-basis: 7.5vh;
     padding-bottom: 1%;
     color: #FFF;
 }
 #info > p {
+    margin: 1vh auto 0 auto;
     padding:0;
-    margin: 0;
+    width:65%;
 }
 a {
     color: #FFF;
@@ -665,4 +666,9 @@ a {
     min-height:10%;
     color: #fff;
     padding: 0% 3% 3% 3%;
+}
+
+#contribute
+{
+    font-size: 12px;
 }
