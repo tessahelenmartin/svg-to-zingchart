@@ -175,6 +175,7 @@ var types = {
         }
     }
 var method_names = ["walk", "old-rod","good-rod","super-rod","surf","rock-smash","headbutt","dark-grass","grass-spots","cave-spots","bridge-spots","super-rod-spots","surf-spots","yellow-flowers","purple-flowers","red-flowers","rough-terrain"]
+var currentPokeID = null;
 var pokedex = []
 var colorOptions = [[255,153,153],[255,204,153],[255,255,153],[204,255,153],[153,255,153],[153,255,204],[153,255,255],[153,204,255],[153,153,255],[204,153,255],[255,153,255],[255,153,204],[185,83,83],[185,134,83],[185,185,83],[134,185,83],[83,185,83],[83,185,134],[83,185,185],[83,134,185],[83,83,185],[134,83,185],[185,83,185],[185,83,134],[255,183,183],[255,234,183],[255,255,183],[234,255,183],[183,255,183],[183,255,234],[183,255,255],[183,234,255],[183,183,255],[234,183,255],[255,183,255],[255,183,234],[185,113,113],[185,134,113],[185,185,113],[134,185,113],[113,185,113],[113,185,134],[113,185,185],[113,134,185],[113,113,185],[134,113,185],[185,113,185],[185,113,134]];
 var prevMultiple = 1;
@@ -742,13 +743,26 @@ function pokemonOnRoute(possiblePokemonEncounters,callback_in) {
     levelsINDEX = [];
     var colorArray = colorOptions.slice();
     for (var p = 0; p < possiblePokemonEncounters.length; p ++) {
-        if (p == possiblePokemonEncounters.length-1)
-        {
-            callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, true);
+        if (possiblePokemonEncounters[p].pokemon_id < 10001) {
+            if (p == possiblePokemonEncounters.length-1)
+            {
+                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, true);
+            }
+            else
+            {
+                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, false);
+            }
         }
-        else
-        {
-            callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, false);
+        else {
+            var temp = possiblePokemonEncounters[p].pokemon_id - 9280
+            if (p == possiblePokemonEncounters.length-1)
+            {
+                callback_in(pokedex[temp].identifier, temp, possiblePokemonEncounters[p], colorArray, true);
+            }
+            else
+            {
+                callback_in(pokedex[temp].identifier, temp, possiblePokemonEncounters[p], colorArray, false);
+            }
         }
     }
 }
@@ -1244,6 +1258,10 @@ function typeEffectivity(types_in, typename) {
                             }
                         }
                     })
+                }
+                else {
+                    console.log(currentShapeArray.splice(shape_index, 1))
+                    shape_index--;
                 }
             }
         }
