@@ -950,7 +950,8 @@ function render_Radar(pokename,id_in, stats_name, stats_value){
                     "font-family": 'Exo 2, sans-serif',
                     "text" : "Base Stats for " + pokename.charAt(0).toUpperCase() + pokename.slice(1),
                     "background-color":"transparent",
-                    "font-size":"15",
+                    "font-size": "16px",
+                    "font-size": "0.75vw",
                     height:"10%",
                     textAlign:"center"
                 },
@@ -1368,7 +1369,8 @@ function render_stats_graph(pokename,stats_name, stats_value, effort_obj) {
             "font-family": 'Exo 2, sans-serif',
             "text" : "Stats Progression for " + pokename.charAt(0).toUpperCase() + pokename.slice(1),
             "background-color":"transparent",
-            "font-size":"15",
+            "font-size": "16px",
+            "font-size": "0.75vw",
             height:"14.2857143%",
             textAlign:"center"
         },

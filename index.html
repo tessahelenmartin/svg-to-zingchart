@@ -5,8 +5,7 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <meta charset="UTF-8">
     <title>Interactive Pokémon Map and Pokédex</title>
-    <script src="https://demos-stage.zingchart.com/zingchart/zingchart.min.js"></script>
-    <script src="https://demos-stage.zingchart.com/zingchart/modules/zingchart-chord.min.js"></script>
+    <script src="http://cdn.zingchart.com/zingchart.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
     <script>
         // Initialize Firebase
@@ -84,106 +83,95 @@
     </div>
     <div id="INDIVIDUAL">
         <div id="bottomElts">
-            <div id="center_pokemon_image">
-                <div id="encloseImage">
+            <div id="encloseImage">
 
-                    <div id="pokemon_header">
-                        <div id="pokemon_header_types"></div>
-                    </div>
-                    <div id="pokemon_image_div">
-                        <img id="pokemon_image" src="UI_images/holder.png"/>
+                <div id="pokemon_header">
+                    <div id="pokemon_header_types"></div>
+                </div>
+                <div id="pokemon_image_div">
+                    <img id="pokemon_image" src="UI_images/holder.png"/>
+                </div>
+            </div>
+            <div id="typesDiv">
+                <p id="typesTitle">Type Comparison:</p>
+                <div id="wrapType">
+                    <div id="wrapperType">
+                        <div id="typesZing">
+
+                        </div>
                     </div>
                 </div>
-                <div id="typesDiv">
-                    <p id="typesTitle">Type Comparison:</p>
-                    <div id="wrapType">
-                        <div id="wrapperType">
-                            <div id="typesZing">
-
-                            </div>
-                        </div>
+                <p id="typesText">Left- this pokemon defends, right- this pokemon attacks with a move of it's type(s).</p>
+            </div>
+            <div id="stats_div">
+                <div id="stats_zing">
+                    <div id="radar">
                     </div>
-                    <p id="typesText">Left- this pokemon defends, right- this pokemon attacks with a move of it's type(s).</p>
+                    <div id="stats_progression">
+                    </div>
                 </div>
-                <div id="stats_div">
-                    <div id="stats_zing">
-                        <div id="wrapRadar">
-                            <div id="wrapperRadar">
-                                <div id="radar">
 
-                                </div>
-                            </div>
+                <div id="progression">
+                    <div id="clip_stats">
+                        <div id="nature_div">
+                            <div id="nature_header"><p>Nature:</p></div>
+                            <select id="nature" size="22">
+                                <option selected value="[null,null]">Hardy</option>
+                                <option value="2,3">Lonely</option>
+                                <option value="2,6">Brave</option>
+                                <option value="2,4">Adamant</option>
+                                <option value="2,5">Naughty</option>
+                                <option value="3,2">Bold</option>
+                                <option value="null,null">Docile</option>
+                                <option value="3,6">Relaxed</option>
+                                <option value="3,4">Impish</option>
+                                <option value="3,5">Lax</option>
+                                <option value="6,2">Timid</option>
+                                <option value="6,3">Hasty</option>
+                                <option value="null,null">Serious</option>
+                                <option value="6,4">Jolly</option>
+                                <option value="6,5">Naive</option>
+                                <option value="4,2">Modest</option>
+                                <option value="4,3">Mild</option>
+                                <option value="4,6">Quiet</option>
+                                <option value="null,null">Bashful</option>
+                                <option value="4,5">Rash</option>
+                                <option value="5,2">Calm</option>
+                                <option value="5,3">Gentle</option>
+                                <option value="5,6">Sassy</option>
+                                <option value="5,4">Careful</option>
+                                <option value="null,null">Quirky</option>
+                            </select>
                         </div>
-                        <div id="wrapStats">
-                            <div id="wrapperStats">
-                                <div id="stats_progression">
-                                </div>
-                            </div>
+                        <div class="vert_slider" id="HP_div">
+                            <div class="statHeader" id="HP_header"><p>HP IV</p></div>
+                            <input type="range" id="HP" class="stats_slider round" orient="vertical" max="31"
+                                   min="0" value="15">
                         </div>
-                    </div>
-
-                    <div id="progression">
-                        <div id="clip_stats">
-                            <div id="nature_div">
-                                <div id="nature_header"><p>Nature:</p></div>
-                                <select id="nature" size="22">
-                                    <option selected value="[null,null]">Hardy</option>
-                                    <option value="2,3">Lonely</option>
-                                    <option value="2,6">Brave</option>
-                                    <option value="2,4">Adamant</option>
-                                    <option value="2,5">Naughty</option>
-                                    <option value="3,2">Bold</option>
-                                    <option value="null,null">Docile</option>
-                                    <option value="3,6">Relaxed</option>
-                                    <option value="3,4">Impish</option>
-                                    <option value="3,5">Lax</option>
-                                    <option value="6,2">Timid</option>
-                                    <option value="6,3">Hasty</option>
-                                    <option value="null,null">Serious</option>
-                                    <option value="6,4">Jolly</option>
-                                    <option value="6,5">Naive</option>
-                                    <option value="4,2">Modest</option>
-                                    <option value="4,3">Mild</option>
-                                    <option value="4,6">Quiet</option>
-                                    <option value="null,null">Bashful</option>
-                                    <option value="4,5">Rash</option>
-                                    <option value="5,2">Calm</option>
-                                    <option value="5,3">Gentle</option>
-                                    <option value="5,6">Sassy</option>
-                                    <option value="5,4">Careful</option>
-                                    <option value="null,null">Quirky</option>
-                                </select>
-                            </div>
-                            <div class="vert_slider" id="HP_div">
-                                <div class="statHeader" id="HP_header"><p>HP IV</p></div>
-                                <input type="range" id="HP" class="stats_slider round" orient="vertical" max="31"
-                                       min="0" value="15">
-                            </div>
-                            <div class="vert_slider" id="attack_div">
-                                <div class="statHeader" id="attack_header"><p>Atk IV</p></div>
-                                <input type="range" id="attack" class="stats_slider round" orient="vertical"
-                                       max="31" min="0" value="15">
-                            </div>
-                            <div class="vert_slider" id="defense_div">
-                                <div class="statHeader" id="defense_header"><p>Def IV</p></div>
-                                <input type="range" id="defense" class="stats_slider round" orient="vertical"
-                                       max="31" min="0" value="15">
-                            </div>
-                            <div class="vert_slider" id="s_attack_div">
-                                <div class="statHeader" id="s_attack_header"><p>Sp.Atk IV</p></div>
-                                <input type="range" id="s_attack" class="stats_slider round" orient="vertical"
-                                       max="31" min="0" value="15">
-                            </div>
-                            <div class="vert_slider" id="s_defense_div">
-                                <div class="statHeader" id="s_defense_header"><p>Sp.Def IV</p></div>
-                                <input type="range" id="s_defense" class="stats_slider round" orient="vertical"
-                                       max="31" min="0" value="15">
-                            </div>
-                            <div class="vert_slider" id="speed_div">
-                                <div class="statHeader" id="speed_header"><p>Speed IV</p></div>
-                                <input type="range" id="speed" class="stats_slider round" orient="vertical" max="31"
-                                       min="0" value="15">
-                            </div>
+                        <div class="vert_slider" id="attack_div">
+                            <div class="statHeader" id="attack_header"><p>Atk IV</p></div>
+                            <input type="range" id="attack" class="stats_slider round" orient="vertical"
+                                   max="31" min="0" value="15">
+                        </div>
+                        <div class="vert_slider" id="defense_div">
+                            <div class="statHeader" id="defense_header"><p>Def IV</p></div>
+                            <input type="range" id="defense" class="stats_slider round" orient="vertical"
+                                   max="31" min="0" value="15">
+                        </div>
+                        <div class="vert_slider" id="s_attack_div">
+                            <div class="statHeader" id="s_attack_header"><p>Sp.Atk IV</p></div>
+                            <input type="range" id="s_attack" class="stats_slider round" orient="vertical"
+                                   max="31" min="0" value="15">
+                        </div>
+                        <div class="vert_slider" id="s_defense_div">
+                            <div class="statHeader" id="s_defense_header"><p>Sp.Def IV</p></div>
+                            <input type="range" id="s_defense" class="stats_slider round" orient="vertical"
+                                   max="31" min="0" value="15">
+                        </div>
+                        <div class="vert_slider" id="speed_div">
+                            <div class="statHeader" id="speed_header"><p>Speed IV</p></div>
+                            <input type="range" id="speed" class="stats_slider round" orient="vertical" max="31"
+                                   min="0" value="15">
                         </div>
                     </div>
                 </div>
