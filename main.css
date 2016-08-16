@@ -4,7 +4,7 @@ body
     background-color: #04171E;
     margin: 0;
     font-size: 16px;
-    font-size: 1.25vw;
+    font-size: 1.25vmin;
 }
 
 #page_flex {
@@ -117,7 +117,7 @@ body
     margin-left:auto;
     display: inline-block;
     font-size: 16px;
-    font-size: 1.75vw;
+    font-size: 1.75vmin;
 }
 .largerLabel {
     display: inline-block;
@@ -214,7 +214,7 @@ select:disabled {
     color: #fff;
     font-weight: 400;
     font-size: 16px;
-    font-size: 1.75vw;
+    font-size: 1.75vmin;
     padding: 0;
     background-color: transparent;
     margin: 0;
@@ -621,7 +621,7 @@ select:disabled {
     min-height: 20%;
     max-height:20%;
     font-size: 16px;
-    font-size: 1.25vw;
+    font-size: 1.25vmin;
     width:100%;
 }
 
@@ -643,7 +643,7 @@ select:disabled {
     width:100%;
     color: #FFF;
     font-size: 16px;
-    font-size: 1.25vw;
+    font-size: 1.25vmin;
     border-style: none;
     background-color: #116381;
 }
@@ -660,7 +660,7 @@ select:disabled {
     max-height:20%;
     color: #FFF;
     font-size: 16px;
-    font-size: 1.25vw;
+    font-size: 1.25vmin;
     background-color: #082F3D;
 }
 #HP_header
@@ -733,11 +733,10 @@ input[type=range][orient=vertical]
     height: -webkit-fit-content;
     height: -moz-fit-content;
     width:100%;
-    max-height:50%;
     height:66.6666666%;
-    -webkit-box-flex: 2;
-    -ms-flex: 2;
-    flex: 2;
+    -webkit-box-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
 }
 
 #info {
@@ -774,11 +773,11 @@ a {
     padding: 0% 3% 3% 3%;
     overflow: scroll;
     font-size: 12px;
-    font-size: 1vw;
+    font-size: 1vmin;
 }
 
 #contribute
 {
     font-size: 12px;
-    font-size: 1vw;
+    font-size: 1vmin;
 }

@@ -197,6 +197,7 @@ function makeShape(path) {
                 "hover-state": {
                     "lineColor": "#FFD700",
                 },
+                cursor: "pointer",
                 zIndex:2
             };
         }
