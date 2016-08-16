@@ -266,6 +266,7 @@ function renderShape() {
                 "font-size": "15px",
                 "font-color": "#fff",
                 "background-color": "none",
+                "background-color": "none",
                 "padding": "10px 0 0 12.5%",
                 "wrap-text":"1",
                 width:":70%",
@@ -507,7 +508,6 @@ function setHeightWidth(){
     var temp_shapes = JSON.parse(JSON.stringify(shapes_stored));
     temp_shapes.forEach(function(shape){
         if (shape.type == "circle") {
-            console.log(shape.size + ", " + shape.size* (document.getElementById("SHAPESDIV").offsetHeight)/400)
             shape.size *= (document.getElementById("SHAPESDIV").offsetHeight)/400;
             shape.x *= (document.getElementById("SHAPESDIV").offsetHeight)/400;
             shape.y *= (document.getElementById("SHAPESDIV").offsetHeight)/400;

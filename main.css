@@ -74,6 +74,8 @@ body
 {
     text-align: left;
     width:100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -106,6 +108,8 @@ body
     -webkit-box-flex:1;
     -ms-flex:1;
     flex:1;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
@@ -129,6 +133,8 @@ body
     -ms-flex:1;
     flex:1;
     width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
@@ -277,6 +283,8 @@ select:disabled {
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
     text-align: center;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     min-height: 10%;
     width:100%;
@@ -303,6 +311,8 @@ select:disabled {
     margin-left: 3%;
     display: inline-block;
     width:100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
 }
 
@@ -610,8 +620,13 @@ select:disabled {
     -ms-flex: 1;
     flex: 1;
     max-height:100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     height:inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 .statHeader
@@ -621,7 +636,10 @@ select:disabled {
     text-align: center;
     min-height: 20%;
     max-height:20%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0;
     flex: 0;
+    -ms-flex-preferred-size: auto;
     flex-basis: auto;
     font-size: 16px;
     font-size: 1.25vmin;
@@ -719,7 +737,10 @@ select:focus {
 }
 input[type=range][orient=vertical]
 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0;
     flex: 0;
+    -ms-flex-preferred-size: auto;
     flex-basis: auto;
     -webkit-writing-mode: bt-lr;
     -ms-writing-mode: bt-lr;
@@ -752,6 +773,8 @@ input[type=range][orient=vertical]
     flex:0;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
+    max-height: -webkit-fit-content;
+    max-height: -moz-fit-content;
     max-height: fit-content;
     padding-bottom: 1%;
     color: #FFF;
@@ -774,6 +797,8 @@ a {
     flex:0;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
+    max-height: -webkit-fit-content;
+    max-height: -moz-fit-content;
     max-height: fit-content;
     color: #fff;
     padding: 0% 3% 3% 3%;
