@@ -4,7 +4,7 @@ body
     background-color: #04171E;
     margin: 0;
     font-size: 16px;
-    font-size: 0.75vw;
+    font-size: 1.25vw;
 }
 
 #page_flex {
@@ -117,7 +117,7 @@ body
     margin-left:auto;
     display: inline-block;
     font-size: 16px;
-    font-size: 1.25vw;
+    font-size: 1.75vw;
 }
 .largerLabel {
     display: inline-block;
@@ -165,6 +165,10 @@ body
     right: 0;
     left: 0;
 }
+#CHARTDIV {
+    width: 100%;
+    height: 100%;
+}
 #CHART {
     margin-left: 0.5%;
     overflow: hidden;
@@ -210,7 +214,7 @@ select:disabled {
     color: #fff;
     font-weight: 400;
     font-size: 16px;
-    font-size: 1.25vw;
+    font-size: 1.75vw;
     padding: 0;
     background-color: transparent;
     margin: 0;
@@ -265,7 +269,7 @@ select:disabled {
 }
 
 #pokemon_header {
-    padding-left: 3%;
+    padding: 3%;
     box-sizing:border-box;
     -webkit-box-flex:0;
     -ms-flex:0;
@@ -273,7 +277,8 @@ select:disabled {
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
     text-align: center;
-    height:10%;
+    height: fit-content;
+    min-height: 10%;
     width:100%;
     background-color: #0B4153;
     display: -webkit-box;
@@ -298,6 +303,7 @@ select:disabled {
     margin-left: 3%;
     display: inline-block;
     width:100%;
+    height: fit-content;
 }
 
 .types {
@@ -424,7 +430,8 @@ select:disabled {
     margin-right:0.5%;
     overflow: hidden;
     text-align: center;
-    width: 25vw;
+    width: 20vw;
+    min-width: 20vw;
 }
 #typesDiv{
     border-radius: 0.5vmin;
@@ -452,12 +459,13 @@ select:disabled {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
+    width: 20vw;
+    min-width: 20vw;
 }
 #wrapperType {
     border-radius: 0.5vmin;
-    width: 25vh;
-    max-height: 25vh;
-    max-width: 25vh;
+    width: 20vh;
+    max-width: 20vh;
     margin-left:auto;
     margin-right:auto;
     display: inline-block;
@@ -521,6 +529,8 @@ select:disabled {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    width: 45vw;
+    min-width: 45vw;
 }
 #typesZing{
     border-radius: 0.5vmin;
@@ -611,7 +621,7 @@ select:disabled {
     min-height: 20%;
     max-height:20%;
     font-size: 16px;
-    font-size: 0.75vw;
+    font-size: 1.25vw;
     width:100%;
 }
 
@@ -633,7 +643,7 @@ select:disabled {
     width:100%;
     color: #FFF;
     font-size: 16px;
-    font-size: 0.75vw;
+    font-size: 1.25vw;
     border-style: none;
     background-color: #116381;
 }
@@ -650,7 +660,7 @@ select:disabled {
     max-height:20%;
     color: #FFF;
     font-size: 16px;
-    font-size: 0.75vw;
+    font-size: 1.25vw;
     background-color: #082F3D;
 }
 #HP_header
@@ -735,9 +745,9 @@ input[type=range][orient=vertical]
     -webkit-box-flex:0;
     -ms-flex:0;
     flex:0;
-    -ms-flex-preferred-size: 7.5vh;
-    flex-basis: 7.5vh;
-    max-height: 7.5vh;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    max-height: fit-content;
     padding-bottom: 1%;
     color: #FFF;
 }
@@ -759,14 +769,16 @@ a {
     flex:0;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
-    min-height:10%;
-    max-height:10%;
+    max-height: fit-content;
     color: #fff;
     padding: 0% 3% 3% 3%;
+    overflow: scroll;
+    font-size: 12px;
+    font-size: 1vw;
 }
 
 #contribute
 {
     font-size: 12px;
-    font-size: 0.5vw;
+    font-size: 1vw;
 }

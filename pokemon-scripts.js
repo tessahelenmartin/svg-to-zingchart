@@ -177,6 +177,8 @@ var types = {
 var method_names = ["walk", "old-rod","good-rod","super-rod","surf","rock-smash","headbutt","dark-grass","grass-spots","cave-spots","bridge-spots","super-rod-spots","surf-spots","yellow-flowers","purple-flowers","red-flowers","rough-terrain"]
 var currentPokeID = null;
 var pokedex = []
+var individual_flag = false;
+var title_str ="";
 var colorOptions = [[255,153,153],[255,204,153],[255,255,153],[204,255,153],[153,255,153],[153,255,204],[153,255,255],[153,204,255],[153,153,255],[204,153,255],[255,153,255],[255,153,204],[185,83,83],[185,134,83],[185,185,83],[134,185,83],[83,185,83],[83,185,134],[83,185,185],[83,134,185],[83,83,185],[134,83,185],[185,83,185],[185,83,134],[255,183,183],[255,234,183],[255,255,183],[234,255,183],[183,255,183],[183,255,234],[183,255,255],[183,234,255],[183,183,255],[234,183,255],[255,183,255],[255,183,234],[185,113,113],[185,134,113],[185,185,113],[134,185,113],[113,185,113],[113,185,134],[113,185,185],[113,134,185],[113,113,185],[134,113,185],[185,113,185],[185,113,134]];
 var prevMultiple = 1;
 module.exports = {
@@ -223,6 +225,7 @@ function createPokedex() {
 
 function renderShape() {
     setHeightWidth()
+    title_str = "Likelyhood of Encountering Pokemon"
     zingchart.render({
         id: "SHAPESDIV",
         width: "100%",
@@ -248,14 +251,18 @@ function renderShape() {
             width: "100%",
             height: "100%",
             "title": {
-                "text": "Likelyhood of Encountering Pokemon",
+                "title": {
+                    "text": title_str
+                },
                 "text-align": "left",
                 "font-family": 'Exo 2, sans-serif',
-                "font-size": "20px",
+                "font-size": "15px",
                 "font-color": "#fff",
                 "background-color": "none",
-                "padding": "20px 0 0 20px",
-                "height": "40px"
+                "padding": "10px 0 0 12.5%",
+                "wrap-text":"1",
+                width:":70%",
+                height:"40px"
             },
             "legend": {
                 "layout":"12x1",
@@ -265,8 +272,8 @@ function renderShape() {
                 "border-color": "none",
                 "y": "0",
                 "x": "80%",
-                "height":"95%",
                 "width":"20%",
+                height:"100%",
                 "padding-bottom":"10px",
                 "shadow": 0,
                 "max-items":12,
@@ -289,7 +296,7 @@ function renderShape() {
                     }
                 },
                 "item": {
-                    "overflow":"wrap",
+                    "wrap-text":"1",
                     "font-color": "#fff",
                     "font-family": 'Exo 2, sans-serif',
                     "font-size": "15px",
@@ -298,6 +305,7 @@ function renderShape() {
                     cursor: "pointer"
                 },
                 "header": {
+                    "wrap-text":"1",
                     "text": "POKEMON ON ROUTE",
                     "font-family": 'Exo 2, sans-serif',
                     "font-size": "15px",
@@ -305,15 +313,19 @@ function renderShape() {
                     "background-color": "#082F3D",
                     "border-width": 0,
                     "border-color": "none",
-                    "height": "5%",
+                    width:":100%",
                     "padding": "0 0 0 20px",
                 }
             },
             "plotarea":{
-                "margin-left":"10%",
-                "margin-right":"25%",
-                "margin-top":"15%",
-                "margin-bottom":"30%"
+                // "margin-left":"10%",
+                // "margin-right":"25%",
+                // "margin-top":"15%",
+                // "margin-bottom":"30%"
+                height:"100%",
+                width:"65%",
+                "x":"12.5%",
+                "y":"50px",
             },
             "plot": {
                 "alpha": 0.8,
@@ -343,9 +355,9 @@ function renderShape() {
                     "text": "Pokemon Level",
                     "font-family": 'Exo 2, sans-serif',
                     "font-weight": "normal",
-                    "font-size": "20px",
+                    "font-size": "15px",
                     "font-color": "#fff",
-                    "padding-top": "30px"
+                    "padding-top": "10px"
                 },
                 "guide": {
                     "visible": false
@@ -369,8 +381,9 @@ function renderShape() {
                     "text": "Encounter Chance",
                     "font-family": 'Exo 2, sans-serif',
                     "font-weight": "normal",
-                    "font-size": "20px",
-                    "font-color": "#fff"
+                    "font-size": "15px",
+                    "font-color": "#fff",
+                    "padding-bottom": "10px"
                 },
                 "guide": {
                     "visible":false
@@ -462,12 +475,13 @@ function renderShape() {
     };
     window.onresize = function(){
         setHeightWidth();
-        zingchart.exec('SHAPESDIV', 'setdata', {
-            data : {
-                backgroundColor: "transparent",
-                shapes : shapes_stored
-            }
-        });
+        title_str = "Likelyhood of Encountering Pokemon in " + selected_areaName + " with method " + method_names[selected_method-1];
+        zingchart.exec('CHARTDIV', 'reload');
+        if (individual_flag)
+        {
+            zingchart.exec('radar', 'reload');
+            zingchart.exec('stats_progression', 'reload');
+        }
     };
 }
 
@@ -914,6 +928,7 @@ function infoAboutSelectedPokemon(pokename,id_in) {
 }
 
 function render_Radar(pokename,id_in, stats_name, stats_value){
+    document.getElementById("pokemon_image").src = "sugimori/"+id_in+".png";
     var max_Val = Math.ceil(Math.max(...stats_value)/25)*25;
     var radar_series = []
     var null_array = [null,null,null,null,null,null,null,null].slice(0,stats_value.length);
@@ -1015,7 +1030,6 @@ function render_Radar(pokename,id_in, stats_name, stats_value){
                 id : 'radar',
                 data : myRadar,
             });
-            document.getElementById("pokemon_image").src = "sugimori/"+id_in+".png";
             document.getElementById("radar").style.visibility = "visible";
         }
     }
@@ -1048,6 +1062,7 @@ function typeEffectivity(types_in) {
         });
     };
 }
+
 function computeNetwork(this_pokemon_index_array) {
     var effectivity = [
         [1,2,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1],
