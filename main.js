@@ -7,8 +7,7 @@ function beginApp() {
         if (document.getElementById('select_Region').value != "")
         {
             var location = new XMLHttpRequest();
-            var url = '/region_maps/' + document.getElementById('select_Region').value + '.svg';
-            console.log(url)
+            var url = '/pokemap/region_maps/' + document.getElementById('select_Region').value + '.svg';
             location.onreadystatechange = function() {
                 if (location.readyState == 4 && location.status == 200) {
                     SVGSTRING = location.response;
