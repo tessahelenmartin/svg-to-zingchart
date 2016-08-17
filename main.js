@@ -1,5 +1,4 @@
 var pokescript = require('./pokemon-scripts');
-var svgToZing = require('./svg-to-zing');
 var SVGSTRING;
 window.addEventListener("load", beginApp);
 function beginApp() {
