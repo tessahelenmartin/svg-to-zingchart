@@ -22,15 +22,13 @@ body
     justify-content: center;
 }
 
-#TOP {
+#REGION_PAGE {
     background-color: transparent;
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    height: 50%;
     width: 100%;
     box-sizing:border-box;
-    padding: 1% 1% 0.5% 1%;
     text-align: center;
     vertical-align: middle;
     display: -webkit-box;
@@ -54,11 +52,8 @@ body
     display: -ms-flexbox;
     display: flex;
     vertical-align: middle;
-    border-radius: 0.5vmin;
     overflow: hidden;
-    padding: 0.5% 1% 1% 1%;
     box-sizing:border-box;
-    margin-right: 0.5%;
     -webkit-box-orient:vertical;
     -webkit-box-direction:normal;
     -ms-flex-direction:column;
@@ -138,7 +133,7 @@ body
     height: fit-content;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
-    padding: 0% 3% 0% 3%;
+    padding: 0;
     box-sizing: border-box;
 }
 #wrapper {
@@ -147,15 +142,15 @@ body
     background: -webkit-linear-gradient(315deg,  #0b4054 0%,#0a3c4e 100%);
     background: linear-gradient(135deg,  #0b4054 0%,#0a3c4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#116381', endColorstr='#005d7f',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-    width: 90%;
+    width: 100%;
     max-height: 100%;
-    max-width: 35vh;
+    max-width: 100%;
     /* whatever width you want */
     display: inline-block;
     position: relative;
 }
 #wrapper:after {
-    padding-top: 66.6666666667%;
+    padding-top: 50%;
     /* 16:9 ratio */
     display: block;
     content: '';
@@ -232,7 +227,22 @@ select:disabled {
 #select_Region:focus {
     outline:none;
 }
-#INDIVIDUAL {
+
+#HEADER
+{
+    height: 15%;
+    width: 100%;
+    flex: 0;
+    flex-basis: auto;
+    display: block;
+}
+
+#HEADER_text
+{
+
+}
+
+#POKEMON_PAGE {
     background-color: transparent;
     -webkit-box-flex: 1;
     -ms-flex: 1;
@@ -245,7 +255,8 @@ select:disabled {
     vertical-align: middle;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
+    /*display: flex;*/
+    display: none;
 }
 
 #bottomElts {
