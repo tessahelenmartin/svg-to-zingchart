@@ -474,8 +474,8 @@ select:disabled {
 }
 #wrapperType {
     border-radius: 0.5vmin;
-    width: 18vw;
-    max-width: 18vw;
+    width: 25vh;
+    max-width: 25vh;
     margin-left:auto;
     margin-right:auto;
     display: inline-block;
