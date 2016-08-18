@@ -34,17 +34,11 @@ body
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-}
-.topVisualizations{
-    background: #116381; /* Old browsers */ /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg,  #116381 0%,#005d7f 100%); /* Chrome10-25,Safari5.1-6 */
-    background: -webkit-linear-gradient(315deg,  #116381 0%,#005d7f 100%);
-    background: linear-gradient(135deg,  #116381 0%,#005d7f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#116381', endColorstr='#005d7f',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    flex-direction: column;
 }
 
 #MAP {
-    width:50%;
+    width:100%;
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -80,9 +74,9 @@ body
     align-items: center;
     color: #fff;
     box-sizing: border-box;
-    -webkit-box-flex:1;
-    -ms-flex:1;
-    flex:1;
+    -webkit-box-flex:0;
+    -ms-flex:0;
+    flex:0;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
     padding: 0% 3% 0% 3%;
@@ -110,7 +104,9 @@ body
     flex-basis: auto;
     padding: 0% 3% 0% 3%;
     margin: 3% 0% 3% 0%;
+    display: none;
 }
+
 .textHeader
 {
     margin-left:auto;
@@ -118,54 +114,26 @@ body
     font-size: 16px;
     font-size: 1.75vmin;
 }
+
 .largerLabel {
     display: inline-block;
     margin-right: 4px;
 }
-#wrapMap
-{
+
+#SHAPESDIV {
+    box-sizing: border-box;
     -webkit-box-flex:1;
     -ms-flex:1;
     flex:1;
-    width: 100%;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
-    padding: 0;
-    box-sizing: border-box;
-}
-#wrapper {
-    border-radius: 0.5vmin; /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg, #0b4054 0%, #0a3c4e 100%); /* Chrome10-25,Safari5.1-6 */
-    background: -webkit-linear-gradient(315deg,  #0b4054 0%,#0a3c4e 100%);
-    background: linear-gradient(135deg,  #0b4054 0%,#0a3c4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#116381', endColorstr='#005d7f',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     width: 100%;
-    max-height: 100%;
-    max-width: 100%;
-    /* whatever width you want */
-    display: inline-block;
-    position: relative;
-}
-#wrapper:after {
-    padding-top: 50%;
-    /* 16:9 ratio */
-    display: block;
-    content: '';
+    flex: 1;
+    flex-basis: auto;
+    background: #306CB4;
+    z-index: 1;
 }
 
-#SHAPESDIV {
-    border-radius: 0.5vmin;
-    width: 100%;
-    height: inherit;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-}
 #CHARTDIV {
     width: 100%;
     height: 100%;
@@ -230,16 +198,44 @@ select:disabled {
 
 #HEADER
 {
-    height: 15%;
-    width: 100%;
+    height: fit-content;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 1.2vh;
+    margin: 1vh;
+    border-radius: 1vmin;
+    text-align: center;
+    width: fit-content;
     flex: 0;
-    flex-basis: auto;
+    flex-basis: 100%;
     display: block;
+    z-index: 5;
+    background-color: #204878;
 }
 
 #HEADER_text
 {
+    margin: 0;
+    width: 50vmin;
+    font-size: 5.5vmin;
+    color: #FFCB05;
+    text-align: center;
+    font-weight: 700;
+    /*-webkit-text-stroke-width: 0.30vh;*/
+    /*-webkit-text-stroke-color: #306CB4;*/
+}
 
+.HEADER_subtext
+{
+    margin: 1vh 0 1vh 0;
+    padding: 0.75vh;
+    font-size: 2.5vmin;
+    width: 7vw;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    display: inline-block;
 }
 
 #POKEMON_PAGE {
@@ -823,3 +819,50 @@ a {
     font-size: 12px;
     font-size: 1.25vmin;
 }
+
+
+.triangle {
+    position: relative;
+    background-color: #FFCC00;
+    text-align: left;
+    display: inline-block;
+    margin: 0 1vw 0 1vw;
+}
+.triangle:before,
+.triangle:after {
+    content: '';
+    position: absolute;
+    background-color: inherit;
+}
+.triangle,
+.triangle:before,
+.triangle:after {
+    width:  2.5vmin;
+    height: 2.5vmin;
+    border-top-right-radius: 30%;
+}
+
+.triangle:before {
+    transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+}
+.triangle:after {
+    transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+}
+
+.triangle:hover {
+    background-color: #ffe476;
+    -webkit-transition: background-color 300ms linear;
+    -moz-transition: background-color 300ms linear;
+    -o-transition: background-color 300ms linear;
+    -ms-transition: background-color 300ms linear;
+    transition: background-color 300ms linear;
+}
+
+.back{
+    transform: rotate(-150deg) skewX(-30deg) scale(1,.866);
+}
+
+.next{
+    transform: rotate(30deg) skewX(-30deg) scale(1,.866);
+}
+
