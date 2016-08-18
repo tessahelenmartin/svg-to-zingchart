@@ -128,27 +128,24 @@ body
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
     width: 100%;
-    flex: 1;
-    flex-basis: auto;
     background: #306CB4;
     z-index: 1;
 }
 
-#CHARTDIV {
-    width: 100%;
-    height: 100%;
-}
 #CHART {
-    margin-left: 0.5%;
     overflow: hidden;
     display: inline-block;
     vertical-align: middle;
-    border-radius: 0.5vmin;
     -webkit-box-flex:2;
-    -ms-flex:2;
-    flex:2;
-    max-height:100%;
-    width:50%;
+    background-color: #fff;
+    border-radius: 1vmin;
+    -ms-flex:1;
+    margin-top: 1vh;
+    flex:1;
+    width: 100%;
+    z-index: 5;
+    border: 0.5vh solid #FFCB05;
+    box-sizing: border-box;
 }
 p {
     margin: 0;
@@ -195,28 +192,42 @@ select:disabled {
 #select_Region:focus {
     outline:none;
 }
-
+#left_box
+{
+    height:95vh;
+    width: 35vw;
+    position: absolute;
+    flex-basis: auto;
+    left: 0;
+    box-sizing: border-box;
+    top: 0;
+    text-align: center;
+    padding: 1.5vh;
+    flex-direction: column;
+    display: flex;
+    z-index: 5;
+}
 #HEADER
 {
-    height: fit-content;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 1.2vh;
-    margin: 1vh;
+    box-sizing: border-box;
+    flex:0;
     border-radius: 1vmin;
+    width: 100%;
+    height: fit-content;
+    border: 0.5vh solid #FFCB05;
+    flex-basis: auto;
     text-align: center;
-    width: fit-content;
-    flex: 0;
-    flex-basis: 100%;
+    margin: 0;
     display: block;
     z-index: 5;
-    background-color: #204878;
+    background-color: #fff;
+    /*padding-bottom: 3vh;/*/
 }
 
 #HEADER_text
 {
-    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 50vmin;
     font-size: 5.5vmin;
     color: #FFCB05;
@@ -228,11 +239,14 @@ select:disabled {
 
 .HEADER_subtext
 {
-    margin: 1vh 0 1vh 0;
+    margin: 1vh 1vh 1vh 1vh;
+    margin-left: auto;
+    margin-right: auto;
+    width:fit-content;
     padding: 0.75vh;
     font-size: 2.5vmin;
-    width: 7vw;
-    color: #fff;
+    /*min-width: 8vw;*/
+    color: #306CB4;
     text-align: center;
     font-weight: 700;
     display: inline-block;
@@ -780,10 +794,8 @@ input[type=range][orient=vertical]
     flex:0;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
-    max-height: -webkit-fit-content;
-    max-height: -moz-fit-content;
-    max-height: fit-content;
-    padding-bottom: 1%;
+    height: 4vh;
+    padding-bottom: 1vh;
     color: #FFF;
 }
 #info > p {
@@ -837,8 +849,8 @@ a {
 .triangle,
 .triangle:before,
 .triangle:after {
-    width:  2.5vmin;
-    height: 2.5vmin;
+    width:  1vmin;
+    height: 1vmin;
     border-top-right-radius: 30%;
 }
 

@@ -33,17 +33,17 @@ var map_iterator = 5;  // the index of the current item to show
 document.getElementById("back_region").onclick = function () {
     map_iterator+=5;
     map_iterator%=6;
-    document.getElementById('subtext_region').innerHTML = region_array[map_iterator];
-    pokescript.setUp(document.getElementById('subtext_region').text);
+    document.getElementById('subtext_region').innerHTML = "Region: "+region_array[map_iterator];
+    pokescript.setUp(map_iterator+1);
     beginApp(region_array[map_iterator])
-}
+};
 document.getElementById("next_region").onclick = function () {
-    map_iterator++;
+    map_iterator+=5;
     map_iterator%=6;
-    document.getElementById('subtext_region').innerHTML = region_array[map_iterator];
-    pokescript.setUp(document.getElementById('subtext_region').text);
+    document.getElementById('subtext_region').innerHTML = "Region: "+region_array[map_iterator];
+    pokescript.setUp(map_iterator+1);
     beginApp(region_array[map_iterator])
-}
+};
 
 
 // setInterval(function() {            // setInterval makes it run repeatedly

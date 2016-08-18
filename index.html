@@ -51,60 +51,59 @@
 <body>
 <script src="bezier.js"></script>
 <div id="page_flex">
-    <div id="HEADER">
-        <p id="HEADER_text">ZingChart Pokémap</p>
-        <div id="region_div">
-            <a href="#"><div class='triangle back' id="back_region"></div></a>
-            <p class="HEADER_subtext" id="subtext_region">Kalos</p>
-            <a href="#"><div class='triangle next' id="next_region"></div></a>
-        </div>
-        <div id="version_div">
-            <a href="#"><div class='triangle back' id="back_version"></div></a>
-            <p class="HEADER_subtext" id="subtext_version">first</p>
-            <a href="#"><div class='triangle next' id="next_version"></div></a>
-        </div>
-        <div id="area_div">
-            <a href="#"><div class='triangle back' id="back_area"></div></a>
-            <p class="HEADER_subtext" id="subtext_area">first</p>
-            <a href="#"><div class='triangle next' id="next_area"></div></a>
-        </div>
-        <div id="method_div">
-            <a href="#"><div class='triangle back' id="back_method"></div></a>
-            <p class="HEADER_subtext" id="subtext_method">first</p>
-            <a href="#"><div class='triangle next' id="next_method"></div></a>
-        </div>
-            <div id="selectDataVisualizationPreferencesHeader">
-        <div id="selectDataVisualizationPreferences">
-            <div id="innerselectDataVisualizationPreferences">
-                <div id="chartForm">
-                    <p class="largerLabel">Location Area: </p>
-                    <select id="select_Location_Area" disabled>
-                        <option selected disabled>Select Area</option>
-                    </select><br>
-                    <p class="largerLabel">Method: </p>
-                    <select id="select_Method" disabled>
-                        <option selected disabled>Select Method</option>
-                    </select><br>
-                    <p class="largerLabel">Version: </p>
-                    <select id="select_Version" disabled>
-                        <option selected disabled>Select Version</option>
-                    </select>
+    <div id="REGION_PAGE">
+        <div id="left_box">
+            <div id="HEADER">
+                <p id="HEADER_text">ZingChart Pokémap</p>
+                <div id="region_div">
+                    <a href="#"><div class='triangle back' id="back_region"></div></a>
+                    <p class="HEADER_subtext" id="subtext_region">Region: Kalos</p>
+                    <a href="#"><div class='triangle next' id="next_region"></div></a>
                 </div>
+                <div id="version_div">
+                    <a href="#"><div class='triangle back' id="back_version"></div></a>
+                    <p class="HEADER_subtext" id="subtext_version">Version: X</p>
+                    <a href="#"><div class='triangle next' id="next_version"></div></a>
+                </div>
+                <div id="area_div">
+                    <a href="#"><div class='triangle back' id="back_area"></div></a>
+                    <p class="HEADER_subtext" id="subtext_area">Location: Kalos Route 2</p>
+                    <a href="#"><div class='triangle next' id="next_area"></div></a>
+                </div>
+                <div id="method_div">
+                    <a href="#"><div class='triangle back' id="back_method"></div></a>
+                    <p class="HEADER_subtext" id="subtext_method">Encounter Method: walk</p>
+                    <a href="#"><div class='triangle next' id="next_method"></div></a>
+                </div>
+                <div id="selectDataVisualizationPreferencesHeader">
+                    <div id="selectDataVisualizationPreferences">
+                        <div id="innerselectDataVisualizationPreferences">
+                            <div id="chartForm">
+                                <p class="largerLabel">Location Area: </p>
+                                <select id="select_Location_Area" disabled>
+                                    <option selected disabled>Select Area</option>
+                                </select><br>
+                                <p class="largerLabel">Method: </p>
+                                <select id="select_Method" disabled>
+                                    <option selected disabled>Select Method</option>
+                                </select><br>
+                                <p class="largerLabel">Version: </p>
+                                <select id="select_Version" disabled>
+                                    <option selected disabled>Select Version</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </p>
+            </div>
+            <div id="CHART" class="topVisualizations">
             </div>
         </div>
-    </div>
-    </p>
-    </div>
-    <div id="REGION_PAGE">
         <div id="MAP" class="topVisualizations">
             <div id="SHAPESDIV">
             </div>
-
         </div>
-        <!--<div id="CHART" class="topVisualizations">-->
-            <!--<div id="CHARTDIV">-->
-            <!--</div>-->
-        <!--</div>-->
     </div>
     <div id="POKEMON_PAGE">
         <div id="bottomElts">
