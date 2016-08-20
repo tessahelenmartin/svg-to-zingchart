@@ -31,7 +31,7 @@
      id="namedview6"
      showgrid="false"
      inkscape:zoom="2.4583333"
-     inkscape:cx="4.4490821"
+     inkscape:cx="-136.29668"
      inkscape:cy="55.490201"
      inkscape:window-x="0"
      inkscape:window-y="1"
@@ -51,12 +51,12 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <path
-     style="opacity:1;fill:#0b4153;fill-opacity:1;stroke:#0b4153;stroke-width:5.25000048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="opacity:1;fill:#306cb4;fill-opacity:1;stroke:#306cb4;stroke-width:5.25000048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="M 38.331536,2.6244315 A 35.706537,35.706537 0 0 0 2.6245046,38.331463 L 26.612786,38.331463 A 11.726007,11.726007 0 0 1 26.604974,38.130291 11.726007,11.726007 0 0 1 38.331536,26.405681 11.726007,11.726007 0 0 1 50.058098,38.130291 11.726007,11.726007 0 0 1 50.048333,38.331463 L 74.038567,38.331463 A 35.706537,35.706537 0 0 0 38.331536,2.6244315 Z"
      id="circle4177"
      inkscape:connector-curvature="0" />
@@ -64,13 +64,13 @@
      transform="translate(32.066079,91.222972)"
      id="layer1" />
   <circle
-     style="opacity:1;fill:none;fill-opacity:1;stroke:#0b4153;stroke-width:5.25000048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="opacity:1;fill:none;fill-opacity:1;stroke:#306cb4;stroke-width:5.25000048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path4164"
      r="35.706539"
      cy="38.331539"
      cx="38.331539" />
   <circle
-     style="opacity:1;fill:#ffffff;fill-opacity:0;stroke:#0b4153;stroke-width:5.25000048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="opacity:1;fill:#ffffff;fill-opacity:0;stroke:#306cb4;stroke-width:5.25000048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="circle4170"
      cy="38.131073"
      cx="38.331539"
@@ -80,5 +80,5 @@
      cx="38.331539"
      cy="38.130577"
      id="circle4168"
-     style="opacity:1;fill:#0b4153;fill-opacity:1;stroke:none;stroke-width:0.69981253;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="opacity:1;fill:#306cb4;fill-opacity:1;stroke:none;stroke-width:0.69981253;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
 </svg>

@@ -321,25 +321,6 @@
 
 
 	function initialFunction(region,render_obj) {
-	    selectedShapeID = null;
-	    document.getElementById("select_Method").options.length = 0;
-	    var tempOptionMethod = document.createElement("option");
-	    tempOptionMethod.text = "Select Method";
-	    tempOptionMethod.selected = true;
-	    tempOptionMethod.disabled = true;
-	    document.getElementById("select_Method").add(tempOptionMethod)
-	    document.getElementById("select_Location_Area").options.length = 0;
-	    var tempOptionArea = document.createElement("option");
-	    tempOptionArea.text = "Select Area";
-	    tempOptionArea.selected = true;
-	    tempOptionArea.disabled = true;
-	    document.getElementById("select_Location_Area").add(tempOptionArea)
-	    document.getElementById("select_Version").options.length = 0;
-	    var tempOptionVersion = document.createElement("option");
-	    tempOptionVersion.text = "Select Version";
-	    tempOptionVersion.selected = true;
-	    tempOptionVersion.disabled = true;
-	    document.getElementById("select_Version").add(tempOptionVersion)
 	    svg_stored = render_obj;
 	    region_stored = parseInt(region);
 	    shapes_stored = regions[region_stored].svg
@@ -360,7 +341,7 @@
 
 	    title_str = "Likelyhood of Encountering Pokemon"
 	    zingchart.render({
-	        id: "SHAPESDIV",
+	        id: "pokemap",
 	        width: "100%",
 	        height: "100%",
 	        margins: 0,
@@ -390,7 +371,7 @@
 	                "text-align": "left",
 	                "font-family": 'Exo 2, sans-serif',
 	                "font-size": "15px",
-	                "font-color": "#306CB4",
+	                "font-color": "#fff",
 	                "background-color": "none",
 	                "background-color": "none",
 	                "padding": "10px 0 0 12.5%",
@@ -401,7 +382,7 @@
 	            "legend": {
 	                "layout":"12x1",
 	                "toggle-action": "none",
-	                "background-color": "#ffe476",
+	                "background-color": "#fff",
 	                "border-width": 0,
 	                "border-color": "none",
 	                "y": "0",
@@ -435,7 +416,6 @@
 	                    "font-family": 'Exo 2, sans-serif',
 	                    "font-size": "15px",
 	                    "font-weight": "normal",
-	                    "alpha": 0.6,
 	                    cursor: "pointer"
 	                },
 	                "header": {
@@ -445,9 +425,11 @@
 	                    "font-size": "15px",
 	                    "font-color": "#306CB4",
 	                    "background-color": "#FFCC00",
+	                    "border-radius":"0 0 0 10px",
 	                    "border-width": 0,
 	                    "border-color": "none",
-	                    width:":100%",
+	                    width:"100%",
+	                    height:"10%",
 	                    "padding": "0 0 0 20px",
 	                }
 	            },
@@ -479,10 +461,10 @@
 	            "scale-x": {
 	                "values": [],
 	                "items-overlap": false,
-	                "line-color": "#204878",
+	                "line-color": "#fff",
 	                "line-width": "1px",
 	                "tick": {
-	                    "line-color": "#204878",
+	                    "line-color": "#fff",
 	                    "line-width": ".75px",
 	                },
 	                "label": {
@@ -490,7 +472,7 @@
 	                    "font-family": 'Exo 2, sans-serif',
 	                    "font-weight": "normal",
 	                    "font-size": "15px",
-	                    "font-color": "#306CB4",
+	                    "font-color": "#fff",
 	                    "padding-top": "10px"
 	                },
 	                "guide": {
@@ -505,10 +487,10 @@
 	                }
 	            },
 	            "scale-y": {
-	                "line-color": "#204878",
+	                "line-color": "#fff",
 	                "line-width": "1px",
 	                "tick": {
-	                    "line-color": "#204878",
+	                    "line-color": "#fff",
 	                    "line-width": ".75px",
 	                },
 	                "label": {
@@ -516,7 +498,7 @@
 	                    "font-family": 'Exo 2, sans-serif',
 	                    "font-weight": "normal",
 	                    "font-size": "15px",
-	                    "font-color": "#306CB4",
+	                    "font-color": "#fff",
 	                    "padding-bottom": "10px"
 	                },
 	                "guide": {
@@ -552,7 +534,7 @@
 	        if (svg_stored.getElementById(p.shapeid).getAttribute("class") == "ROUTE"){
 	            if (selectedShapeID != null)
 	            {
-	                zingchart.exec('SHAPESDIV', 'updateobject', {
+	                zingchart.exec('pokemap', 'updateobject', {
 	                    'type':'shape',
 	                    'data' : {
 	                        'id' : selectedShapeID,
@@ -564,7 +546,7 @@
 	                });
 	            }
 	            selectedShapeID = p.shapeid;
-	            zingchart.exec('SHAPESDIV', 'updateobject', {
+	            zingchart.exec('pokemap', 'updateobject', {
 	                'type':'shape',
 	                'data' : {
 	                    'id' : selectedShapeID,
@@ -577,7 +559,7 @@
 	        else if (svg_stored.getElementById(p.shapeid).getAttribute("class") == "LANDMARK"){
 	            if (selectedShapeID != null)
 	            {
-	                zingchart.exec('SHAPESDIV', 'updateobject', {
+	                zingchart.exec('pokemap', 'updateobject', {
 	                    'type':'shape',
 	                    'data' : {
 	                        'id' : selectedShapeID,
@@ -589,7 +571,7 @@
 	                });
 	            }
 	            selectedShapeID = p.shapeid;
-	            zingchart.exec('SHAPESDIV', 'updateobject', {
+	            zingchart.exec('pokemap', 'updateobject', {
 	                'type':'shape',
 	                'data' : {
 	                    'id' : selectedShapeID,
@@ -603,7 +585,7 @@
 	    };
 	    zingchart.legend_item_click = function(p) {
 	        document.getElementById("pokemon_image").src = "UI_images/holder.png";
-	        document.getElementById("radar").style.visibility = "hidden";
+	        // document.getElementById("radar").style.visibility = "hidden";
 	        var pokeText = zingchart.exec('CHART', 'getseriesdata', {'plotindex' : p.plotindex}).text;
 	        infoAboutSelectedPokemon(pokeText.slice(),zingchart.exec('CHART', 'getseriesdata', {'plotindex' : p.plotindex})["value-box"].text);
 	    };
@@ -619,7 +601,7 @@
 	                zingchart.exec('radar', 'reload');
 	                zingchart.exec('stats_progression', 'reload');
 	            }
-	            zingchart.exec('SHAPESDIV', 'setdata', {
+	            zingchart.exec('pokemap', 'setdata', {
 	                data : {
 	                    backgroundColor: "transparent",
 	                    shapes : setHeightWidth()
@@ -631,19 +613,19 @@
 	}
 
 	function setHeightWidth(){
-	    var smaller = (document.getElementById("SHAPESDIV").offsetHeight)/400;
-	    var smallerdim = document.getElementById("SHAPESDIV").offsetHeight/2;
-	    if (smaller > (document.getElementById("SHAPESDIV").offsetWidth)/600)
-	    {
-	        smaller = (document.getElementById("SHAPESDIV").offsetWidth)/600;
-	        smallerdim = document.getElementById("SHAPESDIV").offsetWidth/2;
-	    }
+	    // var smaller = (document.getElementById("pokemap").offsetHeight)/400;
+	    // var smallerdim = document.getElementById("pokemap").offsetHeight/2;
+	    // if (smaller > (document.getElementById("pokemap").offsetWidth)/600)
+	    // {
+	    //     smaller = (document.getElementById("pokemap").offsetWidth)/600;
+	    //     smallerdim = document.getElementById("pokemap").offsetWidth/2;
+	    // }
 	    var temp_shapes = JSON.parse(JSON.stringify(shapes_stored));
 	    temp_shapes.forEach(function(shape){
 	        if (shape.type == "circle") {
-	            shape.size *= smaller;
-	            shape.x = document.getElementById("SHAPESDIV").offsetWidth - smaller*0.8*(600-shape.x);
-	            shape.y = document.getElementById("SHAPESDIV").offsetHeight/2 - smaller*0.8*(200-shape.y);
+	            shape.size *= document.getElementById("pokemap").offsetWidth/600;
+	            shape.x *= document.getElementById("pokemap").offsetWidth/600;
+	            shape.y *= document.getElementById("pokemap").offsetWidth/600;
 	        }
 	        else {
 	            shape.points.forEach(function(point_array){
@@ -651,17 +633,17 @@
 	                {
 	                    if (point_array.length == 2)
 	                    {
-	                        point_array[0] = document.getElementById("SHAPESDIV").offsetWidth - smaller*0.8*(600-point_array[0]);
-	                        point_array[1] = document.getElementById("SHAPESDIV").offsetHeight/2 - smaller*0.8*(200-point_array[1]);
+	                        point_array[0] *= document.getElementById("pokemap").offsetWidth/600;
+	                        point_array[1] *= document.getElementById("pokemap").offsetWidth/600;
 	                    }
 	                    else if (point_array.length == 7)
 	                    {
-	                        point_array[0] = document.getElementById("SHAPESDIV").offsetWidth - smaller*0.8*(600-point_array[0]);
-	                        point_array[1] = document.getElementById("SHAPESDIV").offsetHeight/2 - smaller*0.8*(200-point_array[1]);
-	                        point_array[2] = document.getElementById("SHAPESDIV").offsetWidth - smaller*0.8*(600-point_array[2]);
-	                        point_array[3] = document.getElementById("SHAPESDIV").offsetHeight/2 - smaller*0.8*(200-point_array[3]);
-	                        point_array[4] = document.getElementById("SHAPESDIV").offsetWidth - smaller*0.8*(600-point_array[4]);
-	                        point_array[5] = document.getElementById("SHAPESDIV").offsetHeight/2 - smaller*0.8*(200-point_array[5]);
+	                        point_array[0] *= document.getElementById("pokemap").offsetWidth/600;
+	                        point_array[1] *= document.getElementById("pokemap").offsetWidth/600;
+	                        point_array[2] *= document.getElementById("pokemap").offsetWidth/600;
+	                        point_array[3] *= document.getElementById("pokemap").offsetWidth/600;
+	                        point_array[4] *= document.getElementById("pokemap").offsetWidth/600;
+	                        point_array[5] *= document.getElementById("pokemap").offsetWidth/600;
 	                    }
 	                }
 	            })
