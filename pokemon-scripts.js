@@ -388,7 +388,7 @@ function renderShape() {
                     "line-width": ".75px",
                 },
                 "label": {
-                    "text": "Encounter Chance",
+                    "text": "Encounter Likelyhood",
                     "font-family": 'Exo 2, sans-serif',
                     "font-weight": "normal",
                     "font-size": "15px",
@@ -406,7 +406,7 @@ function renderShape() {
                 }
             },
             "tooltip": {
-                "text": "Chance of encountering a level %k %t: %v%",
+                "text": "Likelyhood of encountering a level %k %t: %v",
                 "font-family": 'Exo 2, sans-serif',
                 "font-size": "15px",
                 "font-weight": "normal",
@@ -693,7 +693,7 @@ function handleRegionOptions(region_in) {
                         handleAreaOptions(defaultArea[region_in-1].id);
                         pokeVersion = pokeVersionArray[version_iterator].id;
                         selectedShapeID = locationName;
-                        console.log(locationName)
+                        console.log(selectedShapeID)
                         zingchart.exec('pokemap', 'updateobject', {
                             'type':'shape',
                             'data' : {
