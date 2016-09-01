@@ -51,7 +51,6 @@
         <meta name="twitter:description" content="ZingChart's Pokémap and Pokédex is an interactive Pokémon tool to help you build your best team. It provides route/method-based encounter statistics, type charts for any selected Pokémon, and customizable stats projections based on IVs, EVs and Nature.">
 </head>
 <body>
-<script src="bezier.js"></script>
 <main>
     <div class="grid gutter column tablet-column p1">
         <div class="cell _1_of_3">
@@ -95,289 +94,128 @@
             </div>
         </div>
     </div>
-    <div class="grid gutter column p2">
-        <div class="cell _1_of_12">
-            <div id="pokemon_header">
-                <div id="pokemon_header_types"></div>
-            </div>
-        </div>
-        <div class="cell ">
-            <div class="grid gutter tablet-row">
-                <div class="cell">
-                    <div id="pokemon_image_div">
+    <div class="p2">
+        <div class="pokemon_entry_header"> <div class="backToMap">
+            <div class='triangle back' id="triMap"></div>
+            <p>Back</p>
+        </div> <div class="text">Pokedex Entry</div> </div>
+        <div class="grid gutter  p2_inner">
+            <div class="cell">
+                <div class="grid gutter column">
+                    <div class="cell _1_of_12">
+                        <div id="pokemon_header">
+                            <div id="pokemon_header_types"></div>
+                        </div>
+                    </div>
+                    <div class="cell pokemon_image_div">
                         <img id="pokemon_image" src="UI_images/holder.png"/>
                     </div>
+                    <div class="cell" id="pokeDetails"></div>
                 </div>
-                <div class="cell _1_of_2">
-                    <!--<div class="tabs">-->
+            </div>
+            <div class="cell _1_of_2">
+                <!--<div class="tabs">-->
 
-                        <div class="tab">
-                            <input type="radio" id="tab-1" name="tab-group-1" checked>
-                            <label for="tab-1">Type Comparisons</label>
+                <div class="tab">
+                    <input type="radio" id="tab-1" name="tab-group-1" checked>
+                    <label for="tab-1">Stats Progression</label>
 
-                            <div class="content">
-                                    <div id="wrapType">
-                                        <div id="wrapperType">
-                                            <div id="typesZing">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p id="typesText">Left- this pokemon defends, right- this pokemon attacks with a move of it's type(s).</p>
+                    <div class="content one">
+                        <div id="stats_zing">
+                            <!--<div id="radar">-->
+                            <!--</div>-->
+                            <div id="stats_progression">
                             </div>
                         </div>
 
-                        <div class="tab">
-                            <input type="radio" id="tab-2" name="tab-group-1">
-                            <label for="tab-2">Stats Progression</label>
+                        <!--<div id="progression">-->
+                        <div id="clip_stats">
+                            <div id="nature_div">
+                                <div id="nature_header"><p>Nature:</p></div>
+                                <select id="nature" size="9">
+                                    <option selected value="[null,null]">Hardy</option>
+                                    <option value="2,3">Lonely</option>
+                                    <option value="2,6">Brave</option>
+                                    <option value="2,4">Adamant</option>
+                                    <option value="2,5">Naughty</option>
+                                    <option value="3,2">Bold</option>
+                                    <option value="null,null">Docile</option>
+                                    <option value="3,6">Relaxed</option>
+                                    <option value="3,4">Impish</option>
+                                    <option value="3,5">Lax</option>
+                                    <option value="6,2">Timid</option>
+                                    <option value="6,3">Hasty</option>
+                                    <option value="null,null">Serious</option>
+                                    <option value="6,4">Jolly</option>
+                                    <option value="6,5">Naive</option>
+                                    <option value="4,2">Modest</option>
+                                    <option value="4,3">Mild</option>
+                                    <option value="4,6">Quiet</option>
+                                    <option value="null,null">Bashful</option>
+                                    <option value="4,5">Rash</option>
+                                    <option value="5,2">Calm</option>
+                                    <option value="5,3">Gentle</option>
+                                    <option value="5,6">Sassy</option>
+                                    <option value="5,4">Careful</option>
+                                    <option value="null,null">Quirky</option>
+                                </select>
+                            </div>
+                            <div class="vert_slider" id="HP_div">
+                                <div class="statHeader" id="HP_header"><p>HP</p></div>
+                                <input type="range" id="HP" class="stats_slider round" orient="vertical" max="31"
+                                       min="0" value="15">
+                            </div>
+                            <div class="vert_slider" id="attack_div">
+                                <div class="statHeader" id="attack_header"><p>Atk</p></div>
+                                <input type="range" id="attack" class="stats_slider round" orient="vertical"
+                                       max="31" min="0" value="15">
+                            </div>
+                            <div class="vert_slider" id="defense_div">
+                                <div class="statHeader" id="defense_header"><p>Def</p></div>
+                                <input type="range" id="defense" class="stats_slider round" orient="vertical"
+                                       max="31" min="0" value="15">
+                            </div>
+                            <div class="vert_slider" id="s_attack_div">
+                                <div class="statHeader" id="s_attack_header"><p>Sp.Atk</p></div>
+                                <input type="range" id="s_attack" class="stats_slider round" orient="vertical"
+                                       max="31" min="0" value="15">
+                            </div>
+                            <div class="vert_slider" id="s_defense_div">
+                                <div class="statHeader" id="s_defense_header"><p>Sp.Def</p></div>
+                                <input type="range" id="s_defense" class="stats_slider round" orient="vertical"
+                                       max="31" min="0" value="15">
+                            </div>
+                            <div class="vert_slider" id="speed_div">
+                                <div class="statHeader" id="speed_header"><p>Speed</p></div>
+                                <input type="range" id="speed" class="stats_slider round" orient="vertical" max="31"
+                                       min="0" value="15">
+                            </div>
+                        </div>
+                        <!--</div>-->
+                    </div>
+                </div>
 
-                            <div class="content">
-                                <div id="stats_zing">
-                                    <div id="radar">
-                                    </div>
-                                    <div id="stats_progression">
-                                    </div>
+                <div class="tab">
+                    <input type="radio" id="tab-2" name="tab-group-1">
+                    <label for="tab-2">Type Comparisons</label>
+                    <div class="content two">
+                        <div id="wrapType">
+                            <div id="wrapperType">
+                                <div id="typesZing">
+
                                 </div>
-
-                                <!--<div id="progression">-->
-                                    <div id="clip_stats">
-                                        <div id="nature_div">
-                                            <div id="nature_header"><p>Nature:</p></div>
-                                            <select id="nature" size="10">
-                                                <option selected value="[null,null]">Hardy</option>
-                                                <option value="2,3">Lonely</option>
-                                                <option value="2,6">Brave</option>
-                                                <option value="2,4">Adamant</option>
-                                                <option value="2,5">Naughty</option>
-                                                <option value="3,2">Bold</option>
-                                                <option value="null,null">Docile</option>
-                                                <option value="3,6">Relaxed</option>
-                                                <option value="3,4">Impish</option>
-                                                <option value="3,5">Lax</option>
-                                                <option value="6,2">Timid</option>
-                                                <option value="6,3">Hasty</option>
-                                                <option value="null,null">Serious</option>
-                                                <option value="6,4">Jolly</option>
-                                                <option value="6,5">Naive</option>
-                                                <option value="4,2">Modest</option>
-                                                <option value="4,3">Mild</option>
-                                                <option value="4,6">Quiet</option>
-                                                <option value="null,null">Bashful</option>
-                                                <option value="4,5">Rash</option>
-                                                <option value="5,2">Calm</option>
-                                                <option value="5,3">Gentle</option>
-                                                <option value="5,6">Sassy</option>
-                                                <option value="5,4">Careful</option>
-                                                <option value="null,null">Quirky</option>
-                                            </select>
-                                        </div>
-                                        <div class="vert_slider" id="HP_div">
-                                            <div class="statHeader" id="HP_header"><p>HP</p></div>
-                                            <input type="range" id="HP" class="stats_slider round" orient="vertical" max="31"
-                                                   min="0" value="15">
-                                        </div>
-                                        <div class="vert_slider" id="attack_div">
-                                            <div class="statHeader" id="attack_header"><p>Atk</p></div>
-                                            <input type="range" id="attack" class="stats_slider round" orient="vertical"
-                                                   max="31" min="0" value="15">
-                                        </div>
-                                        <div class="vert_slider" id="defense_div">
-                                            <div class="statHeader" id="defense_header"><p>Def</p></div>
-                                            <input type="range" id="defense" class="stats_slider round" orient="vertical"
-                                                   max="31" min="0" value="15">
-                                        </div>
-                                        <div class="vert_slider" id="s_attack_div">
-                                            <div class="statHeader" id="s_attack_header"><p>Sp.Atk</p></div>
-                                            <input type="range" id="s_attack" class="stats_slider round" orient="vertical"
-                                                   max="31" min="0" value="15">
-                                        </div>
-                                        <div class="vert_slider" id="s_defense_div">
-                                            <div class="statHeader" id="s_defense_header"><p>Sp.Def</p></div>
-                                            <input type="range" id="s_defense" class="stats_slider round" orient="vertical"
-                                                   max="31" min="0" value="15">
-                                        </div>
-                                        <div class="vert_slider" id="speed_div">
-                                            <div class="statHeader" id="speed_header"><p>Speed</p></div>
-                                            <input type="range" id="speed" class="stats_slider round" orient="vertical" max="31"
-                                                   min="0" value="15">
-                                        </div>
-                                    </div>
-                                <!--</div>-->
                             </div>
                         </div>
-
-                        <div class="tab">
-                            <input type="radio" id="tab-3" name="tab-group-1">
-                            <label for="tab-3">Tab Three</label>
-
-                            <div class="content">
-                                stuff
-                            </div>
-                        </div>
-
-                    <!--</div>-->
+                        <p id="typesText">Left- this pokemon defends, right- this pokemon attacks with a move of it's type(s).</p>
+                    </div>
                 </div>
+
+
+                <!--</div>-->
             </div>
         </div>
     </div>
 </main>
-<!--<div id="page_flex">-->
-    <!--<div id="REGION_PAGE">-->
-        <!--<div id="left_box">-->
-            <!--<div id="HEADER">-->
-                <!--<p id="HEADER_text">ZingChart Pokémap</p>-->
-                <!--<div id="region_div">-->
-                    <!--<a href="#"><div class='triangle back' id="back_region"></div></a>-->
-                    <!--<p class="HEADER_subtext" id="subtext_region">Region: Kalos</p>-->
-                    <!--<a href="#"><div class='triangle next' id="next_region"></div></a>-->
-                <!--</div>-->
-                <!--<div id="version_div">-->
-                    <!--<a href="#"><div class='triangle back' id="back_version"></div></a>-->
-                    <!--<p class="HEADER_subtext" id="subtext_version">Version: X</p>-->
-                    <!--<a href="#"><div class='triangle next' id="next_version"></div></a>-->
-                <!--</div>-->
-                <!--<div id="area_div">-->
-                    <!--<a href="#"><div class='triangle back' id="back_area"></div></a>-->
-                    <!--<p class="HEADER_subtext" id="subtext_area">Location: Kalos Route 2</p>-->
-                    <!--<a href="#"><div class='triangle next' id="next_area"></div></a>-->
-                <!--</div>-->
-                <!--<div id="method_div">-->
-                    <!--<a href="#"><div class='triangle back' id="back_method"></div></a>-->
-                    <!--<p class="HEADER_subtext" id="subtext_method">Encounter Method: walk</p>-->
-                    <!--<a href="#"><div class='triangle next' id="next_method"></div></a>-->
-                <!--</div>-->
-                <!--<div id="selectDataVisualizationPreferencesHeader">-->
-                    <!--<div id="selectDataVisualizationPreferences">-->
-                        <!--<div id="innerselectDataVisualizationPreferences">-->
-                            <!--<div id="chartForm">-->
-                                <!--<p class="largerLabel">Location Area: </p>-->
-                                <!--<select id="select_Location_Area" disabled>-->
-                                    <!--<option selected disabled>Select Area</option>-->
-                                <!--</select><br>-->
-                                <!--<p class="largerLabel">Method: </p>-->
-                                <!--<select id="select_Method" disabled>-->
-                                    <!--<option selected disabled>Select Method</option>-->
-                                <!--</select><br>-->
-                                <!--<p class="largerLabel">Version: </p>-->
-                                <!--<select id="select_Version" disabled>-->
-                                    <!--<option selected disabled>Select Version</option>-->
-                                <!--</select>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--</p>-->
-            <!--</div>-->
-            <!--<div id="CHART" class="topVisualizations">-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div id="MAP" class="topVisualizations">-->
-            <!--<div id="SHAPESDIV">-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div id="POKEMON_PAGE">-->
-        <!--<div id="bottomElts">-->
-            <!--<div id="encloseImage">-->
-
-                <!--<div id="pokemon_header">-->
-                    <!--<div id="pokemon_header_types"></div>-->
-                <!--</div>-->
-                <!--<div id="pokemon_image_div">-->
-                    <!--<img id="pokemon_image" src="UI_images/holder.png"/>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div id="typesDiv">-->
-                <!--<p id="typesTitle">Type Comparison:</p>-->
-                <!--<div id="wrapType">-->
-                    <!--<div id="wrapperType">-->
-                        <!--<div id="typesZing">-->
-
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<p id="typesText">Left- this pokemon defends, right- this pokemon attacks with a move of it's type(s).</p>-->
-            <!--</div>-->
-            <!--<div id="stats_div">-->
-                <!--<div id="stats_zing">-->
-                    <!--<div id="radar">-->
-                    <!--</div>-->
-                    <!--<div id="stats_progression">-->
-                    <!--</div>-->
-                <!--</div>-->
-
-                <!--<div id="progression">-->
-                    <!--<div id="clip_stats">-->
-                        <!--<div id="nature_div">-->
-                            <!--<div id="nature_header"><p>Nature:</p></div>-->
-                            <!--<select id="nature" size="22">-->
-                                <!--<option selected value="[null,null]">Hardy</option>-->
-                                <!--<option value="2,3">Lonely</option>-->
-                                <!--<option value="2,6">Brave</option>-->
-                                <!--<option value="2,4">Adamant</option>-->
-                                <!--<option value="2,5">Naughty</option>-->
-                                <!--<option value="3,2">Bold</option>-->
-                                <!--<option value="null,null">Docile</option>-->
-                                <!--<option value="3,6">Relaxed</option>-->
-                                <!--<option value="3,4">Impish</option>-->
-                                <!--<option value="3,5">Lax</option>-->
-                                <!--<option value="6,2">Timid</option>-->
-                                <!--<option value="6,3">Hasty</option>-->
-                                <!--<option value="null,null">Serious</option>-->
-                                <!--<option value="6,4">Jolly</option>-->
-                                <!--<option value="6,5">Naive</option>-->
-                                <!--<option value="4,2">Modest</option>-->
-                                <!--<option value="4,3">Mild</option>-->
-                                <!--<option value="4,6">Quiet</option>-->
-                                <!--<option value="null,null">Bashful</option>-->
-                                <!--<option value="4,5">Rash</option>-->
-                                <!--<option value="5,2">Calm</option>-->
-                                <!--<option value="5,3">Gentle</option>-->
-                                <!--<option value="5,6">Sassy</option>-->
-                                <!--<option value="5,4">Careful</option>-->
-                                <!--<option value="null,null">Quirky</option>-->
-                            <!--</select>-->
-                        <!--</div>-->
-                        <!--<div class="vert_slider" id="HP_div">-->
-                            <!--<div class="statHeader" id="HP_header"><p>HP IV</p></div>-->
-                            <!--<input type="range" id="HP" class="stats_slider round" orient="vertical" max="31"-->
-                                   <!--min="0" value="15">-->
-                        <!--</div>-->
-                        <!--<div class="vert_slider" id="attack_div">-->
-                            <!--<div class="statHeader" id="attack_header"><p>Atk IV</p></div>-->
-                            <!--<input type="range" id="attack" class="stats_slider round" orient="vertical"-->
-                                   <!--max="31" min="0" value="15">-->
-                        <!--</div>-->
-                        <!--<div class="vert_slider" id="defense_div">-->
-                            <!--<div class="statHeader" id="defense_header"><p>Def IV</p></div>-->
-                            <!--<input type="range" id="defense" class="stats_slider round" orient="vertical"-->
-                                   <!--max="31" min="0" value="15">-->
-                        <!--</div>-->
-                        <!--<div class="vert_slider" id="s_attack_div">-->
-                            <!--<div class="statHeader" id="s_attack_header"><p>Sp.Atk IV</p></div>-->
-                            <!--<input type="range" id="s_attack" class="stats_slider round" orient="vertical"-->
-                                   <!--max="31" min="0" value="15">-->
-                        <!--</div>-->
-                        <!--<div class="vert_slider" id="s_defense_div">-->
-                            <!--<div class="statHeader" id="s_defense_header"><p>Sp.Def IV</p></div>-->
-                            <!--<input type="range" id="s_defense" class="stats_slider round" orient="vertical"-->
-                                   <!--max="31" min="0" value="15">-->
-                        <!--</div>-->
-                        <!--<div class="vert_slider" id="speed_div">-->
-                            <!--<div class="statHeader" id="speed_header"><p>Speed IV</p></div>-->
-                            <!--<input type="range" id="speed" class="stats_slider round" orient="vertical" max="31"-->
-                                   <!--min="0" value="15">-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div id="info">-->
-        <!--&lt;!&ndash;<p>This interactive Pokémon map and Pokédex was built using <a href="https://www.zingchart.com/">ZingChart</a>. To use, select a pokemon region, then click a location on the map. Select an area, a method of encounter and a game version to see the Pokémon in this area. To get stats on a specific pokemon, click any on any Pokémon in the chart's legend.</p>&ndash;&gt;-->
-        <!--<p id="contribute">To contribute to this project or give feedback please visit our <a href="https://github.com/zingchart-demos/Pokemap-ZingChart">Github repository</a>.</p>-->
-    <!--</div>-->
-<!--</div>-->
 <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
 </body>
 </html>

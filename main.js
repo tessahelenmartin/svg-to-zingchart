@@ -45,6 +45,10 @@ document.getElementById("next_region").onclick = function () {
     beginApp(region_array[map_iterator])
 };
 
+document.querySelector(".backToMap").onclick = function () {
+    document.querySelector(".p1").style.display  = "flex";
+    document.querySelector(".p2").style.display  = "none";
+}
 
 // setInterval(function() {            // setInterval makes it run repeatedly
 //     document
