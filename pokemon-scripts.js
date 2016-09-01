@@ -692,7 +692,16 @@ function handleRegionOptions(region_in) {
                         locationName = defaultArea[region_in-1].name;
                         handleAreaOptions(defaultArea[region_in-1].id);
                         pokeVersion = pokeVersionArray[version_iterator].id;
-
+                        selectedShapeID = locationName;
+                        console.log(locationName)
+                        zingchart.exec('pokemap', 'updateobject', {
+                            'type':'shape',
+                            'data' : {
+                                'id' : locationName,
+                                'line-color' : '#b81c19',
+                                zIndex : 3
+                            }
+                        });
                         document.getElementById("back_version").onclick = function () {
                             version_iterator+=(pokeVersionArray.length-1);
                             version_iterator%=(pokeVersionArray.length);
