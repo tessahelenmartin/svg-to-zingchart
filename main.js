@@ -38,7 +38,7 @@ document.getElementById("back_region").onclick = function () {
     beginApp(region_array[map_iterator])
 };
 document.getElementById("next_region").onclick = function () {
-    map_iterator+=5;
+    map_iterator+=1;
     map_iterator%=6;
     document.getElementById('subtext_region').innerHTML = "Region: "+region_array[map_iterator];
     pokescript.setUp(map_iterator+1);
