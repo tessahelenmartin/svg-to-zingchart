@@ -509,13 +509,6 @@ function renderShape() {
 }
 
 function setHeightWidth(){
-    // var smaller = (document.getElementById("pokemap").offsetHeight)/400;
-    // var smallerdim = document.getElementById("pokemap").offsetHeight/2;
-    // if (smaller > (document.getElementById("pokemap").offsetWidth)/600)
-    // {
-    //     smaller = (document.getElementById("pokemap").offsetWidth)/600;
-    //     smallerdim = document.getElementById("pokemap").offsetWidth/2;
-    // }
     var temp_shapes = JSON.parse(JSON.stringify(shapes_stored));
     temp_shapes.forEach(function(shape){
         if (shape.type == "circle") {
@@ -699,6 +692,7 @@ function handleRegionOptions(region_in) {
                         locationName = defaultArea[region_in-1].name;
                         handleAreaOptions(defaultArea[region_in-1].id);
                         pokeVersion = pokeVersionArray[version_iterator].id;
+
                         document.getElementById("back_version").onclick = function () {
                             version_iterator+=(pokeVersionArray.length-1);
                             version_iterator%=(pokeVersionArray.length);
@@ -916,45 +910,86 @@ function pokemonOnRoute(possiblePokemonEncounters,callback_in) {
     levelsINDEX = [];
     var colorArray = colorOptions.slice();
     for (var p = 0; p < possiblePokemonEncounters.length; p ++) {
-        if (possiblePokemonEncounters[p].pokemon_id > 10000)
+        // if (possiblePokemonEncounters[p].pokemon_id > 10000)
+        // {
+        //     if (p == possiblePokemonEncounters.length-1)
+        //     {
+        //         firebase.database().ref("pokemon").orderByKey().equalTo((possiblePokemonEncounters[p].pokemon_id - 9280).toString()).once("value").then(function(snap_pokemon_info) {
+        //             var pokemon_info = snap_pokemon_info.val()[poke_id];
+        //         };
+        //
+        //
+        //         callback_in(pokedex[].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, true);
+        //     }
+        //     else
+        //     {
+        //         firebase.database().ref("pokemon").orderByKey().equalTo((possiblePokemonEncounters[p].pokemon_id - 9280).toString()).once("value").then(function(snap_pokemon_info) {
+        //             var pokemon_info = snap_pokemon_info.val()[poke_id];
+        //         };
+        //
+        //         callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 9280].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, false);
+        //     }
+        // }
+        // else
+        // {
+        //     if (p == possiblePokemonEncounters.length-1)
+        //     {
+        //         firebase.database().ref("pokemon").orderByKey().equalTo((possiblePokemonEncounters[p].pokemon_id - 1).toString()).once("value").then(function(snap_pokemon_info) {
+        //             var pokemon_info = snap_pokemon_info.val()[poke_id];
+        //         };
+        //         callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, true);
+        //     }
+        //     else
+        //     {
+        //         firebase.database().ref("pokemon").orderByKey().equalTo((possiblePokemonEncounters[p].pokemon_id - 1).toString()).once("value").then(function(snap_pokemon_info) {
+        //             var pokemon_info = snap_pokemon_info.val()[poke_id];
+        //         };
+        //         callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, false);
+        //     }
+        // }
+        if (p == possiblePokemonEncounters.length-1)
         {
-            if (p == possiblePokemonEncounters.length-1)
-            {
-                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 9280].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, true);
-            }
-            else
-            {
-                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 9280].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, false);
-            }
+            callback_in(possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, true);
         }
         else
         {
-            if (p == possiblePokemonEncounters.length-1)
-            {
-                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, true);
-            }
-            else
-            {
-                callback_in(pokedex[possiblePokemonEncounters[p].pokemon_id - 1].identifier, possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, false);
-            }
+            callback_in(possiblePokemonEncounters[p].pokemon_id, possiblePokemonEncounters[p], colorArray, false);
         }
     }
 }
 
-function handlePokemon(pokemon_name, pokemon_id, pokemon, colorArray, boolval) {
-    var rand = Math.floor(Math.random() * (colorArray.length-1));
-    colorArray.splice(rand,1);
+function handlePokemon(pokemon_id, pokemon, colorArray, boolval) {
     if ((min == null) || pokemon.min_level < min) {
         min = pokemon.min_level;
     }
     if ((max == null) || pokemon.max_level > max) {
         max = pokemon.max_level;
     }
-
-    pokemonSERIES.push([pokemon_name,parseInt(pokemon.rarity), parseInt(pokemon.min_level),  parseInt(pokemon.max_level),  "rgb(" + colorArray[rand].join(",")+")",pokemon_id]);
-    if (boolval)
+    if (pokemon_id > 10000)
     {
-        outputPokeJSON(updateChart)
+        firebase.database().ref("pokemon").orderByKey().equalTo((pokemon_id - 9281).toString()).once("value").then(function(snap_pokemon_info) {
+            var pokemon_info = snap_pokemon_info.val()[pokemon_id - 9281];
+            var rand = Math.floor(Math.random() * (colorArray.length-1));
+            pokemonSERIES.push([pokemon_info.identifier,parseInt(pokemon.rarity), parseInt(pokemon.min_level),  parseInt(pokemon.max_level),  "rgb(" + colorArray[rand].join(",")+")",pokemon_id]);
+            colorArray.splice(rand,1);
+            if (boolval)
+            {
+                outputPokeJSON(updateChart)
+            }
+        });
+    }
+    else
+    {
+        firebase.database().ref("pokemon").orderByKey().equalTo((pokemon_id).toString()).once("value").then(function(snap_pokemon_info) {
+            var pokemon_info = snap_pokemon_info.val()[pokemon_id];
+            var rand = Math.floor(Math.random() * (colorArray.length-1));
+            pokemonSERIES.push([pokemon_info.identifier,parseInt(pokemon.rarity), parseInt(pokemon.min_level),  parseInt(pokemon.max_level),  "rgb(" + colorArray[rand].join(",")+")",pokemon_id]);
+            colorArray.splice(rand,1);
+            if (boolval)
+            {
+                outputPokeJSON(updateChart)
+            }
+        });
     }
 }
 
