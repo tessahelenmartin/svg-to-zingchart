@@ -8,6 +8,8 @@
     <title>ZingChart Pokémap and Pokédex</title>
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    <link href="https://cdn.rawgit.com/HubSpot/shepherd/master/dist/css/shepherd-theme-arrows.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/g/tether@1.3.4,shepherd@1.8.0"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
         // Initialize Firebase
@@ -217,5 +219,120 @@
     </div>
 </main>
 <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+<script>
+    var tour = new Shepherd.Tour({
+        defaults: {
+            classes: 'shepherd-theme-arrows'
+        }
+    });
+
+    tour.addStep('title', {
+        text: [
+            'Choose a region',
+        ],
+        attachTo: '#subtext_region bottom',
+        buttons: [
+            {
+                text: 'Exit',
+                action: tour.cancel
+            },
+            {
+                text: 'Next',
+                action: tour.next
+            },
+        ]
+    });
+    tour.addStep('title', {
+        text: [
+            'Select a game version',
+        ],
+        attachTo: '#subtext_version bottom',
+        buttons: [
+            {
+                text: 'Back',
+                action: tour.back
+            },
+            {
+                text: 'Next',
+                action: tour.next
+            },
+        ]
+    });
+    tour.addStep('title', {
+        text: [
+            'Select an landmark, city or route on the map',
+        ],
+        attachTo: '#pokemap top',
+        buttons: [
+            {
+                text: 'Back',
+                action: tour.back
+            },
+            {
+                text: 'Next',
+                action: tour.next
+            },
+        ]
+    });
+    tour.addStep('title', {
+        text: [
+            'Select a specific location in this area (if multiple)',
+        ],
+        attachTo: '#subtext_area bottom',
+        buttons: [
+            {
+                text: 'Back',
+                action: tour.back
+            },
+            {
+                text: 'Next',
+                action: tour.next
+            },
+        ]
+    });
+    tour.addStep('title', {
+        text: [
+            'Select a method of encounter',
+        ],
+        attachTo: '#subtext_method bottom',
+        buttons: [
+            {
+                text: 'Back',
+                action: tour.back
+            },
+            {
+                text: 'Next',
+                action: tour.next
+            },
+        ]
+    });
+    tour.addStep('title', {
+        text: [
+            'Click on any pokemon on legend for more details',
+        ],
+        attachTo: '#CHART bottom',
+        buttons: [
+            {
+                text: 'Back',
+                action: tour.back
+            },
+            {
+                text: 'Next',
+                action: tour.next
+            },
+        ]
+    });
+
+    tour.on('complete', function () {
+        localStorage.setItem('hasToured', true);
+    });
+
+    // This can be removed or turned off when done
+    var debug = true;
+
+    if (!localStorage.getItem('hasToured') || debug) {
+        tour.start();
+    }
+</script>
 </body>
 </html>
